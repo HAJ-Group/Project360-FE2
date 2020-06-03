@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Project360-FE'`, () => {
+  it(`should have as title 'AppWebPlatform'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Project360-FE');
+    expect(app.title).toEqual('AppWebPlatform');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Project360-FE app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('AppWebPlatform app is running!');
   });
 });

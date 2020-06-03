@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Project360-FE app is running!');
+    expect(page.getTitleText()).toEqual('AppWebPlatform app is running!');
   });
 
   afterEach(async () => {
