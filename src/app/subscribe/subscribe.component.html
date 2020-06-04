@@ -1,0 +1,104 @@
+<!-- The Modal -->
+<div class="modal fade" id="subscribe">
+  <div class="modal-dialog modal-lg">
+    <form class="modal-content" action="#" method="post">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">S'inscrire</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+        <div class="modal-body">
+
+          <div class="container">
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="last-name" class="connexion-labels">Nom : </label>
+                  <input type="text" class="form-control" id="last-name" [(ngModel)]="lastName">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="first-name" class="connexion-labels">Prenom :</label>
+                  <input type="text" class="form-control" id="first-name" [(ngModel)]="firstName">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="email" class="connexion-labels">Email : </label>
+                  <input type="text" class="form-control" id="email" [(ngModel)]="email">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="phone-number" class="connexion-labels">Téléphone :</label>
+                  <input type="text" class="form-control" id="phone-number" [(ngModel)]="phoneNumber">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="address" class="connexion-labels">Adresse :</label>
+                  <input type="text" class="form-control" id="address" [(ngModel)]="address">
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="city" class="connexion-labels">Ville :</label>
+                  <input type="text" class="form-control" id="city" [(ngModel)]="city">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="birthDate" class="connexion-labels">Date de naissance :</label>
+                  <input type="date" class="form-control" id="birthDate" [(ngModel)]="birthDate">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="password" class="connexion-labels">Mot de passe : </label>
+                  <input type="password" class="form-control" id="password" [(ngModel)]="password">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="passwordConfirmation" class="connexion-labels">Mot de passe : </label>
+                  <input type="password" class="form-control" id="passwordConfirmation" [(ngModel)]="passwordConfirmation">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="image" class="connexion-labels">Chosir image : </label>
+                  <input type="file" class="form-control" id="image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Modal footer -->
+
+      <div class="modal-footer">
+        <input type="submit" class="btn connexion-button" value="S'inscrire">
+      </div>
+
+    </form>
+  </div>
+</div>
