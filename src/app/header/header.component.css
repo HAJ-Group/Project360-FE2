@@ -5,6 +5,30 @@
   background-size: 100% 100%;
   position: relative;
 }
+.logo{
+  width: 100px;
+  height: 50px;
+}
+.center-phrase{
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  width: fit-content;
+  border: 2px solid lightgray;
+  background-color: #3b5998;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  opacity: 0.8;
+  box-shadow: 10px 10px 10px;
+}
+.center-phrase p{
+  font-weight: bold;
+  font-family: "Agency FB";
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+
 .get-started{
   position: absolute;
   top: 90%;
@@ -29,23 +53,4 @@
   color: white;
   text-align: center;
   text-decoration: none;
-}
-.center-phrase{
-  position: absolute;
-  top: 50%;
-  left: 49%;
-  width: fit-content;
-  border: 2px solid lightgray;
-  background-color: #3b5998;
-  transform: translate(-50%, -50%);
-  border-radius: 20px;
-  opacity: 0.8;
-  box-shadow: 10px 10px 10px;
-}
-.center-phrase p{
-  font-weight: bold;
-  font-family: "Agency FB";
-  font-size: 50px;
-  color: white;
-  text-align: center;
 }
