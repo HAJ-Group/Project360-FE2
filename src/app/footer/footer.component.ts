@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms'
+import { ServicesService } from './services.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +9,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  FormData: FormGroup;
+  constructor(private builder: FormBuilder, private contact: ServicesService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.FormData = this.builder.group({
+      Fullname: new FormControl('', [Validators.required]),
+      Email: new FormControl('', [Validators.compose([Validators.required, Validators.email])]),
+      Comment: new FormControl('', [Validators.required])
+    });
   }
 
+
+  onSubmit(FormData) {
+    console.log(FormData)
+    this.contact.PostMessage(FormData)
+      .subscribe(response => {
+        location.href = 'mailto:yberbeche@gmail.com?body='+FormData.Comment+'&subject=Houssam'
+        console.log(response)
+      }, error => {
+        console.warn(error.responseText)
+        console.log({ error })
+      })
+  }
 }
