@@ -28,4 +28,24 @@
 .opacity-hover:hover {
   opacity: 0.5;
 }
-/* BACKGROUND COLORS -------------------------------------------------------------------------------------------------*/
+/* CONNECTION AND SUBSCRIBE BUTTONS AND LABELS -------------------------------------------------------------------------------------------------*/
+.connexion-button{
+  width: 80%;
+  background-color: crimson;
+  color: white;
+  margin: auto;
+  border-radius: 30px;
+  opacity: 0.9;
+}
+
+.connexion-button:hover{
+  color: white;
+  opacity: 1;
+}
+
+.connexion-labels{
+  font-size: 20px;
+  font-weight: 400;
+  color: grey;
+}
+
