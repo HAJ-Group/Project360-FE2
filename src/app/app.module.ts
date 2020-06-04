@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import {FormsModule} from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    LoginComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,
