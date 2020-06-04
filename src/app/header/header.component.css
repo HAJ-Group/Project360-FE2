@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.visible {
+.visible-nav {
   font-size: 25px;
 }
 
@@ -54,9 +54,17 @@
   .header {
     height: 600px;
   }
+
+  .visible-nav {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 700px) {
+
+  .visible-nav {
+    background-color: #484848;
+  }
 
   .header {
     height: 400px;

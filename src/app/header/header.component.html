@@ -1,7 +1,7 @@
 <div class="header">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark w-100 position-fixed">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+  <nav class="navbar navbar-expand-sm navbar-dark w-100 position-fixed visible-nav">
+    <a class="navbar-brand" href="#"><img src="../../assets/pictures/logo.png" alt=""></a>
+    <button (click)="toggle()" class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -34,7 +34,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0 border-white text-white" >Login</button>
     </div>
   </nav>
-  <div class="center-phrase">
+  <div id="header-description" class="center-phrase">
     <p>Bienvenue au meilleur site internet de partage d'annonce immobilière</p>
     <span class="get-started">Commencer votre visite</span>
   </div>
