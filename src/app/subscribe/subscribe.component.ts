@@ -15,6 +15,7 @@ export class SubscribeComponent implements OnInit {
   birthDate: Date;
   password: string;
   passwordConfirmation: string;
+  image: string;
 
   constructor() { }
 
