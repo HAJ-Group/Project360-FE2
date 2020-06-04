@@ -17,7 +17,7 @@
   background-color: rgba(0,0,40, 0.4); /* Black w/opacity/see-through */
   color: white;
   position: absolute;
-  top: 50%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -27,10 +27,10 @@
 
 .center-phrase p {
   font-weight: bold;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   font-family: "Agency FB", serif;
-  font-size: 60px;
+  font-size: 40px;
   margin-bottom: 3%;
 }
 
@@ -57,11 +57,9 @@
 }
 
 @media screen and (max-width: 700px) {
-
   .header {
     height: 400px;
   }
-
   .center-phrase {
     height: 200px;
   }
