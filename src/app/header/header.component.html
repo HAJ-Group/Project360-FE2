@@ -1,1 +1,41 @@
-<p>header works!</p>
+<div class="header">
+  <nav class="navbar navbar-expand-sm navbar-dark w-100 position-fixed visible-nav">
+    <a class="navbar-brand" href="#"><img src="../../assets/pictures/header/logo.png" class="opacity-hover" alt=""></a>
+    <button (click)="toggle()" class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Annonces</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Agents</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Partenaires</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownId">
+            <a class="dropdown-item opacity-2" href="#">Action 1</a>
+            <a class="dropdown-item opacity-2" href="#">Action 2</a>
+          </div>
+        </li>
+      </ul>
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-1 border-white text-white" >Sign Up</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 border-white text-white" >Login</button>
+    </div>
+  </nav>
+  <div id="header-description" class="center-phrase">
+    <p>Bienvenue au meilleur site internet de partage d'annonce immobilière</p>
+    <span class="get-started">Commencer votre visite</span>
+  </div>
+</div>
