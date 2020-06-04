@@ -1,0 +1,51 @@
+.header {
+  width: 100%;
+  height:100vh;
+  background-image: url('../../assets/pictures/header.jpeg');
+  background-size: 100% 100%;
+  position: relative;
+}
+.get-started{
+  position: absolute;
+  top: 90%;
+  left: 49%;
+  cursor: pointer;
+  border: 2px solid lightgray;
+  background-color: #3b5998;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  opacity: 0.8;
+  box-shadow: 10px 10px 10px;
+
+}
+.get-started:hover{
+  opacity: 1;
+  background-color: #003D60;
+}
+.get-started a{
+  font-weight: bold;
+  font-family: "Agency FB";
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+.center-phrase{
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  width: fit-content;
+  border: 2px solid lightgray;
+  background-color: #3b5998;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  opacity: 0.8;
+  box-shadow: 10px 10px 10px;
+}
+.center-phrase p{
+  font-weight: bold;
+  font-family: "Agency FB";
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
