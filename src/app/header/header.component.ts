@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {$} from 'protractor';
-import {User, UserDataService} from '../service/data/user-data.service';
+import {LoginAccount, SubscribeAccount, UserDataService} from '../service/data/user-data.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -15,6 +14,8 @@ export class HeaderComponent implements OnInit {
   lastName: string;
   username: string;
   email: string;
+  birthday: string;
+  phone: string;
   address: string;
   city: string;
   password: string;
@@ -34,7 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.service.postLogin(new User(this.username, this.password)).subscribe(
+    this.service.postLogin(new LoginAccount(this.username, this.password)).subscribe(
       success => {
         console.log(success.token);
         localStorage.setItem('token', 'Bearer ' + success.token);
@@ -47,13 +48,49 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  toggle(): void {
-    this.toggled = !this.toggled;
-    if (this.toggled) {
-      document.getElementById('header-description').style.display = 'none';
+  subscribe() {
+    if (this.password === this.confirmedPassword) {
+      this.service.postSubscribe(new SubscribeAccount(
+        this.username,
+        this.email,
+        this.firstName,
+        this.lastName,
+        this.birthday,
+        this.phone,
+        this.address,
+        this.city,
+        this.photo,
+        this.password
+      )).subscribe(
+        success => {
+          console.log(success.token);
+          localStorage.setItem('token', 'Bearer ' + success.token);
+          sessionStorage.setItem('user', this.username);
+          this.router.navigate(['']);
+        },
+        error => {
+          this.error = error.message;
+        }
+      );
+    } else {
+      this.error = 'passwords not match';
     }
-    else {
-      document.getElementById('header-description').style.display = 'block';
+  }
+
+  logout(): void {
+    sessionStorage.removeItem('user');
+    this.router.navigate(['']);
+  }
+
+  toggle(): void {
+    if(window.innerWidth > 700) {
+      this.toggled = !this.toggled;
+      if (this.toggled) {
+        document.getElementById('header-description').style.display = 'none';
+      }
+      else {
+        document.getElementById('header-description').style.display = 'block';
+      }
     }
   }
 

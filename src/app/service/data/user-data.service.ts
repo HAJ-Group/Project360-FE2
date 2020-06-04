@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 const SERVER = 'http://localhost:8000/api/';
 
-export class User {
+export class LoginAccount {
 
   public id: string;
   public token: string;
@@ -11,9 +11,31 @@ export class User {
   constructor(
     public username: string,
     public password: string,
-    public role = '1',
-    public active = '1'
+    public role = '2',
+    public active = 1
   ){}
+
+}
+
+export class SubscribeAccount  {
+
+  public id: string;
+  public token: string;
+
+  constructor(
+      public username: string,
+      public email: string,
+      public firstName: string,
+      public lastName: string,
+      public birthday: string,
+      public phone: string,
+      public address: string,
+      public city: string,
+      public photo: string,
+      public password: string,
+      public role = '2',
+      public active = 1
+    ) {}
 
 }
 
@@ -27,8 +49,12 @@ export class UserDataService {
     private http: HttpClient
   ) { }
 
-  postLogin(user) {
-    return this.http.post<User>(SERVER + 'login', user);
+  postLogin(account) {
+    return this.http.post<LoginAccount>(SERVER + 'login', account);
+  }
+
+  postSubscribe(account) {
+    return this.http.post<SubscribeAccount>(SERVER + 'subscribe', account);
   }
 
 }

@@ -68,7 +68,11 @@
   }
 
   .header {
-    height: 400px;
+    height: 0;
+  }
+
+  #header-description {
+    display: none;
   }
 
   .center-phrase {
