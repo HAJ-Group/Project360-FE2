@@ -83,7 +83,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggle(): void {
-    if(window.innerWidth > 700) {
+    if (window.innerWidth > 700) {
       this.toggled = !this.toggled;
       if (this.toggled) {
         document.getElementById('header-description').style.display = 'none';
