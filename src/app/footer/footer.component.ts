@@ -16,7 +16,8 @@ export class FooterComponent implements OnInit {
     this.FormData = this.builder.group({
       Fullname: new FormControl('', [Validators.required]),
       Email: new FormControl('', [Validators.compose([Validators.required, Validators.email])]),
-      Comment: new FormControl('', [Validators.required])
+      Comment: new FormControl('', [Validators.required]),
+      Subject: new FormControl('', [Validators.required])
     });
   }
 
@@ -25,7 +26,7 @@ export class FooterComponent implements OnInit {
     console.log(FormData)
     this.contact.PostMessage(FormData)
       .subscribe(response => {
-        location.href = 'mailto:yberbeche@gmail.com?body='+FormData.Comment+'&subject=Houssam'
+        location.href = 'mailto:yberbeche@gmail.com?body='+FormData.Comment+'&subject='+FormData.Subject
         console.log(response)
       }, error => {
         console.warn(error.responseText)
