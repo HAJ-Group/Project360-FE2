@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
 .wrapper-box {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     margin-top: 5%;
     overflow-x: hidden !important;
@@ -14,20 +12,22 @@
 }
 
 .akinator-footer>.aki-grp {
-    padding: 50px 50px 10px 50px;
+    padding: 20px;
     display: flex;
     background-color: #313036;
     color: #b8b7bd;
 }
 
 .aki-content {
-    display: flex;
-    flex-direction: column;
+    margin-right: 2%;
     align-items: center;
     width: 33%;
 }
 
 .aki-content>img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
     margin-bottom: 30px;
     width: 40%;
     align-self: flex-start;
@@ -35,17 +35,17 @@
 }
 
 .aki-content>p {
-    width: 80%;
+    text-align: justify;
     align-self: flex-start;
     font-size: 12px;
 }
 
 .aki-col-title {
+    text-align: center;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 30px;
 }
-
 .aki-link-list {
     display: flex;
     flex-direction: column;
@@ -78,7 +78,7 @@
 }
 
 .aki-adress {
-    width: 80%;
+  text-align: justify;
     font-size: 12px;
     padding: 0px 30px;
 }
@@ -88,9 +88,12 @@
     background-color: #b8b7bd;
     color: #313036;
     align-self: center;
-    padding: 20px 30px;
+    padding: 10px 15px;
     font-weight: bold;
-    margin: 20px 0;
+    width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
 }
 
 .contact-aki:hover {
@@ -148,4 +151,13 @@
     justify-content: center;
     align-items: center;
     padding: 10px 0;
+}
+@media  screen and (max-width : 700px) {
+  .akinator-footer>.aki-grp {
+    display: block;
+  }
+  .aki-content {
+    width: 95%;
+    margin-top: 10%;
+  }
 }

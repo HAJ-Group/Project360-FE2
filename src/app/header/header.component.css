@@ -7,6 +7,7 @@
 }
 
 .visible-nav {
+  z-index: 100;
   font-size: 25px;
 }
 
