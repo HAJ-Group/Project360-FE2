@@ -1,4 +1,63 @@
-<button class="btn btn-success my-2 my-sm-0 mr-1 border-white text-white" data-toggle="modal" data-target="#contactus">Contact Us</button>
+<div class="akinator-footer">
+  <div class="aki-grp">
+    <div class="aki-content">
+      <img src="../../assets/pictures/logo-origin.png" alt="">
+      <p>
+        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en
+        page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis
+        les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour
+        réaliser un livre spécimen de polices de texte.
+      </p>
+      <div class="mediaLinks">
+        <a href="https://www.facebook.com/FSDM.DharElMehraz" target="_blank"><i class=" fa fa-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/UCgWZzU3V0sY9jO6JLeHl6fw" target="_blank"><i class="fa fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/school/fsdm/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="http://www.fsdmfes.ac.ma/" target="_blank"><i class="fa fa-google"></i></a>
+      </div>
+      </div>
+    <div class="aki-content">
+      <div class="aki-col-title">Liens Utiles</div>
+      <div class="aki-link-list">
+        <a href="#" class="sm-link dashed">
+          <span>Home</span>
+        </a>
+        <a href="#" class="sm-link dashed">
+          <span>Annonces</span>
+        </a>
+        <a href="#" class="sm-link dashed">
+          <span>Agents</span>
+        </a>
+        <a href="#" class="sm-link dashed">
+          <span>Partenaires</span>
+        </a>
+        <a href="#" class="sm-link dashed">
+          <span>About Ass</span>
+        </a>
+      </div>
+    </div>
+    <div class="aki-content">
+      <div class="aki-col-title">Contact</div>
+      <div class="aki-adress">
+        Adresse :Qualité Logiciel (N. Chenfour),
+        Département D’Informatique,
+        Faculté Des Sciences Dhar El Mahraz,
+        BP : 1796 Atlas, Fès, Maroc
+      </div>
+      <div class="aki-adress">
+        +212 644-11-50-89<br>
+        group.akinators2020@gmail.com
+      </div>
+      <div class="contact-aki" data-toggle="modal" data-target="#contactus">
+        <img src="../../assets/icons/footer/telephone.png" alt=""/>
+        Contactez-nous !
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <span>© 2020 USMBA - FSDM - MQL</span>
+  </div>
+</div>
+
 
 
 <div class="modal fade" id="contactus">
@@ -14,8 +73,6 @@
                 <div class="container">
                     <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
                         <div class="row">
-
-
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label for="fullname">Nom et Prénom</label>
@@ -26,7 +83,6 @@
                                 <div class="form-group">
                                     <label for="Email">Email</label>
                                     <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="Email" />
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                             </div>
                         </div>
@@ -43,28 +99,14 @@
                                     <textarea class="form-control" formControlName="Comment" name="Comment">
                                     </textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Submit</button>
                             </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid"><img src="../../assets/icons/footer/send.png">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
-
-            <div class="form-group">
-              <label for="comment">Comment</label>
-              <textarea
-                class="form-control"
-                formControlName="Comment"
-                name="Comment"
-              >
-              </textarea>
-            </div>
-            <button>
-              type="submit"
-              class="btn btn-primary"
-              [disabled]="!FormData.valid">
-              Submit
-            </button>
         </div>
     </div>
 </div>
