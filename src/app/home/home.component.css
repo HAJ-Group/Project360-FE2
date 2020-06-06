@@ -5,3 +5,11 @@
 .search{
   height: 300px;
 }
+.search > div >div{
+  margin-bottom: 20px;
+}
+
+.img-dim{
+  /* width: 400px;*/
+  height: 200px;
+}

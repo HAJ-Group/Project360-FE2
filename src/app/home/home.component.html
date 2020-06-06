@@ -1,7 +1,49 @@
 <div id="home" class="mt-4 mb-5">
   <div class="container">
-    <div class="search">
-        <p>search</p>
+    <div class="search form-inline">
+        <div class="col-xl-4">
+          <div>
+              <select name="typeImmo"  class="form-control"id="immo-select">
+                  <option value="">--type--</option>
+                  <option value="Maison">Maison</option>
+                  <option value="Appartement">Appartement</option>
+                  <option value="Terrain">Terrain</option>
+                  <option  value="Café">Café</option>
+                  <option  value="Garage">Garage</option>
+                  <option  value="Usine">Usine</option>
+                  <option value="Immeuble">Immeuble</option>
+                  <option value="Maison de village">Maison de village</option>
+              </select>
+          </div>
+          <div>
+            <select name="Location"   class="form-control"id="location" >
+              <option value="">--Location--</option>
+              <option *ngFor="let city of cities" [value]="city">
+                {{city}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-xl-4">
+          <div>
+             <input type="text" class="form-control" id="surface" placeholder="Surface min(m²)" name="Surface">
+          </div>
+          <div>
+              <input type="text" class="form-control" id="budger" placeholder="budger maxi" name="budger">
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div>
+            <input type="text" class="form-control" id="piece" placeholder="nb.piéce min" name="piece">
+          </div>
+          <div>
+             <button type="submit" class="btn btn-danger">Search</button>
+          </div>
+        </div>
+
+
+
     </div>
   </div>
   <div class="ml-4 mr-4">
@@ -98,78 +140,109 @@
   <div id="gridCards" class="mt-5 mb-5 ml-4 mr-4" >
     <div class="row row-cols-1 row-cols-md-3">
       <div class="col mb-4 ">
-        <div class="card h-200">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
+        <div class="card">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic1.jfif" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to .</p>
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse, </p>
+            <p class="card-text"><small class="text-muted">date :03/07/2019</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mb-4 h-200">
+
+        <div class="card">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
+            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col mb-4 h-200">
+        <div class="card">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic1.jfif" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse, </p>
+            <p class="card-text"><small class="text-muted">date :03/07/2019</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
           </div>
         </div>
       </div>
       <div class="col mb-4 h-200">
         <div class="card">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic4.jfif" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer additional content. This content is a little bit longer.</p>
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse, </p>
+            <p class="card-text"><small class="text-muted">date : 12/02/2020</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
           </div>
         </div>
       </div>
       <div class="col mb-4 h-200">
         <div class="card">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer</p>
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
+            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
           </div>
         </div>
       </div>
       <div class="col mb-4 h-200">
         <div class="card">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card h-100">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to .</p>
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
+            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
           </div>
         </div>
       </div>
       <div class="col mb-4 h-200">
         <div class="card">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer additional content. This content is a little bit longer.</p>
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
+            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
           </div>
         </div>
       </div>
       <div class="col mb-4 h-200">
         <div class="card">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer</p>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card">
-          <img src="assets/pictures/header/header.jpeg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title">Annonce title</h5>
+            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
+            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
+            <a href="#" class="btn btn-primary stretched-link">See More</a>
           </div>
         </div>
       </div>
     </div>
+
   </div>
-</div>
+
+
+    <ul class="pagination">
+      <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </div>
+
 
