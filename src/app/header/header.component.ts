@@ -30,7 +30,20 @@ export class HeaderComponent implements OnInit {
     private service: UserDataService,
     public router: Router
   ) { }
-
+  static getCheckedRole(): string {
+    const elements = document.getElementsByName('job');
+    for ( const element of elements ) {
+      if (element.checked){
+        if (element.id === 'agent'){
+          return '3';
+        }
+        else{
+          return '2';
+        }
+      }
+    }
+    return null;
+  }
   ngOnInit(): void {
   }
 
@@ -50,28 +63,29 @@ export class HeaderComponent implements OnInit {
 
   subscribe() {
     if (this.password === this.confirmedPassword) {
-      this.service.postSubscribe(new SubscribeAccount(
-        this.username,
-        this.email,
-        this.firstName,
-        this.lastName,
-        this.birthday,
-        this.phone,
-        this.address,
-        this.city,
-        this.photo,
-        this.password
-      )).subscribe(
-        success => {
-          console.log(success.token);
-          localStorage.setItem('token', 'Bearer ' + success.token);
-          sessionStorage.setItem('user', this.username);
-          this.router.navigate(['']);
-        },
-        error => {
-          this.error = error.message;
-        }
-      );
+      document.getElementById('header-inscription').classList.add('d-none');
+      document.getElementById('body-inscription').classList.add('d-none');
+      document.getElementById('footer-inscription').classList.add('d-none');
+      document.getElementById('header-confirmation').classList.remove('d-none');
+      document.getElementById('body-confirmation').classList.remove('d-none');
+      document.getElementById('footer-confirmation').classList.remove('d-none');
+      // this.service.postSubscribe(new SubscribeAccount(
+      //   this.username,
+      //   this.email,
+      //   this.password,
+      //   this.confirmedPassword,
+      //   HeaderComponent.getCheckedRole()
+      // )).subscribe(
+      //   success => {
+      //     console.log(success.token);
+      //     localStorage.setItem('token', 'Bearer ' + success.token);
+      //     sessionStorage.setItem('user', this.username);
+      //     this.router.navigate(['']);
+      //   },
+      //   error => {
+      //     this.error = error.message;
+      //   }
+      // );
     } else {
       this.error = 'passwords not match';
     }
@@ -93,15 +107,20 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
-  headerChange(): void {
-    const myNav = document.getElementById('nav');
-    console.log('test');
-    window.onscroll = function() {
-      if (document.body.scrollTop >= 100) {
-        myNav.classList.add("bg-dark");
-      } else {
-        myNav.classList.remove("bg-dark");
+  toggleClick(): void {
+    const elements = document.getElementsByName('job');
+    for ( const element of elements ) {
+      if (element.checked){
+        if (element.id === 'agent'){
+          document.getElementById('agent-desc').classList.remove('text-muted');
+          document.getElementById('announcer-desc').classList.add('text-muted');
+        }
+        else{
+          document.getElementById('agent-desc').classList.add('text-muted');
+          document.getElementById('announcer-desc').classList.remove('text-muted');
+        }
       }
-    };
+    }
   }
+
 }

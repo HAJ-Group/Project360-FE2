@@ -25,16 +25,9 @@ export class SubscribeAccount  {
   constructor(
       public username: string,
       public email: string,
-      public firstName: string,
-      public lastName: string,
-      public birthday: string,
-      public phone: string,
-      public address: string,
-      public city: string,
-      public photo: string,
       public password: string,
+      public confirmedPassword: string,
       public role = '2',
-      public active = 1
     ) {}
 
 }
