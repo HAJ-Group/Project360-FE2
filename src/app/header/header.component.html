@@ -44,18 +44,20 @@
 <div class="modal fade" id="login">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+      <span class="alert alert-danger d-flex justify-content-center" *ngIf="error">{{error}}</span>
       <!-- Modal Header -->
       <div class="modal-header">
         <h5 class="modal-title">Connexion</h5>
-        <span class="alert alert-danger d-flex justify-content-center" *ngIf="error">{{error}}</span>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <!-- Modal body -->
       <div class="modal-body">
+        <span class="text-danger" id="login-username-error"></span>
         <div class="form-group">
           <label for="name" class="connexion-labels">Email or username : </label>
           <input type="text" class="form-control input-group-sm" id="name" [(ngModel)]="username">
         </div>
+        <span class="text-danger" id="login-password-error"></span>
         <div class="form-group">
           <label for="password" class="connexion-labels">Password :</label>
           <input type="password" class="form-control" id="password" [(ngModel)]="password">
@@ -76,13 +78,14 @@
 <div class="modal fade" id="subscribe">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+      <span class="alert alert-danger d-flex justify-content-center" *ngIf="error">{{error}}</span>
       <!-- Modal Header -->
       <div class="modal-header" id="header-inscription">
         <h5 class="modal-title">Inscription</h5>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-header d-none" id="header-confirmation">
-        <h5 class="modal-title">Inscription: Confirmation d'email</h5>
+        <h5 class="modal-title">Inscription: Confirmation d'email d'utilisateur <span *ngIf="username">{{username}}</span></h5>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <!-- Modal body -->
@@ -90,12 +93,15 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-username-error"></span>
               <div class="form-group">
                 <label for="user-name" class="connexion-labels">Username : </label>
                 <input type="text" class="form-control" id="user-name" [(ngModel)]="username">
               </div>
             </div>
+
             <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-email-error"></span>
               <div class="form-group">
                 <label for="email" class="connexion-labels">Email : </label>
                 <input type="text" class="form-control" id="email" [(ngModel)]="email">
@@ -105,15 +111,17 @@
 
           <div class="row">
             <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-password-error"></span>
               <div class="form-group">
                 <label for="subscribe-password" class="connexion-labels">Mot de passe : </label>
                 <input type="password" class="form-control" id="subscribe-password" [(ngModel)]="password">
               </div>
             </div>
             <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-confirm_password-error"></span>
               <div class="form-group">
                 <label for="passwordConfirmation" class="connexion-labels">Confirmer le mot de passe : </label>
-                <input type="password" class="form-control" id="passwordConfirmation" [(ngModel)]="confirmedPassword">
+                <input type="password" class="form-control" id="passwordConfirmation" [(ngModel)]="confirm_password">
               </div>
             </div>
           </div>
@@ -149,9 +157,12 @@
       <!-- Modal footer -->
       <div class="modal-footer" id="footer-inscription">
         <input type="submit" (click)="subscribe()" class="btn btn-outline-primary" value="Inscrivez-vous">
+        <input type="submit" (click)="showConfirmationBlock()" class="btn btn-outline-primary d-none" id="continue" value="Completez votre inscription courrant">
       </div>
       <div class="modal-footer d-none" id="footer-confirmation">
-        <input type="submit" (click)="subscribe()" class="btn btn-outline-primary" value="Confirmez">
+        <input type="submit" (click)="confirm()" class="btn btn-outline-primary" value="Confirmez">
+        <input type="submit" (click)="sendConfirmation()" class="btn btn-outline-primary" value="Renvoyer la confirmation a votre mail">
+        <input type="submit" (click)="rollback()" class="btn btn-outline-primary" value="Précédent">
       </div>
     </div>
   </div>

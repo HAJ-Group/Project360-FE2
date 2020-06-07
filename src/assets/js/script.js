@@ -1,6 +1,5 @@
 function scrollnav() {
   const myNav = document.getElementById('nav');
-  console.log('test');
   if(window.innerWidth>700){
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
       myNav.classList.remove("opacity-4");
