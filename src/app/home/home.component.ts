@@ -259,12 +259,6 @@ cities :String[]=[
 
 
 
-
-
-
-
-
-
   readonly URL = 'http:/ /localhost:8000';
 
   annonces: any;

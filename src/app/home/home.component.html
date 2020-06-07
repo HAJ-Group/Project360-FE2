@@ -1,10 +1,19 @@
 <div id="home" class="mt-4 mb-5">
-  <div class="container">
-    <div class="search form-inline">
+
+
+  <div class="container marg-bottom ">
+    <div class="search form-inline"  style=" background-image: url('../../assets/pictures/home'); background: #0f6674">
         <div class="col-xl-4">
           <div>
-              <select name="typeImmo"  class="form-control"id="immo-select">
-                  <option value="">--type--</option>
+            <select name="typeImmo"  class="form-control select-search "id="immo-select">
+              <option value="Maison">location</option>
+              <option value="Appartement">vente</option>
+
+            </select>
+            <!-- <button type="submit" class="btn btn-info">Search</button>-->
+          </div>
+          <div>
+              <select name="typeImmo"  class="form-control select-search"id="immo-select">
                   <option value="Maison">Maison</option>
                   <option value="Appartement">Appartement</option>
                   <option value="Terrain">Terrain</option>
@@ -16,8 +25,8 @@
               </select>
           </div>
           <div>
-            <select name="Location"   class="form-control"id="location" >
-              <option value="">--Location--</option>
+            <select name="Location"   class="form-control select-search"id="location" >
+              <option value="">localisation</option>
               <option *ngFor="let city of cities" [value]="city">
                 {{city}}
               </option>
@@ -32,14 +41,16 @@
           <div>
               <input type="text" class="form-control" id="budger" placeholder="budger maxi" name="budger">
           </div>
-        </div>
-        <div class="col-xl-4">
           <div>
             <input type="text" class="form-control" id="piece" placeholder="nb.piéce min" name="piece">
           </div>
+        </div>
+        <div class="col-xl-4">
+
           <div>
-             <button type="submit" class="btn btn-danger">Search</button>
+            <a href="#" class="btn btn-primary stretched-link btn-search">Search</a>
           </div>
+
         </div>
 
 
@@ -58,7 +69,7 @@
           <div class="row">
             <div class="col-xl-6">
               <div class="card bg-dark text-white text-center">
-                <img src="assets/pictures/header/header.jpeg" class="card-img" alt="...">
+                <img src="../../assets/pictures/home/pic1.jfif" class="card-img" alt="...">
                 <div class="card-img-overlay align-bottom">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -68,7 +79,7 @@
             </div>
             <div class="col-xl-6">
               <div class="card bg-dark text-white">
-                <img src="assets/pictures/header/header.jpeg" class="card-img" alt="...">
+                <img src="../../assets/pictures/home/garage1.jfif" class="card-img" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -82,7 +93,7 @@
           <div class="row">
             <div class="col-xl-6">
               <div class="card bg-dark text-white">
-                <img src="assets/pictures/header/header.jpeg" class="card-img" alt="...">
+                <img src="../../assets/pictures/home/pic4.jfif" class="card-img" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -92,7 +103,7 @@
             </div>
             <div class="col-xl-6">
               <div class="card bg-dark text-white">
-                <img src="assets/pictures/header/header.jpeg" class="card-img" alt="...">
+                <img src="../../assets/pictures/home/pic5.jfif" class="card-img" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -106,7 +117,7 @@
           <div class="row">
             <div class="col-xl-6">
               <div class="card bg-dark text-white">
-                <img src="assets/pictures/header/header.jpeg" class="card-img" alt="...">
+                <img src="../../assets/pictures/home/pic2.jfif" class="card-img" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -116,7 +127,7 @@
             </div>
             <div class="col-xl-6">
               <div class="card bg-dark text-white">
-                <img src="assets/pictures/header/header.jpeg" class="card-img" alt="...">
+                <img src="../../assets/pictures/home/garage2.jfif" class="card-img" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -236,7 +247,7 @@
   </div>
 
 
-    <ul class="pagination">
+    <ul class="pagination centrer">
       <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
       <li class="page-item"><a class="page-link" href="#">1</a></li>
       <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -244,5 +255,30 @@
       <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </ul>
   </div>
+<hr>
+<hr>
+<div class="centrer">
 
+  <span>Partenaires</span>
+</div>
+<hr>
+<div class="container-fluid">
+ <div class="row marg">
+   <div class="col">
+     <img src="../../assets/pictures/home/partenaire/addoha.jpg"  class="img-partenaire" alt="">
+   </div>
+   <div class="col">
+     <img src="../../assets/pictures/home/partenaire/alomran.png"  class="img-partenaire"alt="">
+   </div>
+   <div class="col">
+     <img src="../../assets/pictures/home/partenaire/addoha.jpg"  class="img-partenaire" alt="">
+   </div>
+   <div class="col">
+     <img src="../../assets/pictures/home/partenaire/alomran.png"  class="img-partenaire"alt="">
+   </div>
+   <div class="col">
+     <img src="../../assets/pictures/home/partenaire/alomran.png"  class="img-partenaire"alt="">
+   </div>
 
+</div>
+</div>

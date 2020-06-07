@@ -1,15 +1,67 @@
 #home{
 
 }
-
+/* search */
 .search{
   height: 300px;
+}
+.btn-search{
+  width: 170px;
+}
+.select-search{
+
+  width: 300px;
 }
 .search > div >div{
   margin-bottom: 20px;
 }
+/* end search */
+/* prem img */
+.card-img{
+  height: 400px;
+  margin-right: 10px;
 
+}
+
+/* end prem img */
 .img-dim{
   /* width: 400px;*/
   height: 200px;
 }
+/*partenairs*/
+.centre{
+  margin-left: auto;
+  margin-right: auto;
+  width: 16em;
+
+}
+.img-partenaire{
+  height: 150px;
+  width: 150px;
+}
+
+.img-partenariat{
+  height: 50px;
+  width: 55px;
+}
+
+.right_marg {
+  margin-right: 10px;
+}
+.marg{
+  margin: 30px;
+}
+.marg-bottom{
+  margin-bottom: 20px;
+}
+
+.centrer{
+  height: 40px;
+  width: 100%;
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+/*end partenaires*/
