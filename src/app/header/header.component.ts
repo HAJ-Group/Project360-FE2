@@ -83,7 +83,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggle(): void {
-    if(window.innerWidth > 700) {
+    if (window.innerWidth > 700) {
       this.toggled = !this.toggled;
       if (this.toggled) {
         document.getElementById('header-description').style.display = 'none';
@@ -93,5 +93,15 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
-
+  headerChange(): void {
+    const myNav = document.getElementById('nav');
+    console.log('test');
+    window.onscroll = function() {
+      if (document.body.scrollTop >= 100) {
+        myNav.classList.add("bg-dark");
+      } else {
+        myNav.classList.remove("bg-dark");
+      }
+    };
+  }
 }

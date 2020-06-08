@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms'
-import { ServicesService } from './services.service';
+import {Router} from '@angular/router';
+import { ContactService, Contactus } from '../service/contact.service';
 
 
 @Component({
@@ -9,28 +9,56 @@ import { ServicesService } from './services.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  FormData: FormGroup;
-  constructor(private builder: FormBuilder, private contact: ServicesService) { }
+ // LOGIN AND SUBSCRIBE -------------------------------------------------------------------------------------------------------------------
+ subject: string;
+ comment: string;
 
-  ngOnInit() {
-    this.FormData = this.builder.group({
-      Fullname: new FormControl('', [Validators.required]),
-      Email: new FormControl('', [Validators.compose([Validators.required, Validators.email])]),
-      Comment: new FormControl('', [Validators.required]),
-      Subject: new FormControl('', [Validators.required])
-    });
-  }
+ // GLOBAL ERROR HANDLER MESSAGE ----------------------------------------------------------------------------------------------------------
+ error: string;
+ // Others --------------------------------------------------------------------------------------------------------------------------------
+ toggled = false;
+
+ constructor(
+   private service: ContactService,
+   public router: Router
+ ) { }
+
+ ngOnInit(): void {
+ }
+
+ contactUs() {
+  this.initErrors();
+   this.service.postContact(new Contactus(this.subject, this.comment)).subscribe(
+     success => {
+       console.log(success);
+       this.router.navigate(['']);
+     },
+     error => {
+      if (typeof error.error === 'object') {
+        // tslint:disable-next-line:forin
+        for (const e in error.error) {
+          document.getElementById('contact-' + e + '-error').innerHTML = error.error[e][0];
+        }
+      } else {
+        this.error = error.error;
+      }
+
+     }
+   );
+ }
 
 
-  onSubmit(FormData) {
-    console.log(FormData)
-    this.contact.PostMessage(FormData)
-      .subscribe(response => {
-        location.href = 'mailto:yberbeche@gmail.com?body='+FormData.Comment+'&subject='+FormData.Subject
-        console.log(response)
-      }, error => {
-        console.warn(error.responseText)
-        console.log({ error })
-      })
+ initErrors(): void {
+  this.error = null;
+  const elements = document.getElementsByClassName('text-danger');
+  // @ts-ignore
+  for (const e of elements) {
+    e.innerHTML = null;
   }
 }
+
+
+
+}
+
+
