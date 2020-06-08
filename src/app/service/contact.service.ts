@@ -9,7 +9,8 @@ export class Contactus {
 
   constructor(
     public subject: string,
-    public comment: string
+    public comment: string,
+    public email: string
   ){}
 
 }

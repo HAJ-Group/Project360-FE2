@@ -77,12 +77,19 @@
                                 <input id="subject" type="text" class="form-control" name="subject" placeholder="Objectif" [(ngModel)]="subject" />
                             </div>
                         </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <span class="text-danger" id="contact-email-error"></span>
+                            <div class="form-group">
+
+                                <label for="email">Email</label>
+                                <input id="email" type="text" class="form-control" name="email" placeholder="email" [(ngModel)]="email" />
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
-
                         <div class=" col-lg-6 col-md-12 ">
                             <span class="text-danger" id="contact-comment-error"></span>
-
                             <div class="form-group ">
                                 <label for="comment ">Comment</label>
                                 <textarea id="comment" class="form-control" name="comment" [(ngModel)]="comment">
@@ -94,7 +101,6 @@
                         <button type="submit " class="btn btn-primary " (click)="contactUs()"><img src="../../assets/icons/footer/send.png ">Submit</button>
                         <!--<input type="submit" (click)="contactUs()" class="btn connexion-button" value="Envoyer">-->
                     </div>
-
                 </div>
             </div>
         </div>
