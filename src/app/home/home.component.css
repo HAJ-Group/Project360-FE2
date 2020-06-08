@@ -4,6 +4,8 @@
 /* search */
 .search{
   height: 300px;
+  width: 100%;
+  background:rgba(255, 255, 255, 0.8);
 }
 .btn-search{
   width: 170px;
@@ -55,6 +57,10 @@
   margin-bottom: 20px;
 }
 
+. sesearch{
+  color: chocolate;
+  height: 200px;
+}
 .centrer{
   height: 40px;
   width: 100%;
@@ -65,3 +71,29 @@
 
 }
 /*end partenaires*/
+.logo-w3ls h1 a {
+  font-size: 1em;
+  text-decoration: none;
+  color: #ef434a;
+  line-height: 45px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  text-shadow: 2px 2px 3px #000;
+  display: block;
+  margin-top: 2em;
+}
+.bnr-sub-text p {
+  text-align: center;
+  font-size: 17px;
+  margin: 20px 0 0px;
+  letter-spacing: 11px;
+  color: black;
+}
+
+.div_search {
+  width: 100%;
+  padding-top: 10px;
+  height: 250px;
+
+  background-color: #b8b7bd;
+}
