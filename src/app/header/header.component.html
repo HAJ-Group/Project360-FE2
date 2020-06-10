@@ -1,6 +1,5 @@
-<span class="alert alert-warning d-flex justify-content-center" *ngIf="error">{{error}}</span>
-<div class="header">
-  <nav class="navbar navbar-expand-sm navbar-dark w-100 position-fixed visible-nav">
+<div  class="header">
+  <nav  id="nav" class="navbar navbar-expand-sm navbar-dark w-100 position-fixed visible-nav">
     <a class="navbar-brand" href="#"><img src="../../assets/pictures/header/logo.png" class="opacity-hover" alt=""></a>
     <button (click)="toggle()" class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId"
@@ -45,6 +44,7 @@
 <div class="modal fade" id="login">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+      <span class="alert alert-danger d-flex justify-content-center" *ngIf="error">{{error}}</span>
       <!-- Modal Header -->
       <div class="modal-header">
         <h5 class="modal-title">Connexion</h5>
@@ -52,24 +52,23 @@
       </div>
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="error">
-          <span> Username or password incorrect ! (just a simple span to show if really an error was occurred)</span>
-        </div>
+        <span class="text-danger" id="login-username-error"></span>
         <div class="form-group">
-          <label for="name" class="connexion-labels">Email or user name : </label>
+          <label for="name" class="connexion-labels">Email or username : </label>
           <input type="text" class="form-control input-group-sm" id="name" [(ngModel)]="username">
         </div>
+        <span class="text-danger" id="login-password-error"></span>
         <div class="form-group">
           <label for="password" class="connexion-labels">Password :</label>
           <input type="password" class="form-control" id="password" [(ngModel)]="password">
         </div>
       </div>
-      <div class="forgot-password">
-        <span> Mot de Passe Oublié ?</span>
+      <div class="forgot-password d-flex justify-content-center">
+        <a href=""> Mot de Passe Oublié ?</a>
       </div>
       <!-- Modal footer -->
       <div class="modal-footer">
-        <input type="submit" (click)="login()" class="btn connexion-button" value="Connexion">
+        <input type="submit" (click)="login()" class="btn btn-outline-primary" value="Connexion">
       </div>
     </div>
   </div>
@@ -79,98 +78,93 @@
 <div class="modal fade" id="subscribe">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+      <span class="alert alert-danger d-flex justify-content-center" *ngIf="error">{{error}}</span>
       <!-- Modal Header -->
-      <div class="modal-header">
-        <h5 class="modal-title">S'inscrire</h5>
+      <div class="modal-header" id="header-inscription">
+        <h5 class="modal-title">Inscription</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-header d-none" id="header-confirmation">
+        <h5 class="modal-title">Inscription: Confirmation d'email d'utilisateur <span *ngIf="username">{{username}}</span></h5>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body" id="body-inscription">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-username-error"></span>
               <div class="form-group">
                 <label for="user-name" class="connexion-labels">Username : </label>
                 <input type="text" class="form-control" id="user-name" [(ngModel)]="username">
               </div>
             </div>
+
             <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-email-error"></span>
               <div class="form-group">
                 <label for="email" class="connexion-labels">Email : </label>
                 <input type="text" class="form-control" id="email" [(ngModel)]="email">
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-password-error"></span>
               <div class="form-group">
-                <label for="last-name" class="connexion-labels">Nom : </label>
-                <input type="text" class="form-control" id="last-name" [(ngModel)]="lastName">
+                <label for="subscribe-password" class="connexion-labels">Mot de passe : </label>
+                <input type="password" class="form-control" id="subscribe-password" [(ngModel)]="password">
               </div>
             </div>
             <div class="col-lg-6 col-md-6">
-              <div class="form-group">
-                <label for="first-name" class="connexion-labels">Prenom :</label>
-                <input type="text" class="form-control" id="first-name" [(ngModel)]="firstName">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6">
-              <div class="form-group">
-                <label for="birthDate" class="connexion-labels">Date de naissance :</label>
-                <input type="date" class="form-control" id="birthDate" [(ngModel)]="birthday">
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div class="form-group">
-                <label for="phone-number" class="connexion-labels">Téléphone :</label>
-                <input type="text" class="form-control" id="phone-number" [(ngModel)]="phone">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6">
-              <div class="form-group">
-                <label for="address" class="connexion-labels">Adresse :</label>
-                <input type="text" class="form-control" id="address" [(ngModel)]="address">
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div class="form-group">
-                <label for="city" class="connexion-labels">Ville :</label>
-                <input type="text" class="form-control" id="city" [(ngModel)]="city">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6">
-              <div class="form-group">
-                <label for="password" class="connexion-labels">Mot de passe : </label>
-                <input type="password" class="form-control" id="password" [(ngModel)]="password">
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="subscribe-confirm_password-error"></span>
               <div class="form-group">
                 <label for="passwordConfirmation" class="connexion-labels">Confirmer le mot de passe : </label>
-                <input type="password" class="form-control" id="passwordConfirmation" [(ngModel)]="confirmedPassword">
+                <input type="password" class="form-control" id="passwordConfirmation" [(ngModel)]="confirm_password">
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-6 col-md-6">
-              <div class="form-group">
-                <label for="photo" class="connexion-labels">Chosir image : </label>
-                <input type="file" class="form-control" id="photo" [(ngModel)]="photo">
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group" (click)="toggleClick()">
+                <label for="email" class="connexion-labels"> Vous cherchez être un annonceur ou un agent ?  </label>
+                <!-- Default checked -->
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="announcer" name="job" checked>
+                  <label class="custom-control-label" for="announcer"> Annonceur : <span  id="announcer-desc"> Publiez vos annonces gratuitement sur notre siteWeb </span></label>
+                </div>
+                <!-- Default unchecked -->
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="agent" name="job">
+                  <label class="custom-control-label" for="agent">Agent : <span class="text-muted" id="agent-desc">Si vous cherchez à travailler chez APP360 pour créer des annonces pour nos visiteurs </span> </label>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="modal-body d-none" id="body-confirmation">
+        <div class="container">
+          <div class="row">
+              <div class="form-group">
+                <label class="col-lg-6 col-md-6" for="code" class="connexion-labels"> Entrez le code de vérification envoyé à votre email : </label>
+                <input class="col-lg-6 col-md-6" type="text" class="form-control" id="code" [(ngModel)]="code">
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Modal footer -->
-      <div class="modal-footer">
-        <input type="submit" (click)="subscribe()" class="btn connexion-button" value="S'inscrire">
+      <div class="modal-footer" id="footer-inscription">
+        <input type="submit" (click)="subscribe()" class="btn btn-outline-primary" value="Inscrivez-vous">
+        <input type="submit" (click)="showConfirmationBlock()" class="btn btn-outline-primary d-none" id="continue" value="Completez votre inscription courrant">
+      </div>
+      <div class="modal-footer d-none" id="footer-confirmation">
+        <input type="submit" (click)="confirm()" class="btn btn-outline-primary" value="Confirmez">
+        <input type="submit" (click)="sendConfirmation()" class="btn btn-outline-primary" value="Renvoyer la confirmation a votre mail">
+        <input type="submit" (click)="rollback()" class="btn btn-outline-primary" value="Précédent">
       </div>
     </div>
   </div>
 </div>
+

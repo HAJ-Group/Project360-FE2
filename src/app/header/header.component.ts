@@ -10,17 +10,12 @@ import {Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   // LOGIN AND SUBSCRIBE -------------------------------------------------------------------------------------------------------------------
-  firstName: string;
-  lastName: string;
   username: string;
   email: string;
-  birthday: string;
-  phone: string;
-  address: string;
-  city: string;
   password: string;
-  confirmedPassword: string;
-  photo: string;
+  // tslint:disable-next-line:variable-name
+  confirm_password: string;
+  code: string;
   // GLOBAL ERROR HANDLER MESSAGE ----------------------------------------------------------------------------------------------------------
   error: string;
   // Others --------------------------------------------------------------------------------------------------------------------------------
@@ -31,54 +26,125 @@ export class HeaderComponent implements OnInit {
     public router: Router
   ) { }
 
+  static getCheckedRole(): string {
+    const elements = document.getElementsByName('job');
+    // @ts-ignore
+    for ( const element of elements ) {
+      if (element.checked){
+        if (element.id === 'agent'){
+          return '3';
+        }
+        else{
+          return '2';
+        }
+      }
+    }
+    return null;
+  }
   ngOnInit(): void {
+    if (sessionStorage.getItem('username') !== null) {
+      document.getElementById('continue').classList.remove('d-none');
+      this.username = sessionStorage.getItem('username');
+    } else {
+      document.getElementById('continue').classList.add('d-none');
+    }
   }
 
   login() {
+    this.initErrors();
     this.service.postLogin(new LoginAccount(this.username, this.password)).subscribe(
       success => {
-        console.log(success.token);
-        localStorage.setItem('token', 'Bearer ' + success.token);
+        // success is the token
+        console.log(success);
+        localStorage.setItem('token', 'Bearer ' + success);
         sessionStorage.setItem('user', this.username);
         this.router.navigate(['']);
       },
       error => {
-        this.error = error.message;
+        console.log(error.error);
+        if (typeof error.error === 'object') {
+          // tslint:disable-next-line:forin
+          for (const e in error.error) {
+            document.getElementById('login-' + e + '-error').innerHTML = error.error[e][0];
+          }
+        } else {
+          this.error = error.error;
+        }
       }
     );
   }
 
   subscribe() {
-    if (this.password === this.confirmedPassword) {
-      this.service.postSubscribe(new SubscribeAccount(
-        this.username,
-        this.email,
-        this.firstName,
-        this.lastName,
-        this.birthday,
-        this.phone,
-        this.address,
-        this.city,
-        this.photo,
-        this.password
-      )).subscribe(
+    this.initErrors();
+    this.service.postSubscribe(new SubscribeAccount(
+      this.username,
+      this.email,
+      this.password,
+      this.confirm_password,
+      HeaderComponent.getCheckedRole()
+    )).subscribe(
+      success => {
+        console.log(success);
+        sessionStorage.setItem('username', this.username);
+        this.showConfirmationBlock();
+      },
+      error => {
+        console.log(error.error);
+        if (typeof error.error === 'object') {
+          // tslint:disable-next-line:forin
+          for (const e in error.error) {
+            document.getElementById('subscribe-' + e + '-error').innerHTML = error.error[e][0];
+          }
+        } else {
+          this.error = error.error;
+        }
+      }
+    );
+  }
+
+  sendConfirmation(): void {
+    this.initErrors();
+    if (sessionStorage.getItem('username') !== null) {
+      console.log('sending confirmation to user ' + sessionStorage.getItem('username'));
+      console.log(sessionStorage.getItem('username'));
+      this.service.postConfirm(sessionStorage.getItem('username')).subscribe(
         success => {
-          console.log(success.token);
-          localStorage.setItem('token', 'Bearer ' + success.token);
-          sessionStorage.setItem('user', this.username);
-          this.router.navigate(['']);
+          console.log(success);
         },
         error => {
-          this.error = error.message;
+          console.log(error.error);
+          this.error = error.error;
         }
       );
     } else {
-      this.error = 'passwords not match';
+      console.log('session values timed out');
+    }
+  }
+
+  confirm(): void {
+    this.initErrors();
+    if (sessionStorage.getItem('username') !== null) {
+      console.log('confirming user ' + sessionStorage.getItem('username'));
+      this.service.getConfirm(sessionStorage.getItem('username'), this.code).subscribe(
+        success => {
+          console.log(success);
+          // should route to complete subscription
+        },
+        error => {
+          console.log(error.error)
+          if (typeof error.error === 'object') {
+            this.error = error.error.message;
+          } else { this.error = error.error; }
+        }
+      );
+    } else {
+      console.log('session values timed out');
     }
   }
 
   logout(): void {
-    sessionStorage.removeItem('user');
+    console.log('logging off from user ' + sessionStorage.getItem('username'));
+    sessionStorage.removeItem('username');
     this.router.navigate(['']);
   }
 
@@ -91,6 +157,50 @@ export class HeaderComponent implements OnInit {
       else {
         document.getElementById('header-description').style.display = 'block';
       }
+    }
+  }
+
+  toggleClick(): void {
+    const elements = document.getElementsByName('job');
+    // @ts-ignore
+    for ( const element of elements ) {
+      if (element.checked){
+        if (element.id === 'agent'){
+          document.getElementById('agent-desc').classList.remove('text-muted');
+          document.getElementById('announcer-desc').classList.add('text-muted');
+        }
+        else{
+          document.getElementById('agent-desc').classList.add('text-muted');
+          document.getElementById('announcer-desc').classList.remove('text-muted');
+        }
+      }
+    }
+  }
+
+  showConfirmationBlock(): void {
+    document.getElementById('header-inscription').classList.add('d-none');
+    document.getElementById('body-inscription').classList.add('d-none');
+    document.getElementById('footer-inscription').classList.add('d-none');
+    document.getElementById('header-confirmation').classList.remove('d-none');
+    document.getElementById('body-confirmation').classList.remove('d-none');
+    document.getElementById('footer-confirmation').classList.remove('d-none');
+  }
+
+  rollback(): void {
+    document.getElementById('header-inscription').classList.remove('d-none');
+    document.getElementById('body-inscription').classList.remove('d-none');
+    document.getElementById('footer-inscription').classList.remove('d-none');
+    document.getElementById('header-confirmation').classList.add('d-none');
+    document.getElementById('body-confirmation').classList.add('d-none');
+    document.getElementById('footer-confirmation').classList.add('d-none');
+  }
+
+  initErrors(): void {
+    this.error = null;
+    const elements = document.getElementsByClassName('text-danger');
+    // @ts-ignore
+    for (const e of elements) {
+      e.innerHTML = null;
     }
   }
 
