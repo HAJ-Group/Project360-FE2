@@ -6,7 +6,7 @@ import {AnnonceModel} from '../../model.ts/annonce-model';
 const SERVER = 'http://localhost:8000/api/annonce';
 
 @Injectable()
-export class AnnonceDataService {
+export class AnnonceDataService{
 
   private accessToken = 'ZmEde6zyCqqNHY2A4qwl6jpwTX2r79eTciAeOgcZ';
   private headers;
