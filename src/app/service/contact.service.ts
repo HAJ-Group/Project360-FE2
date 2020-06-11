@@ -26,7 +26,7 @@ export class ContactService {
   ) { }
 
   postContact(contact) {
-    return this.http.post<Contactus>(SERVER,contact);
+    return this.http.post<Contactus>(SERVER, contact);
   }
 }
 

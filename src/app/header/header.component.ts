@@ -125,13 +125,14 @@ export class HeaderComponent implements OnInit {
     this.initErrors();
     if (sessionStorage.getItem('username') !== null) {
       console.log('confirming user ' + sessionStorage.getItem('username'));
+      console.log(this.code);
       this.service.getConfirm(sessionStorage.getItem('username'), this.code).subscribe(
         success => {
           console.log(success);
           // should route to complete subscription
         },
         error => {
-          console.log(error.error)
+          console.log(error.error);
           if (typeof error.error === 'object') {
             this.error = error.error.message;
           } else { this.error = error.error; }
