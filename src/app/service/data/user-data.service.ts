@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {SERVER} from '../../app.constants';
 
-const SERVER = 'http://localhost:8000/api/';
 const AUTHENTICATED_USER = 'AuthenticatedUser';
 const TOKEN = 'token';
 

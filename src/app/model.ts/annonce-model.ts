@@ -11,5 +11,4 @@ export interface AnnonceModel {
   status: string;
   rent: string;
   annoncerId: number;
-
 }

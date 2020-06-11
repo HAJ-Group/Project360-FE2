@@ -2,8 +2,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AnnonceModel} from '../../model.ts/annonce-model';
+import {ANNOUNCES_SERVER} from '../../app.constants';
 
-const SERVER = 'http://localhost:8000/api/annonce';
 
 @Injectable()
 export class AnnonceDataService{
@@ -28,22 +28,22 @@ export class AnnonceDataService{
   }
 
   getAnnonces(): Observable<AnnonceModel[]> {
-    return this.http.get<AnnonceModel[]>(SERVER + '/', {headers: this.headers});
+    return this.http.get<AnnonceModel[]>(ANNOUNCES_SERVER + '/', {headers: this.headers});
   }
 
 
   getPremiumAnnonces(): Observable<AnnonceModel[]> {
-    return this.http.get<AnnonceModel[]>(SERVER + '/premium', {headers: this.headers});
+    return this.http.get<AnnonceModel[]>(ANNOUNCES_SERVER + '/premium', {headers: this.headers});
   }
 
 
   createAnnonce(annonce) {
-    return this.http.post<AnnonceModel>(SERVER + '/', annonce);
+    return this.http.post<AnnonceModel>(ANNOUNCES_SERVER + '/', annonce);
 
   }
 
   showAnnonce(id) {
-    return this.http.get<AnnonceModel>(SERVER + '/' + id);
+    return this.http.get<AnnonceModel>(ANNOUNCES_SERVER + '/' + id);
 
   }
 
