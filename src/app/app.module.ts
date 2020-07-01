@@ -14,7 +14,6 @@ import {AnnonceModel} from './model.ts/annonce-model';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
 import {OktaAuthModule} from '@okta/okta-angular';
 import {HttpAuthenticationInterceptorService} from './service/http/http-authentication-interceptor.service';
-
 @NgModule({
   declarations: [
     AppComponent,
