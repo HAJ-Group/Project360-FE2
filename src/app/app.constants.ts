@@ -1,9 +1,6 @@
 // General API_URL
 export const SERVER = 'http://localhost:8000/api/';
 
-// URL for Announces
-export const ANNOUNCES_SERVER = 'http://localhost:8000/api/annonce';
-
 // Cities of morocco
 export const CITIES = [
   'Aklim',
