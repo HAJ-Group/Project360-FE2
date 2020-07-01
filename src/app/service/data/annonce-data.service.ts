@@ -2,7 +2,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AnnonceModel} from '../../model.ts/annonce-model';
-import {ANNOUNCES_SERVER, SERVER} from '../../app.constants';
+import {SERVER} from '../../app.constants';
 
 
 @Injectable()
