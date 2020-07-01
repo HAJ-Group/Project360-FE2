@@ -134,6 +134,19 @@ nav a:hover,nav a:focus {
   padding-left: 10px;
 }
 
+.navbar .btn{
+  margin: 5px;
+  outline: none;
+}
+
+.navbar .btn:active{
+  outline: none;
+}
+
+.btn-signUp{
+  background-color: rgba(26, 33, 110, 0.91);
+}
+
 @media (min-width: 767px) {
   .navbar {
     padding: 1.4rem 0;
@@ -150,20 +163,11 @@ nav a:hover,nav a:focus {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 
+}
+
+@media (max-width: 767px){
   .btns-center{
     text-align: center;
   }
 }
 
-.navbar .btn{
-  margin: 5px;
-  outline: none;
-}
-
-.navbar .btn:active{
-  outline: none;
-}
-
-.btn-signUp{
-  background-color: rgba(26, 33, 110, 0.91);
-}
