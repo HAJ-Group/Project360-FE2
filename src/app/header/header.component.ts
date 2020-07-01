@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginAccount, SubscribeAccount, UserDataService} from '../service/data/user-data.service';
 import {Router} from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -24,24 +25,26 @@ export class HeaderComponent implements OnInit {
   constructor(
     private service: UserDataService,
     public router: Router
-  ) { }
+  ) {
+  }
 
   static getCheckedRole(): string {
     const elements = document.getElementsByName('job');
     // @ts-ignore
-    for ( const element of elements ) {
-      if (element.checked){
-        if (element.id === 'agent'){
+    for (const element of elements) {
+      if (element.checked) {
+        if (element.id === 'agent') {
           return '3';
-        }
-        else{
+        } else {
           return '2';
         }
       }
     }
     return null;
   }
+
   ngOnInit(): void {
+    this.scrollNav();
     if (sessionStorage.getItem('username') !== null) {
       document.getElementById('continue').classList.remove('d-none');
       this.username = sessionStorage.getItem('username');
@@ -135,7 +138,9 @@ export class HeaderComponent implements OnInit {
           console.log(error.error);
           if (typeof error.error === 'object') {
             this.error = error.error.message;
-          } else { this.error = error.error; }
+          } else {
+            this.error = error.error;
+          }
         }
       );
     } else {
@@ -154,8 +159,7 @@ export class HeaderComponent implements OnInit {
       this.toggled = !this.toggled;
       if (this.toggled) {
         document.getElementById('header-description').style.display = 'none';
-      }
-      else {
+      } else {
         document.getElementById('header-description').style.display = 'block';
       }
     }
@@ -164,13 +168,12 @@ export class HeaderComponent implements OnInit {
   toggleClick(): void {
     const elements = document.getElementsByName('job');
     // @ts-ignore
-    for ( const element of elements ) {
-      if (element.checked){
-        if (element.id === 'agent'){
+    for (const element of elements) {
+      if (element.checked) {
+        if (element.id === 'agent') {
           document.getElementById('agent-desc').classList.remove('text-muted');
           document.getElementById('announcer-desc').classList.add('text-muted');
-        }
-        else{
+        } else {
           document.getElementById('agent-desc').classList.add('text-muted');
           document.getElementById('announcer-desc').classList.remove('text-muted');
         }
@@ -205,4 +208,14 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  scrollNav(): void {
+    // @ts-ignore
+    $(window).scroll(() => {
+      if ($('.navbar').offset().top > 50) {
+        $('.fixed-top').addClass('top-nav-collapse');
+      } else {
+        $('.fixed-top').removeClass('top-nav-collapse');
+      }
+    });
+  }
 }
