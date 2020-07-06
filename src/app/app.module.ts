@@ -14,12 +14,18 @@ import {AnnonceModel} from './model.ts/annonce-model';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
 import {OktaAuthModule} from '@okta/okta-angular';
 import {HttpAuthenticationInterceptorService} from './service/http/http-authentication-interceptor.service';
+import { AddAnnounceComponent } from './announces/add-announce/add-announce.component';
+import { EditAnnounceComponent } from './announces/edit-announce/edit-announce.component';
+import { ListAnnouncesComponent } from './announces/list-announces/list-announces.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AddAnnounceComponent,
+    EditAnnounceComponent,
+    ListAnnouncesComponent
   ],
   imports: [
     BrowserModule,
