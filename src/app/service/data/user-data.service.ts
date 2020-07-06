@@ -3,8 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {SERVER} from '../../app.constants';
 
-const AUTHENTICATED_USER = 'AuthenticatedUser';
-const TOKEN = 'token';
+export const AUTHENTICATED_USER = 'AuthenticatedUser';
+export const TOKEN = 'token';
 
 export class LoginAccount {
 
