@@ -132,7 +132,11 @@ export class HeaderComponent implements OnInit {
       this.service.getConfirm(sessionStorage.getItem('username'), this.code).subscribe(
         success => {
           console.log(success);
-          // should route to complete subscription
+
+          // Hiding subscription modal and showing loging modal
+          $('#subscribe').modal('hide');
+          $('#login').modal('show');
+
         },
         error => {
           console.log(error.error);
