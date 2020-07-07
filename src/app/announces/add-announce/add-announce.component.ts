@@ -18,13 +18,18 @@ export class AddAnnounceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.announce =
+      new AnnounceModel(1, '', '', '', 0, '', '', '', '', '', false, 0);
   }
 
   addAnnounce() {
-    this.announceDataService.createAnnonce('jaouad', this.announce).subscribe(
+
+    this.announceDataService.createAnnounce('jaouad', this.announce).subscribe(
       success => {
+        console.log(success);
       },
       error => {
+        console.log(error);
       }
     );
   }
