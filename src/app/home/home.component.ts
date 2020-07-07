@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AnnonceDataService} from '../service/data/annonce-data.service';
-import {AnnonceModel} from '../model.ts/annonce-model';
+import { AnnounceModel } from '../model.ts/announce-model';
 import {CITIES} from '../app.constants';
 
 @Component({
@@ -12,8 +12,8 @@ import {CITIES} from '../app.constants';
 export class HomeComponent implements OnInit {
 
   cities: string[] = CITIES;
-  annonces: AnnonceModel[];
-  premiumAnnonces: AnnonceModel[];
+  annonces: AnnounceModel[];
+  premiumAnnonces: AnnounceModel[];
   errorMessage: string;
 
   constructor(
