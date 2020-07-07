@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CITIES} from '../../app.constants';
-import {AnnonceModel} from '../../model.ts/annonce-model';
+import {AnnounceModel} from '../../model.ts/announce-model';
+import {AnnonceDataService} from '../../service/data/annonce-data.service';
 
 @Component({
   selector: 'app-add-announce',
@@ -10,11 +11,21 @@ import {AnnonceModel} from '../../model.ts/annonce-model';
 export class AddAnnounceComponent implements OnInit {
 
   cities: string[] = CITIES;
-  announce: AnnonceModel;
+  announce: AnnounceModel;
 
-  constructor() { }
+  constructor(
+    private announceDataService: AnnonceDataService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  addAnnounce() {
+    this.announceDataService.createAnnonce('jaouad', this.announce).subscribe(
+      success => {
+      },
+      error => {
+      }
+    );
+  }
 }
