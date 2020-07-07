@@ -287,7 +287,7 @@ export class HomeComponent implements OnInit {
   getPremiumAnnonces() {
     this.annonceData.getPremiumAnnonces().subscribe(data => {
       this.premiumAnnonces = data['1'];
-      console.log(this.premiumAnnonces);
+      // console.log(this.premiumAnnonces);
     });
   }
 

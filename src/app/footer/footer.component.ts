@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
 
  contactUs() {
   this.initErrors();
-   this.service.postContact(new Contactus(this.subject, this.comment,this.email)).subscribe(
+  this.service.postContact(new Contactus(this.subject, this.comment,this.email)).subscribe(
      success => {
        console.log(success);
        this.router.navigate(['']);

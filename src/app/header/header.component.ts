@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
         console.log(success);
         localStorage.setItem('token', 'Bearer ' + success);
         sessionStorage.setItem('user', this.username);
-        this.router.navigate(['']);
+        this.router.navigate(['dashboard']);
       },
       error => {
         console.log(error.error);
