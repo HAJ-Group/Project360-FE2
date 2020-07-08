@@ -23,14 +23,30 @@ export class AddAnnounceComponent implements OnInit {
   }
 
   addAnnounce() {
-
+    this.initErrors();
     this.announceDataService.createAnnounce('jaouad', this.announce).subscribe(
       success => {
         console.log(success);
       },
       error => {
+
         console.log(error);
+        if (typeof error.error === 'object') {
+          // tslint:disable-next-line:forin
+          for (const e in error.error) {
+            document.getElementById('announce-' + e + '-error').innerHTML = error.error[e][0];
+          }
+        }
       }
     );
+  }
+
+
+  initErrors(): void {
+    const elements = document.getElementsByClassName('text-danger');
+    // @ts-ignore
+    for (const element of elements) {
+      element.innerHTML = null;
+    }
   }
 }

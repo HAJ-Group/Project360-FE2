@@ -12,13 +12,14 @@
             <div class="form-group">
               <label for="announce-title">Titre de l'annonce : </label>
               <input type="text" class="form-control" id="announce-title" name="title" [(ngModel)]="announce.title">
+              <span class="text-danger" id="announce-title-error"></span>
             </div>
 
             <div class="form-group">
               <label for="type">Type : </label>
               <div class="control-group" id="type">
                 <label class="control control--radio">Maison
-                  <input type="radio" name="radio" value="maison" id="maison" checked="checked"  [(ngModel)]="announce.type"/>
+                  <input type="radio" name="radio" value="maison" id="maison"  [(ngModel)]="announce.type"  checked="checked"/>
                   <div class="control__indicator"></div>
                 </label>
                 <label class="control control--radio">Appartement
@@ -30,11 +31,13 @@
                   <div class="control__indicator"></div>
                 </label>
               </div>
+              <span class="text-danger" id="announce-type-error"></span>
             </div>
 
             <div class="form-group">
               <label for="description">Description : </label>
               <textarea id="description" cols="30" rows="10" class="form-control" name="description" [(ngModel)]="announce.description" placeholder="Ensoleillé toute la journée ..."></textarea>
+              <span class="text-danger" id="announce-description-error"></span>
             </div>
 
             <div class="form-group">
@@ -52,6 +55,7 @@
               <select class="form-control" id="city" name="city" [(ngModel)]="announce.city">
                 <option *ngFor="let city of cities">{{city}}</option>
               </select>
+              <span class="text-danger" id="announce-city-error"></span>
             </div>
 
             <div class="form-group">
@@ -62,11 +66,13 @@
             <div class="form-group">
               <label for="status">Status : </label>
               <input type="number" class="form-control" id="status" name="status" [(ngModel)]="announce.status">
+              <span class="text-danger" id="announce-status-error"></span>
             </div>
 
             <div class="form-group">
               <label for="rent">Rent : </label>
               <input type="number" class="form-control" id="rent" name="rent" [(ngModel)]="announce.rent">
+              <span class="text-danger" id="announce-rent-error"></span>
             </div>
 
 
