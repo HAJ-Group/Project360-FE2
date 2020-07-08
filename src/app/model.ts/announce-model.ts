@@ -11,6 +11,7 @@ export class AnnounceModel {
     public positionMap: string,
     public status: string,
     public rent: string,
+    public premium: boolean,
     public announcerId: number
   ){}
 }

@@ -37,8 +37,8 @@ export class AnnonceDataService{
   }
 
 
-  createAnnonce(username, announce) {
-    return this.http.post<AnnounceModel>(SERVER + `users/${username}/annonce/`, announce);
+  createAnnounce(username, announce) {
+    return this.http.post<AnnounceModel>(SERVER + `users/${username}/announces`, announce);
   }
 
   showAnnonce(id) {
