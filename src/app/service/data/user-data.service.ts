@@ -6,6 +6,8 @@ const SERVER = 'http://localhost:8000/api/';
 export class LoginAccount {
 
   public id: string;
+  public token: string;
+  public role: string;
 
   constructor(
     public username: string,

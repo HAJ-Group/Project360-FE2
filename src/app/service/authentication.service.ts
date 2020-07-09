@@ -8,15 +8,17 @@ export class AuthenticationService {
 
   constructor(private router: Router) { }
 
-  public authenticate(username, token): void {
-    localStorage.setItem('token', 'Bearer ' + token);
+  public authenticate(username, user): void {
+    localStorage.setItem('token', 'Bearer ' + user.token);
     sessionStorage.setItem('user', username);
+    sessionStorage.setItem('role', user.role);
     this.router.navigate(['dashboard']);
   }
 
   public logout(): void {
     sessionStorage.removeItem('user');
     this.router.navigate(['']);
+    window.location.reload();
   }
 
   public isAuthenticated(): boolean {

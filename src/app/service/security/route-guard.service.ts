@@ -13,7 +13,7 @@ export class RouteGuardService implements CanActivate{
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.auth.isAuthenticated()) return true;
+    if (this.auth.isAuthenticated()) { return true; }
     this.router.navigate(['']);
     return false;
   }

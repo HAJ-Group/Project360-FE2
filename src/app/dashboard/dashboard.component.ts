@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   profilePicture: string;
   announces: [];
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService) {}
 
   ngOnInit(): void {
     console.log('loading dashboard');
