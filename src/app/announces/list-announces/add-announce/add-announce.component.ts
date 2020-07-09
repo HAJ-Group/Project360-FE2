@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CITIES} from '../../app.constants';
-import {AnnounceModel} from '../../model.ts/announce-model';
-import {AnnonceDataService} from '../../service/data/annonce-data.service';
+import {CITIES} from '../../../app.constants';
+import {AnnounceModel} from '../../../model.ts/announce-model';
+import {AnnonceDataService} from '../../../service/data/annonce-data.service';
 
 @Component({
   selector: 'app-add-announce',
