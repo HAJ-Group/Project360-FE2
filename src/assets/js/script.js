@@ -1,22 +1,26 @@
 function scrollnav() {
   const myNav = document.getElementById('nav');
-  if(window.innerWidth>700){
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+  let scrollPos = document.documentElement.scrollTop;
+  if(window.innerWidth>700) {
+    if(scrollPos >= 0 && scrollPos < 50) {
+      myNav.classList.add("navbar-transparent");
+      myNav.classList.add("text-white");
       myNav.classList.remove("opacity-4");
       myNav.classList.remove("opacity-3");
     }
-    else if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+    else if (scrollPos > 150 && scrollPos < 300) {
       myNav.classList.add("opacity-4");
-
+      myNav.classList.remove("navbar-transparent");
+      myNav.classList.remove("text-white");
     }
-    else  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      myNav.classList.add("bg-dark");
+    else if (scrollPos >= 300 && scrollPos < 600) {
+      myNav.classList.remove("opacity-4");
       myNav.classList.add("opacity-3");
     }
     else {
-      myNav.classList.remove("bg-dark");
-      myNav.classList.remove("opacity-4");
       myNav.classList.remove("opacity-3");
     }
+  } else {
+    myNav.style.backgroundImage = "url('../../assets/pictures/header/header.jpeg')";
   }
 }
