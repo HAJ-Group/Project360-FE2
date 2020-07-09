@@ -28,7 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    OktaAuthModule
+    OktaAuthModule,
   ],
   providers: [
     AnnonceDataService,

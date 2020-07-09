@@ -29,11 +29,6 @@ export class SubscribeAccount  {
 
 }
 
-
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })
