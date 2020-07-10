@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {AddAnnounceComponent} from './announces/add-announce/add-announce.component';
-import {EditAnnounceComponent} from './announces/edit-announce/edit-announce.component';
+import {AddAnnounceComponent} from './announces/list-announces/add-announce/add-announce.component';
+import {EditAnnounceComponent} from './announces/list-announces/edit-announce/edit-announce.component';
 import {ListAnnouncesComponent} from './announces/list-announces/list-announces.component';
 
 

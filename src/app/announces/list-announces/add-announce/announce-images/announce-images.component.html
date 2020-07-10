@@ -1,0 +1,44 @@
+<!--
+
+<div id="page">
+  <header>
+    <h1>Custom File Inputs For Images</h1>
+  </header>
+
+  &lt;!&ndash; Our File Inputs &ndash;&gt;
+  <div class="wrap-custom-file">
+    <input type="file" name="image1" id="image1" accept=".gif, .jpg, .png" />
+    <label  for="image1">
+      <span>Select Image One</span>
+      <i class="fa fa-plus-circle"></i>
+    </label>
+  </div>
+
+  &lt;!&ndash; End Page Wrap &ndash;&gt;
+</div>
+-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="form-group">
+          <label for="image">Image : </label>
+          <input
+            type="file"
+            class="form-control" id="image"
+            name="image"
+            (change)="onFileSelected($event)">
+          <input
+                 type="file"
+                 class="form-control" id="image2"
+                 name="image"
+                 (change)="onFileSelected($event)">
+          <button class="btn btn-outline-success" type="submit">Upload</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
