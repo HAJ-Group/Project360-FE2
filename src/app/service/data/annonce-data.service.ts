@@ -36,15 +36,36 @@ export class AnnonceDataService{
     return this.http.get<AnnounceModel[]>(SERVER + 'annonce/premium', {headers: this.headers});
   }
 
-
-  createAnnounce(username, announce) {
-    return this.http.post<AnnounceModel>(SERVER + `users/${username}/announces`, announce);
-  }
-
   showAnnonce(id) {
     return this.http.get<AnnounceModel>(SERVER + 'annonce/' + id);
 
   }
+
+  createAnnounce(username, announce, images) {
+    const formData = new FormData();
+    for (let i = 0; i < images.length; i ++){
+      formData.append('image' + ( i + 1), images[i], images[i].name);
+    }
+
+    // tslint:disable-next-line:forin
+    for (const field in announce){
+      formData.append('' + field, announce[field]);
+    }
+
+    return this.http.post(SERVER + `users/${username}/announces`,
+      formData
+      );
+  }
+
+
+  storeImage(images){
+    const fd = new FormData();
+    for (let i = 0; i < images.length; i ++){
+      fd.append('image' + ( i + 1), images[i], images[i].name);
+    }
+    return this.http.post(SERVER + 'users/jaouad/announces/storeImage', fd);
+  }
+
 
 }
 
