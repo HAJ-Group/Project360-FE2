@@ -30,6 +30,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     OktaAuthModule,
+    OktaAuthModule,
     FontAwesomeModule,
     NgxPaginationModule
   ],

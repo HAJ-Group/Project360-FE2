@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginAccount, SubscribeAccount, UserDataService} from '../service/data/user-data.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../service/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
   toggled = false;
 
   constructor(
+    private auth: AuthenticationService,
     private service: UserDataService,
     public router: Router
   ) { }
@@ -42,9 +44,9 @@ export class HeaderComponent implements OnInit {
     return null;
   }
   ngOnInit(): void {
-    if (sessionStorage.getItem('username') !== null) {
+    if (this.auth.isAuthenticated()) {
       document.getElementById('continue').classList.remove('d-none');
-      this.username = sessionStorage.getItem('username');
+      this.username = sessionStorage.getItem('user');
     } else {
       document.getElementById('continue').classList.add('d-none');
     }
@@ -56,9 +58,7 @@ export class HeaderComponent implements OnInit {
       success => {
         // success is the token
         console.log(success);
-        localStorage.setItem('token', 'Bearer ' + success);
-        sessionStorage.setItem('user', this.username);
-        this.router.navigate(['dashboard']);
+        this.auth.authenticate(this.username, success);
       },
       error => {
         console.log(error.error);
@@ -85,7 +85,7 @@ export class HeaderComponent implements OnInit {
     )).subscribe(
       success => {
         console.log(success);
-        sessionStorage.setItem('username', this.username);
+        sessionStorage.setItem('user', this.username);
         this.showConfirmationBlock();
       },
       error => {
@@ -102,12 +102,16 @@ export class HeaderComponent implements OnInit {
     );
   }
 
+  logout(): void {
+    this.auth.logout();
+  }
+
   sendConfirmation(): void {
     this.initErrors();
-    if (sessionStorage.getItem('username') !== null) {
-      console.log('sending confirmation to user ' + sessionStorage.getItem('username'));
-      console.log(sessionStorage.getItem('username'));
-      this.service.postConfirm(sessionStorage.getItem('username')).subscribe(
+    if (this.auth.isAuthenticated()) {
+      console.log('sending confirmation to user ' + sessionStorage.getItem('user'));
+      console.log(sessionStorage.getItem('user'));
+      this.service.postConfirm(sessionStorage.getItem('user')).subscribe(
         success => {
           console.log(success);
         },
@@ -123,15 +127,15 @@ export class HeaderComponent implements OnInit {
 
   confirm(): void {
     this.initErrors();
-    if (sessionStorage.getItem('username') !== null) {
-      console.log('confirming user ' + sessionStorage.getItem('username'));
-      this.service.getConfirm(sessionStorage.getItem('username'), this.code).subscribe(
+    if (this.auth.isAuthenticated()) {
+      console.log('confirming user ' + sessionStorage.getItem('user'));
+      this.service.getConfirm(sessionStorage.getItem('user'), this.code).subscribe(
         success => {
           console.log(success);
           // should route to complete subscription
         },
         error => {
-          console.log(error.error)
+          console.log(error.error);
           if (typeof error.error === 'object') {
             this.error = error.error.message;
           } else { this.error = error.error; }
@@ -140,12 +144,6 @@ export class HeaderComponent implements OnInit {
     } else {
       console.log('session values timed out');
     }
-  }
-
-  logout(): void {
-    console.log('logging off from user ' + sessionStorage.getItem('username'));
-    sessionStorage.removeItem('username');
-    this.router.navigate(['']);
   }
 
   toggle(): void {
