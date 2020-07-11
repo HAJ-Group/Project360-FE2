@@ -11,9 +11,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AnnonceDataService} from './service/data/annonce-data.service';
 import {AnnonceModel} from './model.ts/annonce-model';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 import {OktaAuthModule} from '@okta/okta-angular';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    OktaAuthModule
+    OktaAuthModule,
+    FontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [
     AnnonceDataService,

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AnnonceDataService} from '../service/data/annonce-data.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 import {AnnonceModel} from '../model.ts/annonce-model';
 
 @Component({
@@ -280,15 +281,17 @@ export class HomeComponent implements OnInit {
   getAnnonces() {
     this.annonceData.getAnnonces().subscribe(data => {
       this.annonces = data['1'];
-      // console.log(this.annonces);
     });
   }
 
   getPremiumAnnonces() {
     this.annonceData.getPremiumAnnonces().subscribe(data => {
       this.premiumAnnonces = data['1'];
-      // console.log(this.premiumAnnonces);
     });
+  }
+
+  selectChangeHandler(event){
+    console.log(event.target.value);
   }
 
 }
