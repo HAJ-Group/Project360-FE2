@@ -58,12 +58,18 @@ export class AnnonceDataService{
   }
 
 
+/*
   storeImage(images){
     const fd = new FormData();
     for (let i = 0; i < images.length; i ++){
       fd.append('image' + ( i + 1), images[i], images[i].name);
     }
     return this.http.post(SERVER + 'users/jaouad/announces/storeImage', fd);
+  }
+*/
+
+  getSpecificAnnounces($username){
+    return this.http.get(SERVER + `users/${$username}/announces`);
   }
 
 
