@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
  // LOGIN AND SUBSCRIBE -------------------------------------------------------------------------------------------------------------------
  subject: string;
  comment: string;
- email:string;
+ email: string;
  // GLOBAL ERROR HANDLER MESSAGE ----------------------------------------------------------------------------------------------------------
  error: string;
  // Others --------------------------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
 
  contactUs() {
   this.initErrors();
-  this.service.postContact(new Contactus(this.subject, this.comment,this.email)).subscribe(
+  this.service.postContact(new Contactus(this.subject, this.comment, this.email)).subscribe(
      success => {
        console.log(success);
        this.router.navigate(['']);
@@ -49,13 +49,13 @@ export class FooterComponent implements OnInit {
 
 
  initErrors(): void {
-  this.error = null;
-  const elements = document.getElementsByClassName('text-danger');
-  // @ts-ignore
-  for (const e of elements) {
-    e.innerHTML = null;
+    this.error = null;
+    const elements = document.getElementsByClassName('text-danger');
+    // @ts-ignore
+    for (const e of elements) {
+      e.innerHTML = null;
+    }
   }
-}
 }
 
 

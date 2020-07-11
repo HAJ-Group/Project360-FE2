@@ -22,13 +22,17 @@ export class AnnonceDataService {
 
   private async init() {
     this.headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.accessToken,
+      Authorization:  localStorage.getItem('token'),
       'Content-Type': 'application/x-www-form-urlencoded'
     });
   }
 
   getAnnonces(): Observable<AnnonceModel[]> {
     return this.http.get<AnnonceModel[]>(SERVER + '/', {headers: this.headers});
+  }
+
+  getUserAnnonces() {
+    return this.http.get<AnnonceModel[]>(SERVER + '/user', {headers: this.headers});
   }
 
 

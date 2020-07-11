@@ -13,6 +13,7 @@ export class AuthenticationService {
     sessionStorage.setItem('user', username);
     sessionStorage.setItem('role', user.role);
     this.router.navigate(['dashboard']);
+    window.location.reload();
   }
 
   public logout(): void {
