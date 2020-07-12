@@ -1,13 +1,34 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" *ngFor="let announce of myAnnounces">
       <div class="card">
-        <img class="card-img-top img-dim" src="../../assets/pictures/home/pic1.jfif" alt="Card image cap">
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+          <ul class="carousel-indicators">
+            <li *ngFor="let image of announce.images; let i = index" data-target="#demo" [attr.data-slide-to]="i" [class.active]="i==0" >
+            </li>
+          </ul>
+
+          <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let image of announce.images; let i = index" [class.active]="i==0">
+              <img src="{{imagesDirectoryPath}}{{'/' + announce.id + '/'}}{{image.name}}" alt="" width="200" height="200">
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+
+
         <div class="card-body">
-          <h5 class="card-title">title</h5>
-          <p class="card-text">sddsf</p>
-          <p class="card-text"><small class="text-muted">date : sdjkl</small></p>
+          <h5 class="card-title">{{announce.title}}</h5>
+          <p class="card-text">{{announce.description}}</p>
+          <p class="card-text"><small class="text-muted">date : {{ announce.created_at | date }}</small></p>
           <a href="#" class="btn btn-primary stretched-link">Voir plus</a>
         </div>
       </div>

@@ -69,7 +69,7 @@ export class AnnonceDataService{
 */
 
   getSpecificAnnounces($username){
-    return this.http.get(SERVER + `users/${$username}/announces`);
+    return this.http.get<AnnounceModel[]>(SERVER + `users/${$username}/announces`);
   }
 
 

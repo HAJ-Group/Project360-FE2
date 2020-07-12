@@ -18,6 +18,7 @@ import { AddAnnounceComponent } from './announces/list-announces/add-announce/ad
 import { EditAnnounceComponent } from './announces/list-announces/edit-announce/edit-announce.component';
 import { ListAnnouncesComponent } from './announces/list-announces/list-announces.component';
 import { AnnounceImagesComponent } from './announces/list-announces/add-announce/announce-images/announce-images.component';
+import { AnnounceDetailsComponent } from './announces/list-announces/announce-details/announce-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { AnnounceImagesComponent } from './announces/list-announces/add-announce
     AddAnnounceComponent,
     EditAnnounceComponent,
     ListAnnouncesComponent,
-    AnnounceImagesComponent
+    AnnounceImagesComponent,
+    AnnounceDetailsComponent
   ],
   imports: [
     BrowserModule,

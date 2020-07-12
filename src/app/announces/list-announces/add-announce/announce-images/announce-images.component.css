@@ -1,25 +1,32 @@
-/*
-!*********************************
+/**********************************
    CUSTOM INPUT FILES FOR IMAGES
- *********************************!
-!*** GENERAL STYLES ***!
+**********************************/
+
 * {
   box-sizing: border-box;
 }
 
 #page {
+  margin-bottom: 10px;
   text-align: center;
+  border: 1px solid darkblue;
+  border-radius: 5px;
 }
-#page h1 {
-  margin-bottom: 4rem;
-  font-family: 'Lemonada', cursive;
-  text-transform: uppercase;
-  font-weight: normal;
-  color: #fff;
-  font-size: 2rem;
+#page > header > *{
+  display: inline-block;
+}
+#page > header > i {
+  margin: 2rem;
+  cursor: pointer;
+
 }
 
-!*** CUSTOM FILE INPUT STYE ***!
+.fa-cog:hover {
+  color: crimson;
+}
+
+
+/**** CUSTOM FILE INPUT STYE ****/
 .wrap-custom-file {
   position: relative;
   display: inline-block;
@@ -59,7 +66,7 @@
   display: block;
   margin-top: 2rem;
   font-size: 1.4rem;
-  color: #777;
+  color: whitesmoke;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
@@ -79,7 +86,7 @@
   transform: translateY(-1rem);
 }
 .wrap-custom-file label:hover span, .wrap-custom-file label:hover .fa {
-  color: #333;
+  color: white;
 }
 .wrap-custom-file label.file-ok {
   background-size: cover;
@@ -98,4 +105,11 @@
 .wrap-custom-file label.file-ok .fa {
   display: none;
 }
-*/
+
+
+.image-label{
+  font-size: 18px;
+  font-weight: bold;
+  color: #5d5d5d;
+  padding-left: 5px ;
+}
