@@ -1,6 +1,9 @@
 // General API_URL
 export const SERVER = 'http://localhost:8000/api/';
+
+// Global URL to obtain the images from the server
 export const SERVER_IMAGES_PATH = 'http://localhost:8000/announces-images/';
+
 // Cities of morocco
 export const CITIES = [
   'Aklim',
