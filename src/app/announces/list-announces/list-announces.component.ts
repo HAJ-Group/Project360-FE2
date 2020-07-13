@@ -12,14 +12,14 @@ export class ListAnnouncesComponent implements OnInit {
 
   myAnnounces: any[];
 
-  imagesDirectoryPath: string;
+  imagesDirectoryPath = 'http://localhost:8000/announces-images/';
   constructor(
     private announceDataService: AnnonceDataService,
     private auth: AuthenticationService
   ) { }
 
   ngOnInit(): void {
-      this.imagesDirectoryPath = '/' + this.auth.getAuthenticatedUser() + '/';
+      this.imagesDirectoryPath += this.auth.getAuthenticatedUser() + '/';
       this.announceDataService.getSpecificAnnounces(this.auth.getAuthenticatedUser()).subscribe(
         success => {
           console.log(success);
