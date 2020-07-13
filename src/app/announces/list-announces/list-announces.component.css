@@ -1,0 +1,9 @@
+.card {
+  margin-bottom: 1rem; }
+
+.card-heading {
+  background-image: linear-gradient(#04519b, #044687 60%, #033769);
+  color: white;
+  padding: .75rem 1rem; }
+
+

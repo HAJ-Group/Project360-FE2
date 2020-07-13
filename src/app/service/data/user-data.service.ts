@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
-const SERVER = 'http://localhost:8000/api/';
+import {map} from 'rxjs/operators';
+import {SERVER} from '../../app.constants';
 
 export class LoginAccount {
 
@@ -56,6 +56,9 @@ export class UserDataService {
   getConfirm(username, code) {
     return this.http.get(SERVER + 'confirm/' + username + '/' + code);
   }
+
+
+
 
 }
 

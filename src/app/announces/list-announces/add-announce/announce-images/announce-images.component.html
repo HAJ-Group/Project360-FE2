@@ -1,0 +1,26 @@
+<label for="page" class="image-label">Choisir des images pour votre annonce : </label>
+<div id="page">
+  <header>
+    <i class="fa fa-plus-circle fa-3x" (click)="addImageInput();"></i>
+  </header>
+   <!--Our File Inputs -->
+  <div class="wrap-custom-file">
+    <input type="file" name="image1" id="image1"
+           accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />
+    <label  for="image1">
+      <span>Select Image One</span>
+      <i class="fa fa-plus-circle"></i>
+    </label>
+  </div>
+  <div class="wrap-custom-file">
+    <input type="file" name="image2" id="image2"
+           accept=".gif, .jpg, .png" (change)="onFileSelected($event)"/>
+    <label  for="image2">
+      <span>Select Image</span>
+      <i class="fa fa-plus-circle"></i>
+    </label>
+  </div>
+   <!--End Page Wrap -->
+</div>
+
+

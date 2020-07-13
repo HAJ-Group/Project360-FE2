@@ -1,55 +1,71 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {AnnonceModel} from '../../model.ts/annonce-model';
+import {AnnounceModel} from '../../model.ts/announce-model';
+import {SERVER} from '../../app.constants';
 
-const SERVER = 'http://localhost:8000/api/annonce';
 
 @Injectable()
-export class AnnonceDataService {
+export class AnnonceDataService{
 
-  private accessToken = 'ZmEde6zyCqqNHY2A4qwl6jpwTX2r79eTciAeOgcZ';
   private headers;
   private annonces: any[];
   private a: any;
 
   constructor(
     private http: HttpClient
-  ) {
-    this.init();
-  }
+  ) {}
 
 
-  private async init() {
-    this.headers = new HttpHeaders({
-      Authorization:  localStorage.getItem('token'),
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-  }
-
-  getAnnonces(): Observable<AnnonceModel[]> {
-    return this.http.get<AnnonceModel[]>(SERVER + '/', {headers: this.headers});
+  getAnnonces(): Observable<AnnounceModel[]> {
+    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/');
   }
 
   getUserAnnonces() {
-    return this.http.get<AnnonceModel[]>(SERVER + '/user', {headers: this.headers});
+    return this.http.get<AnnounceModel[]>(SERVER + '/user');
   }
 
 
-  getPremiumAnnonces(): Observable<AnnonceModel[]> {
-    return this.http.get<AnnonceModel[]>(SERVER + '/premium', {headers: this.headers});
-  }
-
-
-  createAnnonce(annonce) {
-    return this.http.post<AnnonceModel>(SERVER + '/', annonce);
-
+  getPremiumAnnonces(): Observable<AnnounceModel[]> {
+    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/premium');
   }
 
   showAnnonce(id) {
-    return this.http.get<AnnonceModel>(SERVER + '/' + id);
+    return this.http.get<AnnounceModel>(SERVER + 'annonce/' + id);
 
   }
+
+  createAnnounce(username, announce, images) {
+    const formData = new FormData();
+    for (let i = 0; i < images.length; i ++){
+      formData.append('image' + ( i + 1), images[i], images[i].name);
+    }
+
+    // tslint:disable-next-line:forin
+    for (const field in announce){
+      formData.append('' + field, announce[field]);
+    }
+
+    return this.http.post(SERVER + `users/${username}/announces`,
+      formData
+      );
+  }
+
+
+/*
+  storeImage(images){
+    const fd = new FormData();
+    for (let i = 0; i < images.length; i ++){
+      fd.append('image' + ( i + 1), images[i], images[i].name);
+    }
+    return this.http.post(SERVER + 'users/jaouad/announces/storeImage', fd);
+  }
+*/
+
+  getSpecificAnnounces($username){
+    return this.http.get<AnnounceModel[]>(SERVER + `users/${$username}/announces`);
+  }
+
 
 }
 
