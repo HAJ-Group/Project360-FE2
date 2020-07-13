@@ -22,20 +22,17 @@ export class DashboardComponent implements OnInit {
 
   username: string;
   profilePicture: string;
-  announces: AnnonceModel[];
 
   constructor(
     private auth: AuthenticationService,
     public router: Router,
     public contactService: ContactService,
-    public announceService: AnnonceDataService
   ) {}
 
   ngOnInit(): void {
     console.log('loading dashboard');
     this.username = sessionStorage.getItem('user');
     this.cleanView();
-    this.loadAnnounces();
   }
 
   logout(): void {
@@ -47,14 +44,6 @@ export class DashboardComponent implements OnInit {
     if (fm !== undefined && fm !== null) {
       fm.className = '';
     }
-  }
-
-  loadAnnounces(): void {
-    this.announceService.getUserAnnonces().subscribe(
-        success => {
-           this.announces = success;
-        }
-    );
   }
 
   contactUs() {
@@ -86,5 +75,10 @@ export class DashboardComponent implements OnInit {
     for (const e of elements) {
       e.innerHTML = null;
     }
+  }
+  profile(){
+    console.log('kjskljsdklj');
+    this.router.navigateByUrl('/dashboard/(dashboard-content:profile');
+    //this.router.navigate(['dashboard/profile']);
   }
 }

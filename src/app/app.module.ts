@@ -13,6 +13,8 @@ import {AnnonceModel} from './model.ts/annonce-model';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
 import {OktaAuthModule} from '@okta/okta-angular';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-home.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     HomeComponent,
     DashboardComponent,
+    DashboardHomeComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
