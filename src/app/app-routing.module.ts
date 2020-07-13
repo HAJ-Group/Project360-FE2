@@ -12,14 +12,19 @@ import {AnnounceDetailsComponent} from './announces/list-announces/announce-deta
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [ReverseRouteGuardService]},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [RouteGuardService]}
+  {path: 'dashboard', children: [
+      {path: '', component: DashboardComponent},
+      {path: 'profile', component: null},
+      {path: 'edit', component: null},
+      {path: 'form', component: null},
+  ], canActivate: [RouteGuardService]},
   {path: 'announces', children: [
       {path: '', component: ListAnnouncesComponent},
       {path: 'add-announce', component: AddAnnounceComponent},
       {path: 'edit-announce', component: EditAnnounceComponent},
       {path: ':id', component: AnnounceDetailsComponent},
       {path: ':id/edit-announce', component: EditAnnounceComponent}
-    ]},
+    ], canActivate: [RouteGuardService]},
 ];
 
 @NgModule({

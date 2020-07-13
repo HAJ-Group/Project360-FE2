@@ -3,7 +3,8 @@ import {AuthenticationService} from '../service/authentication.service';
 import {ContactService, Contactus} from '../service/contact.service';
 import {Router} from '@angular/router';
 import {AnnonceDataService} from '../service/data/annonce-data.service';
-import {AnnonceModel} from '../model.ts/annonce-model';
+import {AnnounceModel} from '../model.ts/announce-model';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   username: string;
   profilePicture: string;
-  announces: AnnonceModel[];
+  announces: AnnounceModel[];
 
   constructor(
     private auth: AuthenticationService,

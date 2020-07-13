@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {UserDataService} from '../data/user-data.service';
+import {AuthenticationService} from '../authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,12 @@ import {UserDataService} from '../data/user-data.service';
 export class HttpAuthenticationInterceptorService  implements HttpInterceptor{
 
   constructor(
-    private userDataService: UserDataService
+    private auth: AuthenticationService
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    const jwtAuthenticationHeader = this.userDataService.getAuthenticatedToken();
-    const username = this.userDataService.getAuthenticatedUser();
+    const jwtAuthenticationHeader = this.auth.getAuthenticatedToken();
+    const username = this.auth.getAuthenticatedUser();
 
     if (jwtAuthenticationHeader && username){
       request = request.clone(

@@ -8,36 +8,26 @@ import {SERVER} from '../../app.constants';
 @Injectable()
 export class AnnonceDataService{
 
-  private accessToken = 'ZmEde6zyCqqNHY2A4qwl6jpwTX2r79eTciAeOgcZ';
   private headers;
   private annonces: any[];
   private a: any;
 
   constructor(
     private http: HttpClient
-  ) {
-    this.init();
-  }
+  ) {}
 
-
-  private async init() {
-    this.headers = new HttpHeaders({
-      Authorization:  localStorage.getItem('token'),
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-  }
 
   getAnnonces(): Observable<AnnounceModel[]> {
-    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/', {headers: this.headers});
+    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/');
   }
 
   getUserAnnonces() {
-    return this.http.get<AnnonceModel[]>(SERVER + '/user', {headers: this.headers});
+    return this.http.get<AnnounceModel[]>(SERVER + '/user');
   }
 
 
   getPremiumAnnonces(): Observable<AnnounceModel[]> {
-    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/premium', {headers: this.headers});
+    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/premium');
   }
 
   showAnnonce(id) {
