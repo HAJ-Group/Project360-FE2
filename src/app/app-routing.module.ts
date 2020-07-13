@@ -15,10 +15,9 @@ import {AnnounceDetailsComponent} from './announces/list-announces/announce-deta
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'dashboard', component : DashboardComponent , children : [
-      {path: '', component: DashboardHomeComponent, outlet: 'dashboard-content'},
-      {path: 'profile', component: ProfileComponent, outlet: 'dashboard-content'},
+      {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
+      {path: 'profile', component: ProfileComponent, outlet: 'dashboard'},
     ], canActivate: [RouteGuardService]},
-
   {path: 'announces', children: [
       {path: '', component: ListAnnouncesComponent},
       {path: 'add-announce', component: AddAnnounceComponent},
@@ -26,6 +25,7 @@ const routes: Routes = [
       {path: ':id', component: AnnounceDetailsComponent},
       {path: ':id/edit-announce', component: EditAnnounceComponent}
     ], canActivate: [RouteGuardService]},
+  {path: '**', redirectTo: '/'}
 ];
 
 @NgModule({

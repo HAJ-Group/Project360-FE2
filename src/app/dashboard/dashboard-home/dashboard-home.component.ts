@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AnnonceDataService} from '../../service/data/annonce-data.service';
-import {AnnonceModel} from '../../model.ts/annonce-model';
+import {AnnounceModel} from '../../model.ts/announce-model';
+
 
 @Component({
   selector: 'app-dashboard-home',
@@ -8,9 +9,13 @@ import {AnnonceModel} from '../../model.ts/annonce-model';
   styleUrls: ['./dashboard-home.component.css']
 })
 export class DashboardHomeComponent implements OnInit {
-  announces: AnnonceModel[];
+
+  announcesCount = 0;
+  announces: AnnounceModel[];
+
   constructor( public announceService: AnnonceDataService) {
   }
+
   ngOnInit(): void {
     this.loadAnnounces();
   }
@@ -19,6 +24,7 @@ export class DashboardHomeComponent implements OnInit {
     this.announceService.getUserAnnonces().subscribe(
       success => {
         this.announces = success;
+        this.announcesCount = this.announces.length;
       }
     );
   }

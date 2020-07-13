@@ -4,7 +4,7 @@ import {ContactService, Contactus} from '../service/contact.service';
 import {Router} from '@angular/router';
 import {AnnonceDataService} from '../service/data/annonce-data.service';
 import {AnnounceModel} from '../model.ts/announce-model';
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +12,8 @@ import {AnnounceModel} from '../model.ts/announce-model';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  // SIDE MENU BAR -------------------------------------------------------------------------------------------------------------------------
+  currentNavItem = 4;
   // DUPLICATED FOOTER MANAGEMENT ----------------------------------------------------------------------------------------------------------
   subject: string;
   comment: string;
@@ -34,6 +36,7 @@ export class DashboardComponent implements OnInit {
     console.log('loading dashboard');
     this.username = sessionStorage.getItem('user');
     this.cleanView();
+    this.initNavs();
   }
 
   logout(): void {
@@ -68,6 +71,13 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  initNavs(): void {
+    const navs = $('.nav-item');
+    for (const nav of navs) {
+      nav.classList.remove('active');
+    }
+    navs[this.currentNavItem].classList.add('active');
+  }
 
   initErrors(): void {
     this.error = null;
@@ -77,9 +87,10 @@ export class DashboardComponent implements OnInit {
       e.innerHTML = null;
     }
   }
-  profile(){
-    console.log('kjskljsdklj');
-    this.router.navigateByUrl('/dashboard/(dashboard-content:profile');
-    //this.router.navigate(['dashboard/profile']);
+
+  setActiveNav(index): void {
+    this.currentNavItem = index;
+    this.initNavs();
   }
+
 }

@@ -22,7 +22,7 @@ export class AnnonceDataService{
   }
 
   getUserAnnonces() {
-    return this.http.get<AnnounceModel[]>(SERVER + '/user');
+    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/user');
   }
 
 

@@ -19,6 +19,7 @@ import { AnnounceImagesComponent } from './announces/list-announces/add-announce
 import { AnnounceDetailsComponent } from './announces/list-announces/announce-details/announce-details.component';
 import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-home.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     AnnounceDetailsComponent,
     DashboardHomeComponent,
     ProfileComponent,
+    DashboardHeaderComponent,
   ],
   imports: [
     BrowserModule,
