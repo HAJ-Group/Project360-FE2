@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {SERVER} from '../../app.constants';
 
-const SERVER = 'http://localhost:8000/api/';
+export const AUTHENTICATED_USER = 'AuthenticatedUser';
+export const TOKEN = 'token';
 
 export class LoginAccount {
 
@@ -42,7 +45,16 @@ export class UserDataService {
   ) { }
 
   postLogin(account) {
-    return this.http.post<LoginAccount>(SERVER + 'login', account);
+    return this.http.post<LoginAccount>(SERVER + 'login', account).pipe(
+      map(
+        data =>
+            {
+              sessionStorage.setItem(TOKEN, 'Bearer ' + data);
+              sessionStorage.setItem(AUTHENTICATED_USER, account.username);
+              return data;
+            }
+      )
+    );
   }
 
   postSubscribe(account) {
@@ -57,6 +69,23 @@ export class UserDataService {
     return this.http.get(SERVER + 'confirm/' + username + '/' + code);
   }
 
+
+  getAuthenticatedUser() {
+    return sessionStorage.getItem(AUTHENTICATED_USER);
+  }
+
+
+  getAuthenticatedToken() {
+    if (this.getAuthenticatedUser()) {
+      return sessionStorage.getItem(TOKEN);
+    }
+  }
+
+
+  isUserloggedIn() {
+    const user = sessionStorage.getItem(AUTHENTICATED_USER);
+    return !(user === null);
+  }
 }
 
 

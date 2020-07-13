@@ -34,11 +34,12 @@ export class FooterComponent implements OnInit {
        this.router.navigate(['']);
      },
      error => {
+      console.log(error);
       if (typeof error.error === 'object') {
-        // tslint:disable-next-line:forin
-        for (const e in error.error) {
-          document.getElementById('contact-' + e + '-error').innerHTML = error.error[e][0];
-        }
+          // tslint:disable-next-line:forin
+          for (const e in error.error) {
+            document.getElementById('contact-' + e + '-error').innerHTML = error.error[e][0];
+          }
       } else {
         this.error = error.error;
       }

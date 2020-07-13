@@ -6,13 +6,20 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import {HttpClientModule, HttpHeaders} from '@angular/common/http';
+import { ServicesService } from './footer/services.service';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AnnonceDataService} from './service/data/annonce-data.service';
-import {AnnonceModel} from './model.ts/annonce-model';
+import {AnnounceModel} from './model.ts/announce-model';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
 import {OktaAuthModule} from '@okta/okta-angular';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {HttpAuthenticationInterceptorService} from './service/http/http-authentication-interceptor.service';
+import { AddAnnounceComponent } from './announces/list-announces/add-announce/add-announce.component';
+import { EditAnnounceComponent } from './announces/list-announces/edit-announce/edit-announce.component';
+import { ListAnnouncesComponent } from './announces/list-announces/list-announces.component';
+import { AnnounceImagesComponent } from './announces/list-announces/add-announce/announce-images/announce-images.component';
+import { AnnounceDetailsComponent } from './announces/list-announces/announce-details/announce-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +28,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     HomeComponent,
     DashboardComponent,
+    AddAnnounceComponent,
+    EditAnnounceComponent,
+    ListAnnouncesComponent,
+    AnnounceImagesComponent,
+    AnnounceDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +44,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   providers: [
     AnnonceDataService,
-    AnnoncerDataService
+    AnnoncerDataService,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HttpAuthenticationInterceptorService, multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
