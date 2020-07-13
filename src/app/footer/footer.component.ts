@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
  // LOGIN AND SUBSCRIBE -------------------------------------------------------------------------------------------------------------------
  subject: string;
  comment: string;
- email:string;
+ email: string;
  // GLOBAL ERROR HANDLER MESSAGE ----------------------------------------------------------------------------------------------------------
  error: string;
  // Others --------------------------------------------------------------------------------------------------------------------------------
@@ -28,17 +28,18 @@ export class FooterComponent implements OnInit {
 
  contactUs() {
   this.initErrors();
-  this.service.postContact(new Contactus(this.subject, this.comment,this.email)).subscribe(
+  this.service.postContact(new Contactus(this.subject, this.comment, this.email)).subscribe(
      success => {
        console.log(success);
        this.router.navigate(['']);
      },
      error => {
+      console.log(error);
       if (typeof error.error === 'object') {
-        // tslint:disable-next-line:forin
-        for (const e in error.error) {
-          document.getElementById('contact-' + e + '-error').innerHTML = error.error[e][0];
-        }
+          // tslint:disable-next-line:forin
+          for (const e in error.error) {
+            document.getElementById('contact-' + e + '-error').innerHTML = error.error[e][0];
+          }
       } else {
         this.error = error.error;
       }
@@ -49,13 +50,13 @@ export class FooterComponent implements OnInit {
 
 
  initErrors(): void {
-  this.error = null;
-  const elements = document.getElementsByClassName('text-danger');
-  // @ts-ignore
-  for (const e of elements) {
-    e.innerHTML = null;
+    this.error = null;
+    const elements = document.getElementsByClassName('text-danger');
+    // @ts-ignore
+    for (const e of elements) {
+      e.innerHTML = null;
+    }
   }
-}
 }
 
 

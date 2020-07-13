@@ -3,13 +3,36 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {RouteGuardService} from './service/security/route-guard.service';
+import {ReverseRouteGuardService} from './service/security/reverse-route-guard.service';
+import {DashboardHomeComponent} from './dashboard/dashboard-home/dashboard-home.component';
+import {ProfileComponent} from './dashboard/profile/profile.component';
+import {AddAnnounceComponent} from './announces/list-announces/add-announce/add-announce.component';
+import {EditAnnounceComponent} from './announces/list-announces/edit-announce/edit-announce.component';
+import {ListAnnouncesComponent} from './announces/list-announces/list-announces.component';
+import {AnnounceDetailsComponent} from './announces/list-announces/announce-details/announce-details.component';
 import {AnnoncesComponent} from './annonces/annonces.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [RouteGuardService]},
+  {path: '', component: HomeComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'annonces', component: AnnoncesComponent},
+  {path: 'dashboard', component : DashboardComponent , children : [
+      {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
+      {path: 'profile', component: ProfileComponent, outlet: 'dashboard'},
+      {path: 'announces', component: ListAnnouncesComponent, outlet: 'dashboard'},
+      {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
+      {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
+      {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
+      {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
+    ], canActivate: [RouteGuardService]},
+  /*{path: 'announces', children: [
+      {path: '', component: ListAnnouncesComponent, outlet: 'dashboard'},
+      {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
+      {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
+      {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
+      {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
+    ], canActivate: [RouteGuardService]},*/
+  {path: '**', redirectTo: '/'},
 ];
 
 @NgModule({
