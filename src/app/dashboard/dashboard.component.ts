@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 })
 export class DashboardComponent implements OnInit {
   // SIDE MENU BAR -------------------------------------------------------------------------------------------------------------------------
-  currentNavItem = 4;
+  currentNavItem = 2;
   // DUPLICATED FOOTER MANAGEMENT ----------------------------------------------------------------------------------------------------------
   subject: string;
   comment: string;

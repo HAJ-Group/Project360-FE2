@@ -17,14 +17,19 @@ const routes: Routes = [
   {path: 'dashboard', component : DashboardComponent , children : [
       {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
       {path: 'profile', component: ProfileComponent, outlet: 'dashboard'},
+      {path: 'announces', component: ListAnnouncesComponent, outlet: 'dashboard'},
+      {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
+      {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
+      {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
+      {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
     ], canActivate: [RouteGuardService]},
-  {path: 'announces', children: [
-      {path: '', component: ListAnnouncesComponent},
-      {path: 'add-announce', component: AddAnnounceComponent},
-      {path: 'edit-announce', component: EditAnnounceComponent},
-      {path: ':id', component: AnnounceDetailsComponent},
-      {path: ':id/edit-announce', component: EditAnnounceComponent}
-    ], canActivate: [RouteGuardService]},
+  /*{path: 'announces', children: [
+      {path: '', component: ListAnnouncesComponent, outlet: 'dashboard'},
+      {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
+      {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
+      {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
+      {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
+    ], canActivate: [RouteGuardService]},*/
   {path: '**', redirectTo: '/'}
 ];
 
