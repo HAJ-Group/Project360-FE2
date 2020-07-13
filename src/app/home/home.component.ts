@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {AnnonceDataService} from '../service/data/annonce-data.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AnnonceModel} from '../model.ts/annonce-model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -269,8 +270,9 @@ export class HomeComponent implements OnInit {
   annonces: AnnonceModel[];
   premiumAnnonces: AnnonceModel[];
   errorMessage: string;
+  keyword:string;
 
-  constructor(private annonceData: AnnonceDataService) {
+  constructor(private annonceData: AnnonceDataService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -290,8 +292,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  selectChangeHandler(status, event){
+  selectChangeHandler(status, event) {
     console.log(event.target.value);
   }
 
+  getSearchKey() {
+    let key = 'keey';
+    this.router.navigate(['/annonces'], {state: {keyword: this.keyword}});
+  }
 }

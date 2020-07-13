@@ -7,50 +7,14 @@
   <div class=" div_search container marg-bottom">
     <div class="search form-inline">
       <div class="col-xl-4">
-        <div>
-          <select name="typeImmo" class="form-control select-search " id="immo-select"
-                  (change)="selectChangeHandler('status',$event)">
-            <option value="location">location</option>
-            <option value="vente">vente</option>
-          </select>
-        </div>
-        <div>
-          <select name="typeImmo" class="form-control select-search" id="select">
-            <option value="Maison">Maison</option>
-            <option value="Appartement">Appartement</option>
-            <option value="Terrain">Terrain</option>
-            <option value="Café">Café</option>
-            <option value="Garage">Garage</option>
-            <option value="Usine">Usine</option>
-            <option value="Immeuble">Immeuble</option>
-            <option value="Maison de village">Maison de village</option>
-          </select>
-        </div>
-        <div>
-          <select name="Location" class="form-control select-search" id="location">
-            <option value="">localisation</option>
-            <option *ngFor="let city of cities" [value]="city">
-              {{city}}
-            </option>
-          </select>
-        </div>
+        <input [(ngModel)]="keyword" type="text" class="form-control" id="key" placeholder="search" >
       </div>
 
-      <div class="col-xl-4">
-        <div>
-          <input type="text" class="form-control" id="surface" placeholder="Surface min(m²)" name="Surface">
-        </div>
-        <div>
-          <input type="text" class="form-control" id="budger" placeholder="budger maxi" name="budger">
-        </div>
-        <div>
-          <input type="text" class="form-control" id="piece" placeholder="nb.piéce min" name="piece">
-        </div>
-      </div>
+
       <div class="col-xl-4">
 
         <div>
-          <a href="#" class="btn btn-primary stretched-link btn-search">Search</a>
+          <button class="btn btn-primary stretched-link btn-search" (click)="getSearchKey()">Search</button>
         </div>
 
       </div>
