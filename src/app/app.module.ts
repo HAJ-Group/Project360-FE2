@@ -15,6 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {OktaAuthModule} from '@okta/okta-angular';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AnnoncesComponent } from './annonces/annonces.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     HomeComponent,
     DashboardComponent,
+    AnnoncesComponent,
   ],
   imports: [
     BrowserModule,

@@ -290,7 +290,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  selectChangeHandler(event){
+  selectChangeHandler(status, event){
     console.log(event.target.value);
   }
 
