@@ -1,0 +1,88 @@
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+<div class="row mt-5 mb-5 ml-4 mr-4">
+  <div class="col-md-3">
+    <div class="filter_type">
+      <h6><i class="icon-search"></i> Keyword</h6>
+      <input [(ngModel)]="filters.keyword" (keyup)="getAnnoncesByFilters()" name="status" type="text"
+             class="form form-control"
+             placeholder="Enter your Keyword..."
+      />
+    </div>
+    <div class="filter_type">
+      <h6><i class="icon-list"></i>Status</h6>
+      <select [(ngModel)]="filters.status" (change)="getAnnoncesByFilters()" class="form-control">
+        <option value="" selected>tout</option>
+        <option value="Location">Location</option>
+        <option value="Vente">Vente</option>
+      </select>
+
+    </div>
+    <div class="filter_type">
+      <h6><i class="icon-graduation-cap"></i>Categorie</h6>
+      <select [(ngModel)]="filters.category" (change)="getAnnoncesByFilters()"
+              class="form-control">
+        <option value="">Tout les catégories</option>
+        <option value="Maison">Maison</option>
+        <option value="Appartement">Appartement</option>
+        <option value="Terrain">Terrain</option>
+        <option value="Café">Café</option>
+        <option value="Garage">Garage</option>
+        <option value="Usine">Usine</option>
+        <option value="Immeuble">Immeuble</option>
+        <option value="Maison de village">Maison de village</option>
+      </select>
+    </div>
+    <div class="filter_type">
+      <h6><i class="icon-graduation-cap"></i>Ville</h6>
+      <select [(ngModel)]="filters.city" (change)="getAnnoncesByFilters()"
+              class="form-control">
+        <option value="">Toutes les villes</option>
+        <option *ngFor="let city of cities" [value]="city">
+          {{city}}
+        </option>
+      </select>
+    </div>
+    <div class="filter_type">
+      <h6><i class="icon-graduation-cap"></i>Surface (m2)</h6>
+      <input class="form-control" type="text" name="" [(ngModel)]="filters.surface" (change)="getAnnoncesByFilters()">
+    </div>
+    <div class="filter_type row">
+      <div class="col-md-6">
+        <h6><i class="icon-graduation-cap"></i>Budget min</h6>
+        <input class="form-control" min="1" type="number" name="" [(ngModel)]="filters.budget_min"
+               (change)="getAnnoncesByFilters()">
+      </div>
+      <div class="col-md-6">
+        <h6><i class="icon-graduation-cap"></i>Budget max</h6>
+        <input class="form-control" min="1" type="number" name="" [(ngModel)]="filters.budget_max"
+               (change)="getAnnoncesByFilters()">
+      </div>
+    </div>
+    <div class="filter_type">
+      <h6><i class="icon-graduation-cap"></i>Nbr Pieces</h6>
+      <input class="form-control" type="number" min="1" name="" [(ngModel)]="filters.pieces"
+             (change)="getAnnoncesByFilters()">
+    </div>
+  </div>
+  <div class="col-md-9">
+    <!--    <div id="gridCards" class="mt-5 mb-5 ml-4 mr-4">-->
+    <div class="row">
+      <div class="col-md-4 mb-4 h-200" *ngFor="let a of annonces">
+        <div class="card">
+          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic1.jfif" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{a.title}}</h5>
+            <p class="card-text">{{a.description}}</p>
+            <p class="card-text"><small class="text-muted">date : {{a.created_at.split(' ')[0]}}</small></p>
+            <a href="#" class="btn btn-primary stretched-link">Voir plus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    </div>-->
+  </div>
+
+</div>
+<!-- HOME FOOTER-->
+<app-footer></app-footer>

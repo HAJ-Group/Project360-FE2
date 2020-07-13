@@ -131,7 +131,7 @@ export class AnnonceDataService {
 
     'Kassita',
     'Kattara',
-    'Kénitra ( Port-Lyautey)',
+    'Kénitra',
     'Kehf Nsour',
     'Khémisset',
     'Khemis Sahel',
