@@ -132,6 +132,7 @@ export class HeaderComponent implements OnInit {
       this.service.getConfirm(sessionStorage.getItem('user'), this.code).subscribe(
         success => {
           console.log(success);
+          this.login();
           // should route to complete subscription
         },
         error => {
