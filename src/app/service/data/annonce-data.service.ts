@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AnnounceModel} from '../../model.ts/announce-model';
 
+
 const SERVER = 'http://localhost:8000/api/annonces';
 
 @Injectable()
@@ -18,20 +19,20 @@ export class AnnonceDataService{
 
 
   getAnnonces(): Observable<AnnounceModel[]> {
-    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/');
+    return this.http.get<AnnounceModel[]>(SERVER + '/');
   }
 
   getUserAnnonces() {
-    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/user');
+    return this.http.get<AnnounceModel[]>(SERVER + '/user');
   }
 
 
   getPremiumAnnonces(): Observable<AnnounceModel[]> {
-    return this.http.get<AnnounceModel[]>(SERVER + 'annonce/premium');
+    return this.http.get<AnnounceModel[]>(SERVER + '/premium');
   }
 
   showAnnonce(id) {
-    return this.http.get<AnnounceModel>(SERVER + 'annonce/' + id);
+    return this.http.get<AnnounceModel>(SERVER + '/' + id);
   }
 
   createAnnounce(username, announce, images) {
@@ -44,29 +45,16 @@ export class AnnonceDataService{
       formData.append('' + field, announce[field]);
     }
 
-    return this.http.post(SERVER + `users/${username}/announces`,
-      formData
-      );
+    return this.http.post(`http://localhost:8000/api/users/${username}/announces`, formData);
   }
-
-
-/*
-  storeImage(images){
-    const fd = new FormData();
-    for (let i = 0; i < images.length; i ++){
-      fd.append('image' + ( i + 1), images[i], images[i].name);
-    }
-    return this.http.post(SERVER + 'users/jaouad/announces/storeImage', fd);
-  }
-*/
 
   getSpecificAnnounces($username){
-    return this.http.get<AnnounceModel[]>(SERVER + `users/${$username}/announces`);
+    return this.http.get<AnnounceModel[]>(`http://localhost:8000/api/users/${$username}/announces`);
   }
 
 
   getAnnoncesByFilters(filters) {
-    return this.http.post<AnnonceModel>(SERVER + '/byFilters/', filters);
+    return this.http.post<AnnounceModel>(SERVER + '/byFilters/', filters);
   }
 }
 

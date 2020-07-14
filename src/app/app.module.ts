@@ -5,9 +5,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import {HTTP_INTERCEPTORS, HttpClientModule, HttpHeaders} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AnnonceDataService} from './service/data/annonce-data.service';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {OktaAuthModule} from '@okta/okta-angular';
@@ -22,6 +21,7 @@ import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-hom
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
+import {AnnonceDataService} from './service/data/annonce-data.service';
 
 @NgModule({
   declarations: [
@@ -50,6 +50,7 @@ import { AnnoncesComponent } from './annonces/annonces.component';
     NgxPaginationModule
   ],
   providers: [
+    AnnonceDataService,
     AnnoncerDataService,
     {
       provide: HTTP_INTERCEPTORS, useClass: HttpAuthenticationInterceptorService, multi: true

@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+footer {
+  border-top: #8e24aa solid 2px;
+  z-index: 2000;
+}
+
 .wrapper-box {
     box-sizing: border-box;
     margin-top: 5%;

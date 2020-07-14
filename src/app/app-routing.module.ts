@@ -25,13 +25,6 @@ const routes: Routes = [
       {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
       {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
     ], canActivate: [RouteGuardService]},
-  /*{path: 'announces', children: [
-      {path: '', component: ListAnnouncesComponent, outlet: 'dashboard'},
-      {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
-      {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
-      {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
-      {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
-    ], canActivate: [RouteGuardService]},*/
   {path: '**', redirectTo: '/'},
 ];
 
