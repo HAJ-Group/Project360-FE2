@@ -1,4 +1,10 @@
+@import "assets/dashboard/css/material-dashboard.minf066.css";
 /* You can add global styles to this file, and also import other style files */
+
+.off-canvas-sidebar .navbar-collapse:after {
+  background-color: white;
+
+}
 
 /* OPACITY -----------------------------------------------------------------------------------------------------------*/
 .opacity-0 {

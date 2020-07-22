@@ -3,6 +3,7 @@ import {CITIES} from '../../../app.constants';
 import {AnnounceModel} from '../../../model.ts/announce-model';
 import {AnnonceDataService} from '../../../service/data/annonce-data.service';
 import {AnnounceImagesComponent} from './announce-images/announce-images.component';
+import {AuthenticationService} from '../../../service/authentication.service';
 
 @Component({
   selector: 'app-add-announce',
@@ -18,7 +19,8 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
   @ViewChild(AnnounceImagesComponent) child;
 
   constructor(
-    private announceDataService: AnnonceDataService
+    private announceDataService: AnnonceDataService,
+    public auth: AuthenticationService
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
   addAnnounce() {
 
     this.initErrors();
-    this.announceDataService.createAnnounce('jaouad', this.announce, this.selectedFiles).subscribe(
+    this.announceDataService.createAnnounce(this.auth.getAuthenticatedUser(), this.announce, this.selectedFiles).subscribe(
       success => {
         console.log(success);
       },

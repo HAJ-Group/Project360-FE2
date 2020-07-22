@@ -3,12 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {SERVER} from '../../app.constants';
 
-export const AUTHENTICATED_USER = 'AuthenticatedUser';
-export const TOKEN = 'token';
-
 export class LoginAccount {
 
   public id: string;
+  public token: string;
+  public role: string;
 
   constructor(
     public username: string,
@@ -32,11 +31,6 @@ export class SubscribeAccount  {
 
 }
 
-
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -48,16 +42,7 @@ export class UserDataService {
   ) { }
 
   postLogin(account) {
-    return this.http.post<LoginAccount>(SERVER + 'login', account).pipe(
-      map(
-        data =>
-            {
-              sessionStorage.setItem(TOKEN, 'Bearer ' + data);
-              sessionStorage.setItem(AUTHENTICATED_USER, account.username);
-              return data;
-            }
-      )
-    );
+    return this.http.post<LoginAccount>(SERVER + 'login', account);
   }
 
   postSubscribe(account) {
@@ -73,22 +58,8 @@ export class UserDataService {
   }
 
 
-  getAuthenticatedUser() {
-    return sessionStorage.getItem(AUTHENTICATED_USER);
-  }
 
 
-  getAuthenticatedToken() {
-    if (this.getAuthenticatedUser()) {
-      return sessionStorage.getItem(TOKEN);
-    }
-  }
-
-
-  isUserloggedIn() {
-    const user = sessionStorage.getItem(AUTHENTICATED_USER);
-    return !(user === null);
-  }
 }
 
 

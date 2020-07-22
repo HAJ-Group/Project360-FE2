@@ -1,73 +1,79 @@
 <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+<!-- HOME HEADER -->
+<app-header></app-header>
+<!--CONTENT-->
 <div id="home" class="mt-4 mb-5">
-
- <!-- <div class="logo-w3ls">
-    <h1>Snack Bar</h1>
-  </div>
-  <div class="bnr-sub-text" >
-    <p>Feel the taste of mexico</p>
-  </div>-->
-
-
-  <div class=" div_search container marg-bottom d-none">
+  <!--<div class=" div_search container marg-bottom">
     <div class="search form-inline">
-        <div class="col-xl-4">
-          <div >
-            <select name="typeImmo"  class="form-control select-search "id="immo-select">
-              <option value="Maison">location</option>
-              <option value="Appartement" >vente</option>
-
-            </select>
-            <!-- <button type="submit" class="btn btn-info">Search</button>-->
-          </div>
-          <div>
-              <select name="typeImmo"  class="form-control select-search"id="immo-select">
-                  <option value="Maison">Maison</option>
-                  <option value="Appartement">Appartement</option>
-                  <option value="Terrain">Terrain</option>
-                  <option  value="Café">Café</option>
-                  <option  value="Garage">Garage</option>
-                  <option  value="Usine">Usine</option>
-                  <option value="Immeuble">Immeuble</option>
-                  <option value="Maison de village">Maison de village</option>
-              </select>
-          </div>
-          <div>
-            <select name="Location"   class="form-control select-search"id="location" >
-              <option value="">localisation</option>
-              <option *ngFor="let city of cities" [value]="city">
-                {{city}}
-              </option>
-            </select>
-          </div>
+      <div class="col-xl-4">
+        <input [(ngModel)]="keyword" type="text" class="form-control" id="key" placeholder="search" >
+      </div>
+      <div class="col-xl-4">
+        <div>
+          <button class="btn btn-primary stretched-link btn-search" (click)="getSearchKey()">Search</button>
         </div>
 
-        <div class="col-xl-4">
-          <div>
-             <input type="text" class="form-control" id="surface" placeholder="Surface min(m²)" name="Surface">
+      </div>
+    </div>
+  </div>-->
+  <form class="container d-flex flex-column justify-content-center bg-white rounded p-5">
+    <h1 class="title text-primary text-center">Search Announces</h1>
+    <div class="form-row d-flex justify-content-center mb-5">
+      <input [(ngModel)]="keyword" id="key" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+             aria-label="Search">
+    </div>
+    <div class="form-row d-flex justify-content-center">
+      <button class="btn btn-primary stretched-link btn-search" (click)="getSearchKey()">Search</button>
+    </div>
+  </form>
+  <br><br><hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let a of annonces">
+        <div class="card card-product">
+          <div class="card-header card-header-image" data-header-animation="true">
+            <a href="#pablo">
+              <img class="img" src="assets/dashboard/img/card-2.jpg">
+            </a>
           </div>
-          <div>
-              <input type="text" class="form-control" id="budger" placeholder="budger maxi" name="budger">
+          <div class="card-body">
+            <div class="card-actions text-center">
+              <button type="button" class="btn btn-danger btn-link fix-broken-card">
+                <i class="material-icons">build</i> Fix Header!
+              </button>
+              <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="View">
+                <i class="material-icons">art_track</i>
+              </button>
+              <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Edit">
+                <i class="material-icons">edit</i>
+              </button>
+              <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
+                <i class="material-icons">close</i>
+              </button>
+            </div>
+            <h4 class="card-title">
+              <a href="#pablo">{{a.title}}</a>
+            </h4>
+            <div class="card-description">
+              {{a.description}}
+            </div>
           </div>
-          <div>
-            <input type="text" class="form-control" id="piece" placeholder="nb.piéce min" name="piece">
+          <div class="card-footer">
+            <div class="price">
+              <h4>{{a.price}}</h4>
+            </div>
+            <div class="stats">
+              <p class="card-category"><i class="material-icons">place</i>{{a.city}}</p>
+            </div>
           </div>
         </div>
-        <div class="col-xl-4">
-
-          <div>
-            <a href="#" class="btn btn-primary stretched-link btn-search">Search</a>
-          </div>
-
-        </div>
-
-
-
+      </div>
     </div>
   </div>
 
-  <div class="ml-4 mr-4">
+
+  <!--<div class="ml-4 mr-4">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -75,7 +81,7 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active mr-3" *ngFor="let a of premiumAnnonces | slice:0:1;" >
+        <div class="carousel-item active mr-3" *ngFor="let a of premiumAnnonces | slice:0:1;">
           <div class="row">
             <div class="col-xl-6" *ngFor="let i of a">
               <div class="card bg-dark text-white text-center">
@@ -89,7 +95,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item mr-3" *ngFor="let a of premiumAnnonces | slice:1;" >
+        &lt;!&ndash;<div class="carousel-item mr-3" *ngFor="let a of annonces | slice:1;">
           <div class="row">
             <div class="col-xl-6" *ngFor="let i of a">
               <div class="card bg-dark text-white text-center">
@@ -102,7 +108,8 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>&ndash;&gt;
+
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -113,111 +120,18 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  </div>
-  <div id="gridCards" class="mt-5 mb-5 ml-4 mr-4" >
-    <div class="row row-cols-1 row-cols-md-3" >
-      <div class="col mb-4 h-200" *ngFor="let a of annonces">
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic1.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{a.title}}</h5>
-            <p class="card-text">{{a.description}}</p>
-            <p class="card-text"><small class="text-muted">date : {{a.created_at.split(' ')[0]}}</small></p>
-            <a href="#" class="btn btn-primary stretched-link">Voir plus</a>
-          </div>
-        </div>
-      </div>
-      <!--<div class="col mb-4 h-200" >
-
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Annonce title</h5>
-            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
-            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic1.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Annonce title</h5>
-            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse, </p>
-            <p class="card-text"><small class="text-muted">date :03/07/2019</small></p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic4.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Annonce title</h5>
-            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse, </p>
-            <p class="card-text"><small class="text-muted">date : 12/02/2020</small></p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Annonce title</h5>
-            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
-            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Annonce title</h5>
-            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
-            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Annonce title</h5>
-            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
-            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4 h-200">
-        <div class="card">
-          <img class="card-img-top img-dim" src="../../assets/pictures/home/pic2.jfif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Annonce title</h5>
-            <p class="card-text">Située à VILLENEUVE DE MARSAN, au calme, tout en étant proche des commodités, superbe maison landaise de 133 m² habitables en bord de forêt. Elle est composée, au rez-de-chaussée, d'une entrée lumineuse,  </p>
-            <p class="card-text"><small class="text-muted">date :15/04/2020</small></p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
-          </div>
-        </div>
-      </div>-->
-    </div>
-
-  </div>
+  </div>-->
 
 
-    <ul class="pagination centrer">
-      <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item "><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-  </div>
+
+  <ul class="pagination centrer">
+    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item "><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</div>
 <hr>
 <hr>
 <div class="centrer">
@@ -226,22 +140,24 @@
 </div>
 <hr>
 <div class="container-fluid">
- <div class="row marg">
-   <div class="col">
-     <img src="../../assets/pictures/home/partenaire/addoha.jpg"  class="img-partenaire" alt="">
-   </div>
-   <div class="col">
-     <img src="../../assets/pictures/home/partenaire/alomran.png"  class="img-partenaire"alt="">
-   </div>
-   <div class="col">
-     <img src="../../assets/pictures/home/partenaire/addoha.jpg"  class="img-partenaire" alt="">
-   </div>
-   <div class="col">
-     <img src="../../assets/pictures/home/partenaire/alomran.png"  class="img-partenaire"alt="">
-   </div>
-   <div class="col">
-     <img src="../../assets/pictures/home/partenaire/alomran.png"  class="img-partenaire"alt="">
-   </div>
+  <div class="row marg">
+    <div class="col">
+      <img src="../../assets/pictures/home/partenaire/addoha.jpg" class="img-partenaire" alt="">
+    </div>
+    <div class="col">
+      <img src="../../assets/pictures/home/partenaire/alomran.png" class="img-partenaire" alt="">
+    </div>
+    <div class="col">
+      <img src="../../assets/pictures/home/partenaire/addoha.jpg" class="img-partenaire" alt="">
+    </div>
+    <div class="col">
+      <img src="../../assets/pictures/home/partenaire/alomran.png" class="img-partenaire" alt="">
+    </div>
+    <div class="col">
+      <img src="../../assets/pictures/home/partenaire/alomran.png" class="img-partenaire" alt="">
+    </div>
 
+  </div>
 </div>
-</div>
+<!-- HOME FOOTER-->
+<app-footer></app-footer>

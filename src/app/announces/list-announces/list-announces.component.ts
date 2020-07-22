@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AnnonceDataService} from '../../service/data/annonce-data.service';
 import {SERVER_IMAGES_PATH} from '../../app.constants';
+import {AuthenticationService} from '../../service/authentication.service';
 
 @Component({
   selector: 'app-list-announces',
@@ -10,14 +11,16 @@ import {SERVER_IMAGES_PATH} from '../../app.constants';
 export class ListAnnouncesComponent implements OnInit {
 
   myAnnounces: any[];
-  // 'jaouad' should be the current username
-  imagesDirectoryPath: any = SERVER_IMAGES_PATH + '/jaouad/';
+
+  imagesDirectoryPath = 'http://localhost:8000/announces-images/';
   constructor(
-    private announceDataService: AnnonceDataService
+    private announceDataService: AnnonceDataService,
+    private auth: AuthenticationService
   ) { }
 
   ngOnInit(): void {
-      this.announceDataService.getSpecificAnnounces('jaouad').subscribe(
+      this.imagesDirectoryPath += this.auth.getAuthenticatedUser() + '/';
+      this.announceDataService.getSpecificAnnounces(this.auth.getAuthenticatedUser()).subscribe(
         success => {
           console.log(success);
           this.myAnnounces = success;

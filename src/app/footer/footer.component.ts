@@ -50,13 +50,13 @@ export class FooterComponent implements OnInit {
 
 
  initErrors(): void {
-  this.error = null;
-  const elements = document.getElementsByClassName('text-danger');
-  // @ts-ignore
-  for (const e of elements) {
-    e.innerHTML = null;
+    this.error = null;
+    const elements = document.getElementsByClassName('text-danger');
+    // @ts-ignore
+    for (const e of elements) {
+      e.innerHTML = null;
+    }
   }
-}
 }
 
 
