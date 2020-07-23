@@ -20,10 +20,10 @@ export class AnnoncesComponent implements OnInit {
     status: '',
     type: '',
     city: '',
-    surface: '',
+    surface: 0,
     pieces: 20,
     budget_min: 1,
-    budget_max: 99999999999999
+    budget_max: 100000
   };
   cities: string[];
 
@@ -52,8 +52,7 @@ export class AnnoncesComponent implements OnInit {
 
   getAnnoncesByFilters() {
     this.annonceData.getAnnoncesByFilters(this.filters).subscribe(data => {
-      this.annonces = data['1'];
-      console.log(this.annonces);
+      this.annonces = data['data'];
     });
   }
 }
