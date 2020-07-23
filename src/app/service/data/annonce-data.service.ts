@@ -48,13 +48,17 @@ export class AnnonceDataService{
     return this.http.post(`http://localhost:8000/api/users/${username}/announces`, formData);
   }
 
-  getSpecificAnnounces($username){
-    return this.http.get(`http://localhost:8000/api/users/${$username}/announces`);
+  getSpecificAnnounces(username){
+    return this.http.get(`http://localhost:8000/api/users/${username}/announces`);
   }
 
 
   getAnnoncesByFilters(filters) {
     return this.http.post<AnnounceModel>(SERVER + '/byFilters/', filters);
+  }
+
+  retrieveAnnounce(username, id){
+    return this.http.get(`http://localhost:8000/api/users/${username}/announces/${id}`);
   }
 }
 
