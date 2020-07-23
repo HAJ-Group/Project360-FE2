@@ -12,8 +12,8 @@ import {SERVER_IMAGES_PATH} from '../../app.constants';
 export class ListAnnouncesComponent implements OnInit {
 
   myAnnounces: any;
-
   imagesDirectoryPath = SERVER_IMAGES_PATH;
+
   constructor(
     private announceDataService: AnnonceDataService,
     private auth: AuthenticationService,
