@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AnnonceDataService} from '../../service/data/annonce-data.service';
-import {SERVER_IMAGES_PATH} from '../../app.constants';
 import {AuthenticationService} from '../../service/authentication.service';
+import {Router} from '@angular/router';
+import {SERVER_IMAGES_PATH} from '../../app.constants';
 
 @Component({
   selector: 'app-list-announces',
@@ -10,12 +11,13 @@ import {AuthenticationService} from '../../service/authentication.service';
 })
 export class ListAnnouncesComponent implements OnInit {
 
-  myAnnounces: any[];
+  myAnnounces: any;
 
-  imagesDirectoryPath = 'http://localhost:8000/announces-images/';
+  imagesDirectoryPath = SERVER_IMAGES_PATH;
   constructor(
     private announceDataService: AnnonceDataService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,12 @@ export class ListAnnouncesComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  announceDetails(id): void{
+    console.log(`The details of the announce with id = ${id}`);
+    this.router.navigate(['dashboard', { outlets: { dashboard: ['announces', id] } }]);
+
   }
 
 }
