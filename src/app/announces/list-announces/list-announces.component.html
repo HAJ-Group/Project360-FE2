@@ -1,42 +1,66 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-4" *ngFor="let announce of myAnnounces">
-      <div class="card">
+      <div class="card card-product">
+        <div class="card-header card-header-image" data-header-animation="true">
+          <a href="#pablo">
+            <div id="demo2" class="carousel slide" data-ride="carousel">
+              <ul class="carousel-indicators">
+                <li *ngFor="let image of announce.images; let i = index" data-target="#demo2" [attr.data-slide-to]="i" [class.active]="i==0" >
+                </li>
+              </ul>
 
-        <div id="demo" class="carousel slide" data-ride="carousel">
-          <ul class="carousel-indicators">
-            <li *ngFor="let image of announce.images; let i = index" data-target="#demo" [attr.data-slide-to]="i" [class.active]="i==0" >
-            </li>
-          </ul>
+              <div class="carousel-inner">
+                <div class="carousel-item" *ngFor="let image of announce.images; let i = index" [class.active]="i==0">
+                  <img src="{{imagesDirectoryPath}}{{ announce.id + '/'}}{{image.name}}" alt="" width="500px" height="300px">
+                </div>
+              </div>
 
-          <div class="carousel-inner">
-            <div class="carousel-item" *ngFor="let image of announce.images; let i = index" [class.active]="i==0">
-              <img src="{{imagesDirectoryPath}}{{ announce.id + '/'}}{{image.name}}" alt="" width="500px" height="300px">
+              <a class="carousel-control-prev" href="#demo2" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#demo2" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
             </div>
-          </div>
-
-          <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </a>
-          <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
           </a>
         </div>
-
-
         <div class="card-body">
-          <h5 class="card-title">{{announce.title}}</h5>
-          <p class="card-text">{{announce.description}}</p>
-          <p class="card-text"><small class="text-muted">date : {{ announce.created_at | date }}</small></p>
-          <a href="javascript:void(0)" class="btn btn-primary stretched-link" (click)="announceDetails(announce.id)">Voir plus</a>
+          <div class="card-actions text-center">
+            <button type="button" class="btn btn-danger btn-link fix-broken-card">
+              <i class="material-icons">build</i> Fix Header!
+            </button>
+            <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Détails" (click)="announceDetails(announce.id)">
+              <i class="material-icons">art_track</i>
+            </button>
+            <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Modifier" (click)="editAnnounce(announce.id)">
+              <i class="material-icons">edit</i>
+            </button>
+            <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Supprimer" (click)="deleteAnnounce(announce.id)">
+              <i class="material-icons">close</i>
+            </button>
+          </div>
+          <h4 class="card-title">
+            <a href="#pablo">{{announce.title}}</a>
+          </h4>
+          <div class="card-description">
+            {{announce.description}}
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="price">
+            <h4 class="announce-price">{{announce.price}} DH</h4>
+          </div>
+          <div class="stats">
+            <span class="card-category"><i class="material-icons">place</i>{{announce.city}}</span>
+          </div>
+          <div class="announce-date">
+            {{announce.created_at | date}}
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!--*ngFor="let announce of myAnnounces"-->
-
 
 

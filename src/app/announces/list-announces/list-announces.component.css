@@ -6,4 +6,21 @@
   color: white;
   padding: .75rem 1rem; }
 
+.announce-price{
+  font-size: 18px;
+  font-weight: bold;
+  color: #d21339;
+}
 
+.card-category{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.card-category:hover{
+  color: #d21339;
+}
+
+.announce-date{
+  text-align: center;
+}
