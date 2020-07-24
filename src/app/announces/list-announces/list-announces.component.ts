@@ -34,6 +34,7 @@ export class ListAnnouncesComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.myAnnounces = null;
       }
     );
   }
@@ -49,7 +50,6 @@ export class ListAnnouncesComponent implements OnInit {
     this.announceDataService.deleteAnnounce(this.auth.getAuthenticatedUser(), id).subscribe(
       success => {
         console.log(success);
-        this.router.navigate(['dashboard', { outlets: { dashboard: ['announces'] } }]);
         this.refreshSpecificAnnounces(this.auth.getAuthenticatedUser());
         },
       error => {
