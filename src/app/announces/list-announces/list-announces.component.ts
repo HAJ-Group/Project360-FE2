@@ -39,4 +39,16 @@ export class ListAnnouncesComponent implements OnInit {
 
   }
 
+  deleteAnnounce(id): void{
+    console.log(`announce with id = ${id} is deleted`);
+    this.announceDataService.deleteAnnounce(this.auth.getAuthenticatedUser(), id).subscribe(
+      success => {
+
+      },
+      error => {
+
+      }
+    );
+  }
+
 }

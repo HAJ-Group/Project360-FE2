@@ -3,7 +3,7 @@
     <div class="col-md-4" *ngFor="let announce of myAnnounces">
       <div class="card card-product">
         <div class="card-header card-header-image" data-header-animation="true">
-          <a href="#pablo">
+
             <div id="demo2" class="carousel slide" data-ride="carousel">
               <ul class="carousel-indicators">
                 <li *ngFor="let image of announce.images; let i = index" data-target="#demo2" [attr.data-slide-to]="i" [class.active]="i==0" >
@@ -23,7 +23,7 @@
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
-          </a>
+
         </div>
         <div class="card-body">
           <div class="card-actions text-center">

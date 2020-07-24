@@ -60,5 +60,9 @@ export class AnnonceDataService{
   retrieveAnnounce(username, id){
     return this.http.get(`http://localhost:8000/api/users/${username}/announces/${id}`);
   }
+
+  deleteAnnounce(authenticatedUser: string, id: any) {
+    return this.http.delete(`http://localhost:8000/api/users/${authenticatedUser}/announces/${id}`);
+  }
 }
 
