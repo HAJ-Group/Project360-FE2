@@ -57,8 +57,8 @@ export class AnnonceDataService{
     return this.http.post<AnnounceModel>(SERVER + '/byFilters/', filters);
   }
 
-  retrieveAnnounce(username, id){
-    return this.http.get(`http://localhost:8000/api/users/${username}/announces/${id}`);
+  retrieveAnnounce(authenticatedUser: string, id: any){
+    return this.http.get(`http://localhost:8000/api/users/${authenticatedUser}/announces/${id}`);
   }
 
   deleteAnnounce(authenticatedUser: string, id: any) {
