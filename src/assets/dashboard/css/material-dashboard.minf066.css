@@ -12264,7 +12264,8 @@ legend {
 .footer {
   padding: .9375rem 0;
   text-align: center;
-  display: flex
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .footer ul {
@@ -12278,7 +12279,7 @@ legend {
 }
 
 .footer ul li a {
-  color: inherit;
+  color: white;
   padding: .9375rem;
   font-weight: 500;
   font-size: 12px;
@@ -12348,8 +12349,8 @@ legend {
 }
 
 .off-canvas-sidebar .footer {
-  position: absolute;
-  bottom: 0;
+  /*position: absolute;
+  bottom: 0;*/
   width: 100%
 }
 
