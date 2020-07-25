@@ -33,6 +33,7 @@ export class EditAnnounceComponent implements OnInit {
     this.announceDataService.retrieveAnnounce(username, id).subscribe(
       success => {
           console.log(success);
+          this.announce = success;
       },
       error => {
           console.log(error);

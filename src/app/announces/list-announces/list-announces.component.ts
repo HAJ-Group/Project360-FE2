@@ -62,4 +62,7 @@ export class ListAnnouncesComponent implements OnInit {
     this.targetAnnounceId = id;
   }
 
+  editAnnounce(id: number) {
+    this.router.navigate(['dashboard', { outlets: { dashboard: ['announces', id, 'edit-announce'] } }]);
+  }
 }
