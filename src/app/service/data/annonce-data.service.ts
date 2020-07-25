@@ -54,7 +54,7 @@ export class AnnonceDataService{
 
 
   getAnnoncesByFilters(filters) {
-    return this.http.post<AnnounceModel>(SERVER + '/byFilters/', filters);
+    return this.http.post<AnnounceModel[]>(SERVER + '/byFilters/', filters);
   }
 }
 
