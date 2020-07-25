@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
-import { NgxPaginationModule } from 'ngx-pagination';
 import {OktaAuthModule} from '@okta/okta-angular';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpAuthenticationInterceptorService} from './service/http/http-authentication-interceptor.service';
@@ -22,6 +21,7 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
 import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import {AnnonceDataService} from './service/data/annonce-data.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [

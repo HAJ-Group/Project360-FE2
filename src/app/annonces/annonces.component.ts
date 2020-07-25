@@ -32,7 +32,6 @@ export class AnnoncesComponent implements OnInit {
     const k = this.router.getCurrentNavigation().extras.state;
     this.filters.keyword = k !== undefined ? k.keyword : '';
     // console.log(this.router.getCurrentNavigation().extras.state.keyword); // should log out 'bar'
-
   }
 
 
