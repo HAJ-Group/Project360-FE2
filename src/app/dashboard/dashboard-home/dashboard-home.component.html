@@ -74,43 +74,44 @@
         <br>
         <div class="row">
           <div class="col-md-4" *ngFor="let a of announces">
-            <div class="card card-product">
-              <div class="card-header card-header-image" data-header-animation="true">
-                <a href="#pablo">
-                  <img class="img" src="assets/dashboard/img/card-2.jpg">
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="card-actions text-center">
-                  <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                    <i class="material-icons">build</i> Fix Header!
-                  </button>
-                  <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="View">
-                    <i class="material-icons">art_track</i>
-                  </button>
-                  <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Edit">
-                    <i class="material-icons">edit</i>
-                  </button>
-                  <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-                    <i class="material-icons">close</i>
-                  </button>
-                </div>
-                <h4 class="card-title">
-                  <a href="#pablo">{{a.title}}</a>
-                </h4>
-                <div class="card-description">
-                  {{a.description}}
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="price">
-                  <h4>{{a.price}}</h4>
-                </div>
-                <div class="stats">
-                  <p class="card-category"><i class="material-icons">place</i>{{a.city}}</p>
-                </div>
-              </div>
-            </div>
+<!--            <div class="card card-product">-->
+<!--              <div class="card-header card-header-image" data-header-animation="true">-->
+<!--                <a href="#pablo">-->
+<!--                  <img class="img" src="assets/dashboard/img/card-2.jpg">-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div class="card-body">-->
+<!--                <div class="card-actions text-center">-->
+<!--                  <button type="button" class="btn btn-danger btn-link fix-broken-card">-->
+<!--                    <i class="material-icons">build</i> Fix Header!-->
+<!--                  </button>-->
+<!--                  <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="View">-->
+<!--                    <i class="material-icons">art_track</i>-->
+<!--                  </button>-->
+<!--                  <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Edit">-->
+<!--                    <i class="material-icons">edit</i>-->
+<!--                  </button>-->
+<!--                  <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">-->
+<!--                    <i class="material-icons">close</i>-->
+<!--                  </button>-->
+<!--                </div>-->
+<!--                <h4 class="card-title">-->
+<!--                  <a href="#pablo">{{a.title}}</a>-->
+<!--                </h4>-->
+<!--                <div class="card-description">-->
+<!--                  {{a.description}}-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="card-footer">-->
+<!--                <div class="price">-->
+<!--                  <h4>{{a.price}}</h4>-->
+<!--                </div>-->
+<!--                <div class="stats">-->
+<!--                  <p class="card-category"><i class="material-icons">place</i>{{a.city}}</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+            <app-card-announce [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price"></app-card-announce>
           </div>
         </div>
       </div>
