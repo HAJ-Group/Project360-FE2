@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AnnoncerDataService} from '../../service/data/annoncer-data.service';
+import {AnnoncerModel} from '../../model.ts/annoncer-model';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  model: AnnoncerModel;
+  error: string;
+  constructor(
+    private service: AnnoncerDataService,
+  ) {}
 
   ngOnInit(): void {
+    this.service.getUserAnnouncer().subscribe(success =>{
+      this.model = success;
+      console.log(this.model)
+    },error => {
+      this.error = error.error;
+    });
   }
 
 }
