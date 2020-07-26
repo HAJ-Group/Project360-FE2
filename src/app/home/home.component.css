@@ -7,6 +7,14 @@
   width: 100%;
   background:rgba(255, 255, 255, 0.8);
 }
+.phone-seaech {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .phone-seaech {
+    display: flex;
+  }
+}
 .btn-search{
   width: 170px;
 }

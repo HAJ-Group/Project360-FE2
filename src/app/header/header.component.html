@@ -54,7 +54,7 @@
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link">
+            <a href="javascript:void(0)" class="nav-link" routerLink="annonces/">
               <i class="material-icons">dashboard</i> Browse Announces
             </a>
           </li>
@@ -75,17 +75,22 @@
   <div class="wrapper wrapper-full-page home-desc">
     <div class="page-header login-page">
       <div id="header-description" class="center-phrase">
+        <i class="material-icons" style="font-size: 150px">house</i>
         <p>Bienvenue au meilleur site internet de partage d'annonce immobilière</p>
-        <span class="get-started">Commencer votre visite</span>
+        <!--<span class="get-started">Commencer votre visite</span>-->
+        <div class="d-flex justify-content-center">
+          <input [(ngModel)]="keyword" class="form-search p-3 bg-white border-0 text-center opacity-4" style="width: 700px; border-bottom-left-radius: 50px; border-top-left-radius: 50px; font-size: 20px" placeholder="search...">
+          <button (click)="getSearchKey()" class="material-icons bg-white text-white border-0 opacity-4 text-primary" style="font-size: 40px; cursor: pointer; border-bottom-right-radius: 50px; border-top-right-radius: 50px">search</button>
+        </div>
       </div>
     </div>
   </div>
 </header>
 <!-------------------------------------------------LOGIN MODAL CONTENT ------------------------------------------------>
 <!-- The Modal -->
-<div class="modal fade" id="login">
+<div class="modal fade" id="login" style="background-color: rgba(0, 0, 0, 0.6)">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-content bg-transparent">
       <span class="alert alert-danger d-flex justify-content-center" *ngIf="error">{{error}}</span>
       <!--<span class="alert alert-danger d-flex justify-content-center" *ngIf="error">{{error}}</span>
       &lt;!&ndash; Modal Header &ndash;&gt;
@@ -115,7 +120,7 @@
       </div>-->
       <!-- Modal Header -->
       <div class="modal-header">
-        <h5 class="modal-title">Start your best way to the best life</h5>
+        <h5 class="modal-title text-white font-weight-bold">Start your best way to the best life</h5>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="card card-login shadow-none">

@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   username: string;
   email: string;
   password: string;
+  keyword: string;
   // tslint:disable-next-line:variable-name
   confirm_password: string;
   code: string;
@@ -201,6 +202,10 @@ export class HeaderComponent implements OnInit {
     for (const e of elements) {
       e.innerHTML = null;
     }
+  }
+
+  getSearchKey() {
+    this.router.navigate(['/annonces'], {state: {keyword: this.keyword}});
   }
 
 }

@@ -1,10 +1,3 @@
-.header {
-  height: 100vh;
-  width: 100%;
-  background-image: url('../../assets/pictures/header/header.jpeg');
-  background-size: 100% 100%;
-  position: relative;
-}
 
 .visible-nav {
   z-index: 100;
@@ -14,22 +7,21 @@
 .center-phrase{
   display: block;
   margin: auto;
-  width: 80%;
   height: fit-content;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   text-align: center;
-  padding: 3% 20px 5%;
+  padding: 5%;
   z-index: 200;
-  border-radius: 50px;
+  border-radius: 60px;
 }
 
 .center-phrase p {
   font-weight: bold;
-  padding-left: 5%;
-  padding-right: 5%;
-  font-family: "Agency FB", serif;
+  padding-left: 6%;
+  padding-right: 6%;
   font-size: 40px;
+  line-height: 50px;
   margin-bottom: 5%;
 }
 
@@ -78,9 +70,9 @@
     height: 0;
   }
 
-  #header-description {
+  /*#header-description {
     display: none;
-  }
+  }*/
 
   .center-phrase {
     height: 200px;

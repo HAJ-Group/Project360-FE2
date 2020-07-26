@@ -5,11 +5,6 @@
   font-size: 15px;
 }
 
-.off-canvas-sidebar .navbar-collapse:after {
-  background-color: white;
-
-}
-
 /* OPACITY -----------------------------------------------------------------------------------------------------------*/
 .opacity-0 {
   opacity: 0;

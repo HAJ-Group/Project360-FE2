@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>-->
-  <div id="search" class="container d-flex flex-column justify-content-center bg-white rounded p-5">
+  <!--<div id="search" class="container d-flex flex-column justify-content-center bg-white rounded p-5">
     <h1 class="title text-primary text-center">Search Announces</h1>
     <div class="form-row d-flex justify-content-center mb-5">
       <input [(ngModel)]="keyword" type="text" class="form-control text-center" style="width: 300px" id="key" placeholder="search">
@@ -25,9 +25,13 @@
     <div class="form-row d-flex justify-content-center">
       <button class="btn btn-primary stretched-link btn-search" (click)="getSearchKey()">Search</button>
     </div>
+  </div>-->
+  <div class="phone-seaech justify-content-center ml-4 mt-3" style="width: 90%">
+    <input [(ngModel)]="keyword" class="form-search p-3 bg-white border-0 text-center opacity-4" style="width: 600px; border-bottom-left-radius: 40px; border-top-left-radius: 40px; font-size: 20px" placeholder="Browse Announces...">
+    <button (click)="getSearchKey()" class="material-icons bg-white text-white border-0 opacity-4 text-primary" style="font-size: 40px; cursor: pointer; border-bottom-right-radius: 40px; border-top-right-radius: 40px">search</button>
   </div>
   <br><br><hr>
-  <div class="container">
+  <div id="home-announces" class="container">
     <div class="row">
       <div class="col-md-4" *ngFor="let a of annonces">
         <div class="card card-product">
@@ -128,9 +132,8 @@
 </div>
 <hr>
 <hr>
-<div class="centrer">
-
-  <span>Partenaires</span>
+<div class="d-flex justify-content-center p-4" style="background-color: rgba(0, 0, 0, 0.6)">
+  <span style="font-size: 25px" class="text-white"><i class="material-icons mr-2 font-weight-bold" style="font-size: 40px">group</i>Partenaires</span>
 </div>
 <hr>
 <div class="container-fluid">
