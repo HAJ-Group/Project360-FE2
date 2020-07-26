@@ -260,6 +260,17 @@ export const CITIES = [
   'Zagora',
   'Zaio'];
 
+// Announces Types
+export const TYPES = [
+  'Maison',
+  'Appartement',
+  'Surface'
+];
+
+export const STATES = [
+  'Location',
+];
+
 
 
 

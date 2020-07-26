@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import {CITIES} from '../../../app.constants';
+import {CITIES, STATES, TYPES} from '../../../app.constants';
 import {AnnounceModel} from '../../../model.ts/announce-model';
 import {AnnonceDataService} from '../../../service/data/annonce-data.service';
 import {AnnounceImagesComponent} from './announce-images/announce-images.component';
@@ -13,6 +13,8 @@ import {AuthenticationService} from '../../../service/authentication.service';
 export class AddAnnounceComponent implements OnInit, AfterViewInit {
 
   cities: string[] = CITIES;
+  types: string[] = TYPES;
+  states: string[] = STATES;
   announce: AnnounceModel;
   selectedFiles: [] = [];
 

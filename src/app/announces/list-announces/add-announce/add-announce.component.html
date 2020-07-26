@@ -1,4 +1,206 @@
-<br>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card ">
+          <div class="card-header card-header-rose card-header-text">
+            <div class="card-icon">
+              <i class="material-icons">today</i>
+            </div>
+            <h4 class="card-title">Datetimepicker</h4>
+          </div>
+          <div class="card-body ">
+            <div class="form-group">
+              <input type="text" class="form-control datetimepicker" value="11/06/2018">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card ">
+          <div class="card-header card-header-rose card-header-text">
+            <div class="card-icon">
+              <i class="material-icons">library_books</i>
+            </div>
+            <h4 class="card-title">Date Picker</h4>
+          </div>
+          <div class="card-body ">
+            <div class="form-group">
+              <input type="text" class="form-control datepicker" value="10/06/2018">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card ">
+          <div class="card-header card-header-rose card-header-text">
+            <div class="card-icon">
+              <i class="material-icons">av_timer</i>
+            </div>
+            <h4 class="card-title">Time Picker</h4>
+          </div>
+          <div class="card-body ">
+            <div class="form-group">
+              <input type="text" class="form-control timepicker" value="10/05/2016">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-rose card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Announce Data Elements</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="title text-primary">Announce Meta Infos</h3>
+                <div class="form-group">
+                  <input [(ngModel)]="announce.title" required type="text" class="form-control w-75" placeholder="Announce Title">
+                  <span class="bmd-help">Add title for your announce ! Chose ant attractive title for your clients</span>
+                </div>
+                <div class="form-group">
+                  <textarea [(ngModel)]="announce.description" rows="4" class="form-control w-75" placeholder="Announce Description"></textarea>
+                  <span class="bmd-help">Describe what you've got in your announce in order to make your offer clear and understandable</span>
+                </div>
+                <div class="form-group">
+                  <i class="material-icons text-center" style="font-size: 60px">money</i>
+                  <input [(ngModel)]="announce.price" required type="number" class="form-control w-75" placeholder="Announce Price MAD">
+                  <span class="bmd-help">Set a reasonable prices in order to get attention of your clients</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h3 class="title text-primary">Announce Type, State And City</h3>
+                <div class="row">
+                  <div class="col-lg-4 col-md-6 col-sm-3">
+                    <select [(ngModel)]="announce.type" required class="selectpicker" data-style="btn btn-primary btn-round" title="Type Select">
+                      <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-3">
+                    <select [(ngModel)]="announce.status" required class="selectpicker" data-style="btn btn-rose btn-round text-white" title="State Select">
+                      <option *ngFor="let state of states" value="{{state}}">{{state}}</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-3">
+                    <select [(ngModel)]="announce.city" required class="selectpicker" data-style="select-with-transition" multiple title="Choose City" data-size="7">
+                      <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+                    </select>
+                  </div>
+                </div>
+                <h3 class="title text-primary">Announce Detail Infos</h3>
+                <div class="form-group">
+                  <input [(ngModel)]="announce.address" type="text" class="form-control" placeholder="Address">
+                  <span class="bmd-help">Add the address of your announces for more precision</span>
+                </div>
+                <br><br>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Numeric Location">
+                  <span class="bmd-help">Add numeric location of your announce</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="title">Tags</h4>
+                <input type="text" value="Amsterdam,Washington,Sydney,Beijing" class="form-control tagsinput" data-role="tagsinput" data-color="info">
+              </div>
+              <div class="col-md-6">
+                <div class="togglebutton">
+                  <h3 class="title text-primary">Rented Or Not Rented ?</h3>
+                  <label>
+                    <input [(ngModel)]="announce.rent" type="checkbox">
+                    <span class="toggle"></span>
+                  </label>
+                </div>
+              </div>
+              <!--<div class="col-md-6">
+                <h4 class="title">Dropdown & Dropup</h4>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-3">
+                    <div class="dropdown">
+                      <button class="dropdown-toggle btn btn-primary btn-round btn-block" type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Multilevel Dropdown
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="multiDropdownMenu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Submenu action</a>
+                          <a class="dropdown-item" href="#">Submenu action</a>
+                          <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Subsubmenu action 1</a>
+                            <a class="dropdown-item" href="#">Subsubmenu action 2</a>
+                          </div>
+                          <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Subsubmenu action 1</a>
+                            <a class="dropdown-item" href="#">Subsubmenu action 2</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-3">
+                    <div class="dropdown">
+                      <button class="dropdown-toggle btn btn-primary btn-round btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <h6 class="dropdown-header">Dropdown header</h6>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-3 mx-auto">
+                    <div class="dropup">
+                      <button type="button" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">
+                        Dropup
+                      </button>
+                      <div class="dropdown-menu">
+                        <h6 class="dropdown-header">Dropdown header</h6>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>-->
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="title text-primary">Add Images for Your announce</h3>
+                <app-announce-images></app-announce-images>
+              </div>
+              <div class="col-md-6">
+                <h4 class="title">Geographical Location View</h4>
+                <iframe class="w-100" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-12.722167968750002%2C30.538607878854556%2C-3.7738037109375004%2C34.67387626588273&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+                <br/>
+                <small class="d-flex justify-content-end"><a class="btn btn-primary" href="https://www.openstreetmap.org/#map=8/32.630/-8.248">View Larger Map</a></small>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-center p-5">
+            <button class="btn btn-primary" (click)="addAnnounce();"><i class="fa fa-paper-plane"></i> Valider</button>
+          </div>
+        </div>
+        <!-- end card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<br>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
@@ -25,15 +227,15 @@
                   <div class="form-group">
                     <label for="type">Type : </label>
                     <div class="control-group" id="type">
-                      <label class="control control--radio">Maison
+                      <label class="control control&#45;&#45;radio">Maison
                         <input type="radio" name="radio" value="maison" id="maison"  [(ngModel)]="announce.type"  checked="checked"/>
                         <div class="control__indicator"></div>
                       </label>
-                      <label class="control control--radio">Appartement
+                      <label class="control control&#45;&#45;radio">Appartement
                         <input type="radio" name="radio" value="appartement" id="appartement" [(ngModel)]="announce.type"/>
                         <div class="control__indicator"></div>
                       </label>
-                      <label class="control control--radio">Surface
+                      <label class="control control&#45;&#45;radio">Surface
                         <input type="radio" name="radio" value="surface" id="surface" [(ngModel)]="announce.type"/>
                         <div class="control__indicator"></div>
                       </label>
@@ -142,4 +344,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+
+
+
