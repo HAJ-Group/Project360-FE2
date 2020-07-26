@@ -1,25 +1,39 @@
-<label for="page" class="image-label">Choisir des images pour votre annonce : </label>
 <div id="page">
-  <header>
-    <i class="fa fa-plus-circle fa-3x" (click)="addImageInput();"></i>
+  <header id="more-imgs">
+    <i class="fa fa-plus-circle fa-3x text-rose" (click)="addImageInput();"></i>
   </header>
-   <!--Our File Inputs -->
-  <div class="wrap-custom-file">
-    <input type="file" name="image1" id="image1"
-           accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />
-    <label  for="image1">
-      <span>Select Image One</span>
-      <i class="fa fa-plus-circle"></i>
-    </label>
+  <div class="fileinput fileinput-new text-center mr-2" data-provides="fileinput">
+    <div class="fileinput-new thumbnail">
+      <img src="assets/dashboard/img/image_placeholder.jpg" alt="...">
+    </div>
+    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+    <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Select image</span>
+                            <span class="fileinput-exists">Change</span>
+                            <input type="file" name="image1" id="image1"
+                                   accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />
+                          </span>
+      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+    </div>
   </div>
-  <div class="wrap-custom-file">
-    <input type="file" name="image2" id="image2"
-           accept=".gif, .jpg, .png" (change)="onFileSelected($event)"/>
-    <label  for="image2">
-      <span>Select Image</span>
-      <i class="fa fa-plus-circle"></i>
-    </label>
+
+  <div class="fileinput fileinput-new text-center mr-2" data-provides="fileinput">
+    <div class="fileinput-new thumbnail">
+      <img src="assets/dashboard/img/image_placeholder.jpg" alt="...">
+    </div>
+    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+    <div>
+                          <span class="btn btn-rose btn-round btn-file">
+                            <span class="fileinput-new">Select image</span>
+                            <span class="fileinput-exists">Change</span>
+                            <input type="file" name="image1" id="image2"
+                                   accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />
+                          </span>
+      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+    </div>
   </div>
+
    <!--End Page Wrap -->
 </div>
 

@@ -12,7 +12,7 @@ declare var $: any;
 export class AnnounceImagesComponent implements OnInit {
 
   selectedFiles: File[] = [];
-
+  counter = 2;
 
   constructor(
 
@@ -26,10 +26,6 @@ export class AnnounceImagesComponent implements OnInit {
     console.log(event.target.files[0]);
     this.selectedFiles.push(event.target.files[0]);
   }
-
-
-
-
 
 
   uploader(){
@@ -71,7 +67,7 @@ export class AnnounceImagesComponent implements OnInit {
   }
 
   addImageInput(){
-    // Create the global div element
+    /*// Create the global div element
     const div = document.createElement('div');
     div.setAttribute('class', 'wrap-custom-file');
 
@@ -101,11 +97,26 @@ export class AnnounceImagesComponent implements OnInit {
 
     // add the input and label to the div
     div.appendChild(input);
-    div.appendChild(label);
+    div.appendChild(label);*/
 
     // append the div to the page id
     const id = document.getElementById('page');
-    id.appendChild(div);
+    id.innerHTML += '<div class="fileinput fileinput-new text-center mr-2" data-provides="fileinput">\n' +
+      '    <div class="fileinput-new thumbnail">\n' +
+      '      <img src="assets/dashboard/img/image_placeholder.jpg" alt="...">\n' +
+      '    </div>\n' +
+      '    <div class="fileinput-preview fileinput-exists thumbnail"></div>\n' +
+      '    <div>\n' +
+      '                          <span class="btn btn-rose btn-round btn-file">\n' +
+      '                            <span class="fileinput-new">Select image</span>\n' +
+      '                            <span class="fileinput-exists">Change</span>\n' +
+      '                            <input type="file" name="image1" id="image' + (++this.counter) + '"\n' +
+      '                                   accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />\n' +
+      '                          </span>\n' +
+      '      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>\n' +
+      '    </div>\n' +
+      '  </div>';
+    document.getElementById('more-imgs').classList.add('d-none');
   }
 
 }
