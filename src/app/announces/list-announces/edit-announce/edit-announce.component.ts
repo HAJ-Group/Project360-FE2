@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AnnounceModel} from '../../../model.ts/announce-model';
 import {CITIES} from '../../../app.constants';
 import {AnnonceDataService} from '../../../service/data/annonce-data.service';
@@ -23,7 +23,8 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
   constructor(
     private route: ActivatedRoute,
     private announceDataService: AnnonceDataService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -54,6 +55,7 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
     this.announceDataService.updateAnnounce(this.auth.getAuthenticatedUser(), this.announce, this.selectedFiles).subscribe(
       success => {
         console.log(success);
+        this.router.navigate(['dashboard', { outlets: { dashboard: ['announces'] } }]);
       },
       error => {
         console.log(error);
