@@ -12,7 +12,7 @@
 
               <div class="carousel-inner">
                 <div class="carousel-item" *ngFor="let image of announce.images; let i = index" [class.active]="i==0">
-                  <img src="{{imagesDirectoryPath}}{{ announce.id + '/'}}{{image.name}}" alt="" width="500px" height="300px">
+                  <img src="{{imagesDirectoryPath}}{{ announce.id + '/'}}{{image.name}}" alt="" width="550px" height="300px">
                 </div>
               </div>
 
@@ -41,7 +41,7 @@
             </button>
           </div>
           <h4 class="card-title">
-            <a href="#pablo">{{announce.title}}</a>
+            <a href="javascript:void(0)" (click)="announceDetails(announce.id)">{{announce.title}}</a>
           </h4>
           <div class="card-description">
             {{announce.created_at}}
