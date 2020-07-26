@@ -22,6 +22,7 @@ import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard
 import { AnnoncesComponent } from './annonces/annonces.component';
 import {AnnonceDataService} from './service/data/annonce-data.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ProfileComponent,
     DashboardHeaderComponent,
     AnnoncesComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
