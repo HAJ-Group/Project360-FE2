@@ -28,10 +28,6 @@ export class AnnounceImagesComponent implements OnInit {
   }
 
 
-
-
-
-
   uploader(){
     /**
      * CUSTOM FILE INPUTS FOR IMAGES
