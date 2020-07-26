@@ -2,6 +2,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AnnounceModel} from '../../model.ts/announce-model';
+import {SERVER_USERS} from '../../app.constants';
 
 
 const SERVER = 'http://localhost:8000/api/annonces';
@@ -9,7 +10,6 @@ const SERVER = 'http://localhost:8000/api/annonces';
 @Injectable()
 export class AnnonceDataService{
 
-  private headers;
   private annonces: any[];
   private a: any;
 
@@ -46,11 +46,11 @@ export class AnnonceDataService{
       formData.append('' + field, announce[field]);
     }
 
-    return this.http.post(`http://localhost:8000/api/users/${username}/announces`, formData);
+    return this.http.post(SERVER_USERS + `${username}/announces`, formData);
   }
 
   getSpecificAnnounces(username){
-    return this.http.get(`http://localhost:8000/api/users/${username}/announces`);
+    return this.http.get(SERVER_USERS + `${username}/announces`);
   }
 
 
@@ -59,15 +59,15 @@ export class AnnonceDataService{
   }
 
   retrieveAnnounce(authenticatedUser: string, id: any){
-    return this.http.get(`http://localhost:8000/api/users/${authenticatedUser}/announces/${id}`);
+    return this.http.get(SERVER_USERS + `${authenticatedUser}/announces/${id}`);
   }
 
   deleteAnnounce(authenticatedUser: string, id: any) {
-    return this.http.delete(`http://localhost:8000/api/users/${authenticatedUser}/announces/${id}`);
+    return this.http.delete(SERVER_USERS + `${authenticatedUser}/announces/${id}`);
   }
 
   updateAnnounce(authenticatedUser, announce, images) {
-    console.log('aaayeh ' + announce);
+
     const formData = new FormData();
     for (let i = 0; i < images.length; i ++){
       formData.append('image' + ( i + 1), images[i], images[i].name);
@@ -83,7 +83,7 @@ export class AnnonceDataService{
     // the '_method' field to it with 'PUT' value.
     formData.append('_method', 'PUT');
 
-    return this.http.post(`http://localhost:8000/api/users/${authenticatedUser}/announces/${announce.id}`,
+    return this.http.post(SERVER_USERS + `${authenticatedUser}/announces/${announce.id}`,
       formData);
   }
 }
