@@ -4,6 +4,7 @@ import {AnnounceModel} from '../../../model.ts/announce-model';
 import {AnnonceDataService} from '../../../service/data/annonce-data.service';
 import {AnnounceImagesComponent} from './announce-images/announce-images.component';
 import {AuthenticationService} from '../../../service/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-announce',
@@ -20,7 +21,8 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
 
   constructor(
     private announceDataService: AnnonceDataService,
-    public auth: AuthenticationService
+    public auth: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
     this.announceDataService.createAnnounce(this.auth.getAuthenticatedUser(), this.announce, this.selectedFiles).subscribe(
       success => {
         console.log(success);
+        this.router.navigate(['dashboard', { outlets: { dashboard: ['announces'] } }]);
       },
       error => {
         console.log(error);
