@@ -36,6 +36,7 @@ export class AnnonceDataService{
   }
 
   createAnnounce(username, announce, images) {
+    console.log('aaayeh ' + announce);
     const formData = new FormData();
     for (let i = 0; i < images.length; i ++){
       formData.append('image' + ( i + 1), images[i], images[i].name);
@@ -63,6 +64,29 @@ export class AnnonceDataService{
 
   deleteAnnounce(authenticatedUser: string, id: any) {
     return this.http.delete(`http://localhost:8000/api/users/${authenticatedUser}/announces/${id}`);
+  }
+
+  updateAnnounce(authenticatedUser, announce, images) {
+    console.log('aaayeh ' + announce);
+    const formData = new FormData();
+    for (let i = 0; i < images.length; i ++){
+      formData.append('image' + ( i + 1), images[i], images[i].name);
+    }
+    // tslint:disable-next-line:forin
+    for (const field in announce){
+      formData.append('' + field, announce[field]);
+    }
+
+    // The data will be send with a body that has a 'form-data' structure
+    // witch doesn't work with the put method (it require a 'x-www-form-urlencoded' form)
+    // so, as a solution, we send a post request with the formData object of JS and attach
+    // the '_method' field to it with 'PUT' value.
+    formData.append('_method', 'PUT');
+
+    return this.http.post(`http://localhost:8000/api/users/${authenticatedUser}/announces/${announce.id}`,
+      formData, {
+      headers: new HttpHeaders().set('Content-type', 'application/json')
+      });
   }
 }
 
