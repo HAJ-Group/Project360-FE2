@@ -10,6 +10,7 @@ import {AuthenticationService} from '../service/authentication.service';
 })
 export class HeaderComponent implements OnInit {
 
+  auto_confirm = false;
   // LOGIN AND SUBSCRIBE -------------------------------------------------------------------------------------------------------------------
   username: string;
   email: string;
@@ -52,6 +53,19 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  facebook_login() {
+    // @ts-ignore
+    FBlogin();
+    this.username = sessionStorage.getItem('FB_NAME').split(' ').join('_');
+    this.password = 'FB' + sessionStorage.getItem('FB_EMAIL') + sessionStorage.getItem('FB_ID');
+    if(this.password.length > 30) this.password = this.password.substring(0, 30);
+    sessionStorage.removeItem('FB_ID');
+    sessionStorage.removeItem('FB_NAME');
+    sessionStorage.removeItem('FB_EMAIL');
+    sessionStorage.removeItem('FB_TOKEN');
+    this.login();
+  }
+
   login() {
     this.initErrors();
     this.service.postLogin(new LoginAccount(this.username, this.password)).subscribe(
@@ -74,6 +88,22 @@ export class HeaderComponent implements OnInit {
     );
   }
 
+  facebook_subscribe() {
+    // @ts-ignore
+    FBlogin();
+    this.username = sessionStorage.getItem('FB_NAME').split(' ').join('_');
+    this.email = sessionStorage.getItem('FB_EMAIL');
+    this.password = 'FB' + this.email + sessionStorage.getItem('FB_ID');
+    if(this.password.length > 30) this.password = this.password.substring(0, 30);
+    this.confirm_password = this.password;
+    sessionStorage.removeItem('FB_ID');
+    sessionStorage.removeItem('FB_NAME');
+    sessionStorage.removeItem('FB_EMAIL');
+    sessionStorage.removeItem('FB_TOKEN');
+    this.auto_confirm = true;
+    this.subscribe();
+  }
+
   subscribe() {
     this.initErrors();
     this.service.postSubscribe(new SubscribeAccount(
@@ -86,7 +116,15 @@ export class HeaderComponent implements OnInit {
       success => {
         console.log(success);
         sessionStorage.setItem('user', this.username);
-        this.showConfirmationBlock();
+        if (this.auto_confirm) {
+          this.service.cancelCode(success[1]).subscribe(
+            success => {
+              this.code = '0';
+              this.confirm();
+            }
+          );
+        }
+        else this.showConfirmationBlock();
       },
       error => {
         console.log(error.error);

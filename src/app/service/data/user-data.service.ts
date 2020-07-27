@@ -61,6 +61,10 @@ export class UserDataService {
     return this.http.get(SERVER + '/user');
   }
 
+  cancelCode(username) {
+    return this.http.put(SERVER + 'cc/' + username, null);
+  }
+
 }
 
 

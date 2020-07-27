@@ -77,6 +77,27 @@
     <script src="assets/dashboard/js/core/demo.js"></script>
 </head>
 <body onload="afterReloadScroll(); smoothscroll();" class="off-canvas-sidebar" style="background-image: url(assets/dashboard/img/dashboard-bg.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=659935597943022&autoLogAppEvents=1" nonce="9atHxR49"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            //FB JavaScript SDK configuration and setup
+            FB.init({
+                appId: '659935597943022', //FB App ID
+                cookie: true,  //enable cookies to allow the server to access the session
+                xfbml: true,  //parse social plugins on this page
+                version: 'v7.0' //use this graph api version 3.2
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <app-root></app-root>
     <script>
         $(document).ready(function() {
