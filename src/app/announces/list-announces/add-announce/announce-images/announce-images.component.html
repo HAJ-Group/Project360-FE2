@@ -30,6 +30,6 @@
   </div>
    <!--End Page Wrap -->
 </div>
-<span *ngIf="!selectImage.valid && selectImage.touched || this.control.submitted && !selectImage.valid">Au moins une image doit etre choisie !</span>
+<span class="text-danger" *ngIf="!selectImage.valid && selectImage.touched || this.control.submitted && !selectImage.valid">Au moins une image doit etre choisie !</span>
 
 

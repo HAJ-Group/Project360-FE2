@@ -17,6 +17,7 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
   id: number;
   announce: any;
   selectedFiles: [] = [];
+  requiredImages;
 
   @ViewChild(AnnounceImagesComponent) child;
 
@@ -35,6 +36,7 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
 
   ngAfterViewInit(){
     this.selectedFiles = this.child.selectedFiles;
+    this.requiredImages = this.child.images;
   }
 
   retrieveAnnounce(username, id){
@@ -56,7 +58,7 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
       success => {
         console.log(success);
         this.router.navigate(['dashboard', { outlets: { dashboard: ['announces'] } }]);
-      },
+        },
       error => {
         console.log(error);
         if (typeof error.error === 'object') {
