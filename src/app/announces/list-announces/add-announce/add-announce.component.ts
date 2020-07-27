@@ -28,7 +28,7 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.announce =
-      new AnnounceModel(1, '', '', '', 0, '', '', '', '', '', false, 0);
+      new AnnounceModel(1, '', '', '', 0, '', '', '', '', '', 0, 0, 0, false, 0);
   }
 
   ngAfterViewInit(){
