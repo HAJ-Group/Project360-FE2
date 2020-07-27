@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ImageModel} from '../../../../model.ts/Image-model';
 import {HttpClient} from '@angular/common/http';
 import {AnnonceDataService} from '../../../../service/data/annonce-data.service';
@@ -12,7 +12,7 @@ declare var $: any;
 export class AnnounceImagesComponent implements OnInit {
 
   selectedFiles: File[] = [];
-
+  @Input() public control: any = null;
 
   constructor(
 

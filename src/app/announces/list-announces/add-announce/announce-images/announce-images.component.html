@@ -6,21 +6,30 @@
    <!--Our File Inputs -->
   <div class="wrap-custom-file">
     <input type="file" name="image1" id="image1"
-           accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />
+           accept=".gif, .jpg, .png"
+           (change)="onFileSelected($event)"
+           ngModel
+           #selectImage="ngModel"
+           required
+    />
+
     <label  for="image1">
-      <span>Select Image One</span>
+      <span>Choisir une image</span>
       <i class="fa fa-plus-circle"></i>
     </label>
   </div>
   <div class="wrap-custom-file">
     <input type="file" name="image2" id="image2"
-           accept=".gif, .jpg, .png" (change)="onFileSelected($event)"/>
+           accept=".gif, .jpg, .png"
+           (change)="onFileSelected($event)"
+    />
     <label  for="image2">
-      <span>Select Image</span>
+      <span>Choisir une image</span>
       <i class="fa fa-plus-circle"></i>
     </label>
   </div>
    <!--End Page Wrap -->
 </div>
+<span *ngIf="!selectImage.valid && selectImage.touched || this.control.submitted && !selectImage.valid">Au moins une image doit etre choisie !</span>
 
 
