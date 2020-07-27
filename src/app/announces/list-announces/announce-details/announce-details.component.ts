@@ -24,7 +24,7 @@ export class AnnounceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-    this.announce = new AnnounceModel(this.id, '', '', '', 0, '', '', '', '', '', false, 1);
+    this.announce = new AnnounceModel(this.id, '', '', '', 0, '', '', '', '', '', 0, 0 , 0, false, 1);
     this.announceDataService.retrieveAnnounce(this.auth.getAuthenticatedUser(), this.id).subscribe(
       success => {
         console.log(success);
