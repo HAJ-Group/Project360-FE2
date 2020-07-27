@@ -57,8 +57,9 @@ export class UserDataService {
     return this.http.get(SERVER + 'confirm/' + username + '/' + code);
   }
 
-
-
+  getUser() {
+    return this.http.get(SERVER + '/user');
+  }
 
 }
 

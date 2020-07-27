@@ -74,6 +74,7 @@
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <script src="assets/dashboard/js/core/demo.js"></script>
 </head>
 <body onload="afterReloadScroll(); smoothscroll();" class="off-canvas-sidebar" style="background-image: url(assets/dashboard/img/dashboard-bg.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%">
     <app-root></app-root>
@@ -248,6 +249,8 @@
             });
         });
     </script>
+    <!-- Sharrre libray -->
+    <script src="assets/dashboard/js/core/jquery.sharrre.js"></script>
     <script>
         $(document).ready(function() {
 
@@ -334,8 +337,7 @@
                 s = b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t, s)
             }(window,
-                document, 'script', '../../../../connect.facebook.net/en_US/fbevents.js');
-
+                document, 'script', 'assets/dashboard/js/core/fbevents.js');
             try {
                 fbq('init', '111649226022273');
                 fbq('track', "PageView");
@@ -352,6 +354,39 @@
     <script>
         $(document).ready(function() {
             demo.initSmallGoogleMaps();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Initialise the wizard
+            demo.initMaterialWizard();
+            setTimeout(function() {
+                $('.card.card-wizard').addClass('active');
+            }, 600);
+        });
+    </script>
+    <script>
+        function setFormValidation(id) {
+            $(id).validate({
+                highlight: function(element) {
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+                    $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+                },
+                success: function(element) {
+                    $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+                    $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+                },
+                errorPlacement: function(error, element) {
+                    $(element).closest('.form-group').append(error);
+                },
+            });
+        }
+
+        $(document).ready(function() {
+            setFormValidation('#RegisterValidation');
+            setFormValidation('#TypeValidation');
+            setFormValidation('#LoginValidation');
+            setFormValidation('#RangeValidation');
         });
     </script>
 </body>

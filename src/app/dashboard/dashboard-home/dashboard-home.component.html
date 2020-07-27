@@ -14,7 +14,7 @@
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-success">add</i>
-                <a class="text-success" href="javascript:void(0)" [routerLink]="[{ outlets: { dashboard: ['add-announce'] } }]">Add more announces...</a>
+                <a class="text-success" href="javascript:void(0)" (click)="router.routeTo('add-announce', 'dashboard', true)">Add more announces...</a>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@
                     <i class="material-icons">art_track</i>
                   </button>
                   <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Edit">
-                    <i class="material-icons" [routerLink]="[{ outlets: { dashboard: ['edit-announce'] } }]">edit</i>
+                    <i class="material-icons" (click)="router.routeTo('edit-announce', 'dashboard')">edit</i>
                   </button>
                   <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
                     <i class="material-icons">close</i>

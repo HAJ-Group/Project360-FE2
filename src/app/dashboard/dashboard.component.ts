@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {AnnonceDataService} from '../service/data/annonce-data.service';
 import {AnnounceModel} from '../model.ts/announce-model';
 import * as $ from 'jquery';
+import {NamedRouterService} from '../service/security/named-router.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private auth: AuthenticationService,
     public router: Router,
+    public n_router: NamedRouterService,
     public contactService: ContactService,
   ) {}
 

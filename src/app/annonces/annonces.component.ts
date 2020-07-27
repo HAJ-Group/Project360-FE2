@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AnnonceDataService} from '../service/data/annonce-data.service';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {CITIES} from '../app.constants';
 import {AnnounceModel} from '../model.ts/announce-model';

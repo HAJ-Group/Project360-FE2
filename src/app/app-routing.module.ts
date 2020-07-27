@@ -11,11 +11,14 @@ import {EditAnnounceComponent} from './announces/list-announces/edit-announce/ed
 import {ListAnnouncesComponent} from './announces/list-announces/list-announces.component';
 import {AnnounceDetailsComponent} from './announces/list-announces/announce-details/announce-details.component';
 import {AnnoncesComponent} from './annonces/annonces.component';
+import {WizardComponent} from './wizard/wizard.component';
+import {DataGuardService} from './service/security/data-guard.service';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'annonces', component: AnnoncesComponent},
+  {path: 'wizard', component: WizardComponent, canActivate: [RouteGuardService]},
   {path: 'dashboard', component : DashboardComponent , children : [
       {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
       {path: 'profile', component: ProfileComponent, outlet: 'dashboard'},
@@ -24,7 +27,7 @@ const routes: Routes = [
       {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
       {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
       {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
-    ], canActivate: [RouteGuardService]},
+    ], canActivate: [RouteGuardService, DataGuardService]},
   {path: '**', redirectTo: '/'},
 ];
 

@@ -15,4 +15,10 @@ export class AnnoncerDataService {
   getUserAnnouncer(): Observable<AnnoncerModel> {
     return this.http.get<AnnoncerModel>(SERVER + '/user');
   }
+  updateAnnouncer(id, announcer) {
+    return this.http.put<AnnoncerModel>(SERVER + '/' + id, announcer);
+  }
+  createAnnouncer(announcer) {
+    return this.http.post<AnnoncerModel>(SERVER + '/', announcer);
+  }
 }

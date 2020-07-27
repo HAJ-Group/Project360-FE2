@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
+import {UserDataService} from './data/user-data.service';
 
 export const AUTHENTICATED_USER = 'user';
 export const TOKEN = 'token';
@@ -9,9 +10,11 @@ export const TOKEN = 'token';
 })
 export class AuthenticationService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: UserDataService) { }
 
   public authenticate(username, user): void {
+    let loader = document.getElementById('loader');
+    loader.classList.remove('d-none');
     sessionStorage.setItem('token', 'Bearer ' + user.token);
     sessionStorage.setItem('user', username);
     sessionStorage.setItem('role', user.role);
@@ -20,13 +23,13 @@ export class AuthenticationService {
   }
 
   public logout(): void {
-    sessionStorage.removeItem('user');
+    sessionStorage.removeItem(AUTHENTICATED_USER);
     this.router.navigate(['']);
     window.location.reload();
   }
 
   public isAuthenticated(): boolean {
-    return (sessionStorage.getItem('user') !== null);
+    return (sessionStorage.getItem(AUTHENTICATED_USER) !== null && Object.keys(this.auth.getUser()).length !== 0);
   }
 
   getAuthenticatedUser() {

@@ -8,19 +8,37 @@ import {AnnoncerModel} from '../../model.ts/annoncer-model';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  model: AnnoncerModel;
-  error: string;
+  data: AnnoncerModel;
+  error = 15;
   constructor(
     private service: AnnoncerDataService,
   ) {}
 
   ngOnInit(): void {
-    this.service.getUserAnnouncer().subscribe(success =>{
-      this.model = success;
-      console.log(this.model)
-    },error => {
-      this.error = error.error;
-    });
+    this.loadInitData();
+  }
+
+  loadInitData(): void {
+    this.service.getUserAnnouncer().subscribe(
+      success => {
+        this.data = success;
+        console.log(this.data);
+      },
+      error => {
+        this.error = error.error;
+      }
+    );
+  }
+
+  updateData(): void {
+    this.service.updateAnnouncer(this.data.id, this.data).subscribe(
+      success => {
+        location.reload();
+      },
+      error => {
+        this.error = error.error;
+      }
+    );
   }
 
 }

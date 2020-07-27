@@ -47,7 +47,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) {
       document.getElementById('continue').classList.remove('d-none');
-      this.username = sessionStorage.getItem('user');
     } else {
       document.getElementById('continue').classList.add('d-none');
     }
@@ -110,9 +109,8 @@ export class HeaderComponent implements OnInit {
   sendConfirmation(): void {
     this.initErrors();
     if (this.auth.isAuthenticated()) {
-      console.log('sending confirmation to user ' + sessionStorage.getItem('user'));
-      console.log(sessionStorage.getItem('user'));
-      this.service.postConfirm(sessionStorage.getItem('user')).subscribe(
+      console.log('sending confirmation to user ' + this.username);
+      this.service.postConfirm(this.auth.getAuthenticatedUser()).subscribe(
         success => {
           console.log(success);
         },
@@ -129,8 +127,8 @@ export class HeaderComponent implements OnInit {
   confirm(): void {
     this.initErrors();
     if (this.auth.isAuthenticated()) {
-      console.log('confirming user ' + sessionStorage.getItem('user'));
-      this.service.getConfirm(sessionStorage.getItem('user'), this.code).subscribe(
+      console.log('confirming user ' + this.username);
+      this.service.getConfirm(this.auth.getAuthenticatedUser(), this.code).subscribe(
         success => {
           console.log(success);
           this.login();
@@ -193,6 +191,7 @@ export class HeaderComponent implements OnInit {
     document.getElementById('header-confirmation').classList.add('d-none');
     document.getElementById('body-confirmation').classList.add('d-none');
     document.getElementById('footer-confirmation').classList.add('d-none');
+    document.getElementById('continue').classList.remove('d-none');
   }
 
   initErrors(): void {
