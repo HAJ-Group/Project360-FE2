@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="card-body ">
-          <form (ngSubmit)="form.valid && addAnnounce();" #form="ngForm">
+          <form (ngSubmit)="form.valid && this.requiredImages.valid && addAnnounce();" #form="ngForm">
 
             <div class="container">
 

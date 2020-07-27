@@ -16,6 +16,7 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
   cities: string[] = CITIES;
   announce: AnnounceModel;
   selectedFiles: [] = [];
+  requiredImages;
 
   @ViewChild(AnnounceImagesComponent) child;
 
@@ -32,6 +33,7 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(){
     this.selectedFiles = this.child.selectedFiles;
+    this.requiredImages = this.child.images;
   }
 
   addAnnounce() {

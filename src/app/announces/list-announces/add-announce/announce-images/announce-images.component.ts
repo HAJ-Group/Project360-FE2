@@ -1,8 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ImageModel} from '../../../../model.ts/Image-model';
-import {HttpClient} from '@angular/common/http';
-import {AnnonceDataService} from '../../../../service/data/annonce-data.service';
-import {tsCreateElement} from '@angular/compiler-cli/src/ngtsc/typecheck/src/ts_util';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
 declare var $: any;
 @Component({
   selector: 'app-announce-images',
@@ -13,6 +10,7 @@ export class AnnounceImagesComponent implements OnInit {
 
   selectedFiles: File[] = [];
   @Input() public control: any = null;
+  @ViewChild('selectImage') images: NgForm;
 
   constructor(
 
