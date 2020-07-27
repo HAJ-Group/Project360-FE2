@@ -85,3 +85,7 @@
   color: #5d5d5d;
   padding-left: 5px ;
 }
+
+select.form-control:not([size]):not([multiple]){
+  margin-top: 33px;
+}

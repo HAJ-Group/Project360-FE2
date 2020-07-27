@@ -30,7 +30,7 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-    this.announce = new AnnounceModel(this.id, '', '', '', 0, '', '', '', '', '', false, 1);
+    this.announce = new AnnounceModel(this.id, '', '', '', 0, '', '', '', '', '', 0, 0, 0, false, 1);
     this.retrieveAnnounce(this.auth.getAuthenticatedUser(), this.id);
   }
 
