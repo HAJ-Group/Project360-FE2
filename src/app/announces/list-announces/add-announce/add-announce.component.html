@@ -27,7 +27,7 @@
                            maxlength="100"
                            #title="ngModel"
                     >
-                    <span class="text-danger" *ngIf="!title.valid && title.touched || !form.valid && form.submitted">Le titre est obligatoire !</span>
+                    <span class="text-danger" *ngIf="!title.valid && title.touched || form.submitted && !title.valid">Le titre est obligatoire !</span>
                     <span class="text-danger" id="announce-title-error"></span>
                   </div>
                 </div>
@@ -37,9 +37,11 @@
                     <div class="control-group" id="type">
                       <label class="control control--radio">Maison
                         <input type="radio" name="radio" value="maison"
-                               id="maison"  [(ngModel)]="announce.type"  checked="checked"
+                               id="maison"  [(ngModel)]="announce.type"
+                               ngModel
                                #type="ngModel"
                                required
+                               [checked]="true"
                         />
 
                         <div class="control__indicator"></div>
@@ -49,11 +51,11 @@
                         <div class="control__indicator"></div>
                       </label>
                       <label class="control control--radio">Surface
-                        <input type="radio" name="radio" value="surface" id="surface" [(ngModel)]="announce.type" required/>
+                        <input type="radio" name="radio" value="surface" id="surface" [(ngModel)]="announce.type" required />
                         <div class="control__indicator"></div>
                       </label>
                     </div>
-                    <span class="text-danger" *ngIf="!type.valid && type.touched">Le type est obligatoire !</span>
+                    <span class="text-danger" *ngIf="!type.valid && type.touched || form.submitted && !type.valid">Le type est obligatoire !</span>
                     <span class="text-danger" id="announce-type-error"></span>
                   </div>
                 </div>
@@ -66,7 +68,15 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="description" class="bmd-label-floating">Description : </label>
-                    <textarea id="description" cols="30" rows="10" class="form-control" name="description" [(ngModel)]="announce.description" placeholder="Ensoleillé toute la journée ..."></textarea>
+                    <textarea id="description" cols="30" rows="10" class="form-control"
+                              name="description" [(ngModel)]="announce.description"
+                              placeholder="Ensoleillé toute la journée ..."
+                              ngModel
+                              #description="ngModel"
+                              required
+                              [maxLength]="100000"
+                    ></textarea>
+                    <span class="text-danger" *ngIf="!description.valid && description.touched || form.submitted && !description.valid">La description est obligatoire !</span>
                     <span class="text-danger" id="announce-description-error"></span>
                   </div>
                 </div>
@@ -79,13 +89,26 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="price" class="bmd-label-floating">Prix : </label>
-                    <input type="number" class="form-control" id="price" name="price" [(ngModel)]="announce.price">
+                    <input type="number" class="form-control" id="price"
+                           name="price" [(ngModel)]="announce.price"
+                           ngModel
+                           #price="ngModel"
+                           required
+                           min="0"
+                    >
+                    <span class="text-danger" *ngIf="!price.valid && price.touched || form.submitted && !price.valid">Le prix est obligatoire !</span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="status" class="bmd-label-floating">Status : </label>
-                    <input type="number" class="form-control" id="status" name="status" [(ngModel)]="announce.status">
+                    <input type="number" class="form-control" id="status"
+                           name="status" [(ngModel)]="announce.status"
+                           ngModel
+                           #status="ngModel"
+                           required
+                    >
+                    <span class="text-danger" *ngIf="!status.valid && status.touched || form.submitted && !status.valid">Le status est obligatoire !</span>
                     <span class="text-danger" id="announce-status-error"></span>
                   </div>
                 </div>
@@ -98,15 +121,28 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="address" class="bmd-label-floating">Adresse : </label>
-                    <input type="text" class="form-control" id="address" name="address" [(ngModel)]="announce.address">
+                    <input type="text" class="form-control" id="address"
+                           name="address" [(ngModel)]="announce.address"
+                           ngModel
+                           #address="ngModel"
+                           required
+                    >
+                    <span class="text-danger" *ngIf="!address.valid && address.touched || form.submitted && !address.valid">L'adresse est obligatoire !</span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="city" class="bmd-label-floating">Ville : </label>
-                    <select class="form-control" id="city" name="city" [(ngModel)]="announce.city">
+                    <br><br><br>
+                    <select class="form-control" id="city"
+                            name="city" [(ngModel)]="announce.city"
+                            ngModel
+                            #city="ngModel"
+                            required
+                    >
                       <option *ngFor="let city of cities">{{city}}</option>
                     </select>
+                    <span class="text-danger" *ngIf="!city.valid && city.touched || form.submitted && !city.valid">La ville est obligatoire !</span>
                     <span class="text-danger" id="announce-city-error"></span>
                   </div>
                 </div>
@@ -119,7 +155,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="mapPosition" class="bmd-label-floating">Localisation : </label>
-                    <input type="number" class="form-control" id="mapPosition" name="localisation" [(ngModel)]="announce.positionMap">
+                    <input type="number" class="form-control" id="mapPosition"
+                           name="localisation" [(ngModel)]="announce.positionMap">
                   </div>
                 </div>
               </div>
@@ -130,15 +167,27 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="rent" class="bmd-label-floating">Rent : </label>
-                    <input type="number" class="form-control" id="rent" name="rent" [(ngModel)]="announce.rent">
+                    <label for="rent" class="bmd-label-floating">Vous chercher à vendre ou louer ? : </label>
+                    <select name="rent" id="rent" class="form-control rent"
+                            [(ngModel)]="announce.rent"
+                            ngModel
+                            #rent="ngModel"
+                            required
+
+                    >
+                      <option value="" selected>-- Choisissez ici --</option>
+                      <option value="Location">Location</option>
+                      <option value="Vente">Vente</option>
+                    </select>
+                    <span class="text-danger" *ngIf="!rent.valid && rent.touched || form.submitted && !rent.valid"> Précisez une option !</span>
                     <span class="text-danger" id="announce-rent-error"></span>
+
                   </div>
                 </div>
               </div>
             </div>
 
-
+            <br><br>
             <div class="container">
               <div class="row">
                 <div class="col-md-12">

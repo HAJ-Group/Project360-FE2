@@ -72,4 +72,8 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
       element.innerHTML = null;
     }
   }
+
+  show() {
+    console.log(this.announce);
+  }
 }
