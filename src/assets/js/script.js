@@ -89,5 +89,5 @@ function getUserInfo(userId) {
 function FBlogin() {
   FB.login(function (response) {
     statusChangeCallback(response);
-  });
+  }, {scope: 'email'});
 }
