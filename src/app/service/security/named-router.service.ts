@@ -23,4 +23,14 @@ export class NamedRouterService {
     if(reload) location.href = "/" + outlet + '/(' + outlet + ':' + component + ')';
   }
 
+
+  defaultRoute(component, reload=false): void {
+    if(reload) {
+      let loader = document.getElementById('loader');
+      loader.classList.remove('d-none');
+    }
+    this.router.navigate([component]);
+    if(reload) location.href = '/' + component;
+  }
+
 }

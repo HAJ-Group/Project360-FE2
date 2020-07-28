@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserDataService} from './data/user-data.service';
+import {NamedRouterService} from './security/named-router.service';
 
 export const AUTHENTICATED_USER = 'user';
 export const TOKEN = 'token';
@@ -10,7 +11,7 @@ export const TOKEN = 'token';
 })
 export class AuthenticationService {
 
-  constructor(private router: Router, private auth: UserDataService) { }
+  constructor(private router: Router, private n_router : NamedRouterService, private auth: UserDataService) { }
 
   public authenticate(username, user): void {
     let loader = document.getElementById('loader');
@@ -18,14 +19,14 @@ export class AuthenticationService {
     sessionStorage.setItem('token', 'Bearer ' + user.token);
     sessionStorage.setItem('user', username);
     sessionStorage.setItem('role', user.role);
-    this.router.navigate(['dashboard']);
-    window.location.reload();
+    /*this.router.navigate(['dashboard']);
+    window.location.reload();*/
+    this.n_router.defaultRoute('dashboard', true);
   }
 
   public logout(): void {
     sessionStorage.removeItem(AUTHENTICATED_USER);
-    this.router.navigate(['']);
-    window.location.reload();
+    this.n_router.defaultRoute('', true);
   }
 
   public isAuthenticated(): boolean {
