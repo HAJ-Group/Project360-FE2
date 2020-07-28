@@ -18,10 +18,10 @@ export class AnnoncesComponent implements OnInit {
     status: '',
     type: '',
     city: '',
-    surface: 0.0,
+    surface: 0,
     budget_min: 1,
     budget_max: 100000,
-    pieces: 20.00,
+    pieces: 20,
   };
   cities: string[];
 
