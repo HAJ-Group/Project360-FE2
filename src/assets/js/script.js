@@ -53,6 +53,7 @@ function afterReloadScroll() {
   }
 }
 
+
 // FACEBOOK AUTHENTICATION ----------------------------------------------------------------------------------------------
 
 function statusChangeCallback(response) {

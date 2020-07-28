@@ -20,7 +20,9 @@ export class WizardComponent implements OnInit {
   constructor(private service: AnnoncerDataService, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('registered') === this.auth.getAuthenticatedUser()) this.router.navigate(['dashboard']);
+    if(sessionStorage.getItem('registered') === this.auth.getAuthenticatedUser()) {
+      this.router.navigate(['dashboard']);
+    }
     this.data = new AnnoncerModel('', '', '', '', '', '', '', false, '');
   }
 

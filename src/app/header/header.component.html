@@ -127,7 +127,7 @@
         <div class="card-header card-header-rose text-center">
           <h4 class="card-title">Login</h4>
           <div class="social-line">
-            <a href="javascript:void(0)" class="btn btn-just-icon btn-link btn-white" (click)="facebook_login()">
+            <a href="#facebookLoginBlock" data-toggle="modal" class="btn btn-just-icon btn-link btn-white" onclick="FBlogin()">
               <i class="fa fa-facebook-square"></i>
             </a>
             <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
@@ -144,7 +144,7 @@
                     <i class="material-icons">email</i>
                   </span>
                 </div>
-                <input type="email" class="form-control" placeholder="Email Or Username..." required [(ngModel)]="username">
+                <input type="email" class="form-control" placeholder="Email Or Username..." required [(ngModel)]="username" name="username">
               </div>
               <span class="text-danger float-right" id="login-username-error"></span>
             </span>
@@ -155,7 +155,7 @@
                     <i class="material-icons">lock_outline</i>
                   </span>
                 </div>
-                <input type="password" class="form-control" placeholder="Password..." required [(ngModel)]="password">
+                <input type="password" class="form-control" placeholder="Password..." required [(ngModel)]="password" name="password">
               </div>
               <span class="text-danger float-right" id="login-password-error"></span>
             </span>
@@ -278,7 +278,7 @@
                 <button class="btn btn-just-icon btn-round btn-dribbble">
                   <i class="fa fa-dribbble"></i>
                 </button>
-                <button class="btn btn-just-icon btn-round btn-facebook" (click)="facebook_subscribe()">
+                <button href="#facebookSubscribeBlock" data-toggle="modal" class="btn btn-just-icon btn-round btn-facebook" onclick="FBlogin()">
                   <i class="fa fa-facebook"> </i>
                 </button>
                 <h4 class="mt-3"> Join our services </h4>
@@ -290,7 +290,7 @@
                             <i class="material-icons">face</i>
                           </span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Username..." required [(ngModel)]="username">
+                  <input type="text" class="form-control" placeholder="Username..." required [(ngModel)]="username" name="username">
                 </div>
                 <span class="text-danger float-right" id="subscribe-username-error"></span>
               </div>
@@ -301,7 +301,7 @@
                             <i class="material-icons">mail</i>
                           </span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email..." required [(ngModel)]="email">
+                  <input type="text" class="form-control" placeholder="Email..." required [(ngModel)]="email" name="email">
                 </div>
                 <span class="text-danger float-right" id="subscribe-email-error"></span>
               </div>
@@ -312,7 +312,7 @@
                             <i class="material-icons">lock_outline</i>
                           </span>
                   </div>
-                  <input type="password" placeholder="Password..." class="form-control" required [(ngModel)]="password">
+                  <input type="password" placeholder="Password..." class="form-control" required [(ngModel)]="password" name="password">
                 </div>
                 <span class="text-danger float-right" id="subscribe-password-error"></span>
               </div>
@@ -323,7 +323,7 @@
                             <i class="material-icons">lock_outline</i>
                           </span>
                   </div>
-                  <input type="password" placeholder="Confirm Password..." class="form-control" required [(ngModel)]="confirm_password">
+                  <input type="password" placeholder="Confirm Password..." class="form-control" required [(ngModel)]="confirm_password" name="confirm_password">
                 </div>
                 <span class="text-danger float-right" id="subscribe-confirm_password-error"></span>
               </div>
@@ -393,6 +393,46 @@
         <input type="submit" (click)="confirm()" class="btn btn-outline-primary" value="Confirmez">
         <input type="submit" (click)="sendConfirmation()" class="btn btn-outline-primary" value="Renvoyer la confirmation a votre mail">
         <input type="submit" (click)="rollback()" class="btn btn-outline-primary" value="Précédent">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="facebookLoginBlock" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="fb-login-button disabled" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width=""></div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="card-img-top" src="assets/pictures/header/facebook.jpeg">
+      </div>
+      <div class="modal-footer">
+        <div class="btn btn-success" (click)="facebook_login()">Confirm</div>
+        <div id="close_lfb" type="button" class="btn btn-secondary" data-dismiss="modal">Close</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="facebookSubscribeBlock" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="fb-login-button disabled" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width=""></div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="card-img-top" src="assets/pictures/header/facebook.jpeg">
+      </div>
+      <div class="modal-footer">
+        <div class="btn btn-success" (click)="facebook_subscribe()">Confirm</div>
+        <div id="close_sfb" type="button" class="btn btn-secondary" data-dismiss="modal">Close</div>
       </div>
     </div>
   </div>

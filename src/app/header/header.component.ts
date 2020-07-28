@@ -54,17 +54,17 @@ export class HeaderComponent implements OnInit {
   }
 
   facebook_login() {
-    // @ts-ignore
-    FBlogin();
     this.username = sessionStorage.getItem('FB_NAME').split(' ').join('_');
     this.password = 'FB' + sessionStorage.getItem('FB_EMAIL') + sessionStorage.getItem('FB_ID');
-    if(this.password.length > 30) this.password = this.password.substring(0, 30);
+    if (this.password.length > 30) this.password = this.password.substring(0, 30);
     sessionStorage.removeItem('FB_ID');
     sessionStorage.removeItem('FB_NAME');
     sessionStorage.removeItem('FB_EMAIL');
     sessionStorage.removeItem('FB_TOKEN');
     this.login();
+    document.getElementById('close_lfb').click();
   }
+
 
   login() {
     this.initErrors();
@@ -89,8 +89,6 @@ export class HeaderComponent implements OnInit {
   }
 
   facebook_subscribe() {
-    // @ts-ignore
-    FBlogin();
     this.username = sessionStorage.getItem('FB_NAME').split(' ').join('_');
     this.email = sessionStorage.getItem('FB_EMAIL');
     this.password = 'FB' + this.email + sessionStorage.getItem('FB_ID');
@@ -102,6 +100,7 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem('FB_TOKEN');
     this.auto_confirm = true;
     this.subscribe();
+    document.getElementById('close_sfb').click();
   }
 
   subscribe() {

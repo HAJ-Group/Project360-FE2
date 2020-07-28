@@ -12,7 +12,16 @@ export class DataGuardService implements CanActivate{
 
   // @ts-ignore
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(sessionStorage.getItem('registered') === this.auth.getAuthenticatedUser()) return true
+    this.service.getUserAnnouncer().subscribe(
+      success => {
+        if(Object.keys(success).length !== 0) sessionStorage.setItem('registered', this.auth.getAuthenticatedUser());
+        else {
+          sessionStorage.removeItem('registered');
+          location.reload();
+        }
+      }
+    );
+    if(sessionStorage.getItem('registered') === this.auth.getAuthenticatedUser()) return true;
     this.router.navigate(['wizard']);
     return false;
   }
