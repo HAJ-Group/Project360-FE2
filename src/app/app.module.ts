@@ -23,6 +23,8 @@ import { AnnoncesComponent } from './annonces/annonces.component';
 import {AnnonceDataService} from './service/data/annonce-data.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { WizardComponent } from './wizard/wizard.component';
+import { MenuComponent } from './menu/menu.component';
+import { CardAnnounceComponent } from './card-announce/card-announce.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { WizardComponent } from './wizard/wizard.component';
     DashboardHeaderComponent,
     AnnoncesComponent,
     WizardComponent,
+    MenuComponent,
+    CardAnnounceComponent,
   ],
   imports: [
     BrowserModule,
