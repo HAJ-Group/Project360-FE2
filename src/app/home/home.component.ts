@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnnonces();
-    this.getPremiumAnnonces();
+  //  this.getPremiumAnnonces();
   }
 
   getAnnonces() {
