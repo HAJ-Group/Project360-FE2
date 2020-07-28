@@ -138,6 +138,7 @@
                             #city="ngModel"
                             required
                     >
+                      <option value="" selected>-- Choisissez la ville --</option>
                       <option *ngFor="let city of cities">{{city}}</option>
                     </select>
                     <span class="text-danger" *ngIf="!city.valid && city.touched || form.submitted && !city.valid">La ville est obligatoire !</span>

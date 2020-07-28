@@ -5,6 +5,7 @@ import {AnnonceDataService} from '../../../service/data/annonce-data.service';
 import {AnnounceImagesComponent} from './announce-images/announce-images.component';
 import {AuthenticationService} from '../../../service/authentication.service';
 import {Router} from '@angular/router';
+import {ViewportScroller} from '@angular/common';
 
 @Component({
   selector: 'app-add-announce',
@@ -23,7 +24,8 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
   constructor(
     private announceDataService: AnnonceDataService,
     public auth: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private viewportScroller: ViewportScroller
   ) { }
 
   ngOnInit(): void {
@@ -77,5 +79,9 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
 
   show() {
     console.log(this.announce);
+  }
+
+  onClick(elementId: string) {
+    this.viewportScroller.scrollToAnchor(elementId);
   }
 }

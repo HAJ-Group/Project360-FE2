@@ -6,7 +6,8 @@
       <div class="card ">
         <div class="card-header card-header-rose card-header-icon">
           <div class="card-icon">
-            <i class="material-icons">library_books</i><span class="add-announce-title">Ajouter une Annonce</span>
+            <i class="material-icons">library_books</i>
+            <span class="add-announce-title">Ajouter une Annonce</span>
           </div>
         </div>
         <div class="card-body ">
@@ -17,7 +18,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="bmd-label-floating"> Titre de l'annonce : </label>
+                    <label class="bmd-label-floating"> Titre de l'annonce <strong style="color: red">*</strong> :</label>
                     <input type="text"
                            class="form-control" id="announce-title"
                            placeholder="titre" [(ngModel)]="announce.title"
@@ -33,7 +34,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="type" class="bmd-label-floating">Type : </label>
+                    <label for="type" class="bmd-label-floating">Type <strong style="color: red">*</strong> : </label>
                     <div class="control-group" id="type">
                       <label class="control control--radio">Maison
                         <input type="radio" name="radio" value="maison"
@@ -67,7 +68,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="description" class="bmd-label-floating">Description : </label>
+                    <label for="description" class="bmd-label-floating">Description <strong style="color: red">*</strong> : </label>
                     <textarea id="description" cols="30" rows="10" class="form-control"
                               name="description" [(ngModel)]="announce.description"
                               placeholder="Ensoleillé toute la journée ..."
@@ -87,7 +88,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="price" class="bmd-label-floating">Prix : </label>
+                    <label for="price" class="bmd-label-floating">Prix <strong style="color: red">*</strong> : </label>
                     <input type="number" class="form-control" id="price"
                            name="price" [(ngModel)]="announce.price"
                            ngModel
@@ -100,7 +101,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="status" class="bmd-label-floating">Status : </label>
+                    <label for="status" class="bmd-label-floating">Status <strong style="color: red">*</strong> : </label>
                     <input type="number" class="form-control" id="status"
                            name="status" [(ngModel)]="announce.status"
                            ngModel
@@ -118,7 +119,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="address" class="bmd-label-floating">Adresse : </label>
+                    <label for="address" class="bmd-label-floating">Adresse <strong style="color: red">*</strong> : </label>
                     <input type="text" class="form-control" id="address"
                            name="address" [(ngModel)]="announce.address"
                            ngModel
@@ -130,7 +131,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="city" class="bmd-label-floating">Ville : </label>
+                    <label for="city" class="bmd-label-floating">Ville <strong style="color: red">*</strong> : </label>
                     <br><br><br>
                     <select class="form-control" id="city"
                             name="city" [(ngModel)]="announce.city"
@@ -163,7 +164,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="rent" class="bmd-label-floating">Vous chercher à vendre ou louer ? : </label>
+                    <label for="rent" class="bmd-label-floating">Vous cherchez à vendre ou louer ? <strong style="color: red">*</strong> : </label>
                     <select name="rent" id="rent" class="form-control rent"
                             [(ngModel)]="announce.rent"
                             ngModel
@@ -183,7 +184,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="groundSurface" class="bmd-label-floating">Surface ( en m² ) : </label>
+                    <label for="groundSurface" class="bmd-label-floating">Surface ( en m² ) <strong style="color: red">*</strong> : </label>
                     <input type="number" class="form-control" id="groundSurface"
                            name="groundSurface" [(ngModel)]="announce.surface"
                            ngModel
@@ -196,7 +197,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="pieces" class="bmd-label-floating">Nombre de piéces : </label>
+                    <label for="pieces" class="bmd-label-floating"><a (click)="onClick('pieces-infos')" class="pieces-rooms-infos"><i class="fa fa-info-circle" aria-hidden="true"></i></a> Nombre de piéces <strong style="color: red">*</strong> : </label>
                     <input type="number" class="form-control" id="pieces"
                            name="pieces" [(ngModel)]="announce.pieces"
                            ngModel
@@ -209,7 +210,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="rooms" class="bmd-label-floating">Nombre de chambres : </label>
+                    <label for="rooms" class="bmd-label-floating"><a (click)="onClick('rooms-infos')" class="pieces-rooms-infos"><i class="fa fa-info-circle" aria-hidden="true"></i></a> Nombre de chambres <strong style="color: red">*</strong> : </label>
                     <input type="number" class="form-control" id="rooms"
                            name="rooms" [(ngModel)]="announce.rooms"
                            ngModel
@@ -235,6 +236,68 @@
             </div>
 
           </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header card-header-rose card-header-icon">
+          <div class="card-icon">
+            <span class="material-icons">
+              bookmark
+            </span>
+            <span class="add-announce-title">Informations</span>
+          </div>
+        </div>
+        <div class="card-body ">
+          <h4>Quelle difference entre Pièce et chambre ?</h4>
+          <div class="row description-zone" id="pieces-infos">
+            <div class="col-md-8 pieces-rooms-infos-text">
+              <p>
+                Pour un appartement <strong><b>le nombre de pièces est calculé par espace de vie</b></strong>, sauf pour la salle de bain et la cuisine. <strong><b>La salle de bain et la cuisine ne comptent jamais comme des pièces</b></strong>. Ce qui veut dire qu’un appartement peut avoir ce type de pièces :
+              </p>
+              <ul>
+                <li>Une chambre</li>
+                <li>Un salon</li>
+                <li>Une salle à manger</li>
+                <li>Un bureau</li>
+              </ul>
+             <!-- <p>
+                <strong style="color: #d21339"><b>Exemple :</b></strong> si l’annonce indique appartement 2 pièces ça veut dire qu’il y a forcément une salle de bain et une cuisine mais qui ne sont pas comptées dans le nombre de pièces. Donc, en nombre de pièces tu as :
+              </p>
+              <ul>
+                <li>un salon</li>
+                <li>une chambre</li>
+              </ul>-->
+            </div>
+            <div class="col-md-4">
+              <img src="../../../../assets/pictures/salon.jpg" class="img-fluid rounded" alt="salon">
+            </div>
+          </div>
+          <div class="row description-zone" id="rooms-infos">
+            <div class="col-md-8 pieces-rooms-infos-text">
+              <p>Pour connaître le nombre de chambres qu’à un appartement tu comptes tout simplement le nombre de chambres à coucher qu’à l’appartement.</p>
+              <p style="margin-top: 10px">
+                <strong style="color: #d21339"><b>Exemple :</b></strong> L’annonce indique appartement 3 pièces – 2 chambres. C’est donc un appartement qui a :
+              </p>
+              <ul>
+                <li>Un salon qui compte comme 1 pièce</li>
+                <li>2 chambres à coucher qui comptent comme 2 pièces et aussi comme 2 chambres</li>
+                <li>Une cuisine qui ne compte ni comme une pièce ni comme une chambre</li>
+                <li>Une salle de bain qui ne compte ni comme une pièce ni comme une chambre.</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <img src="../../../../assets/pictures/chambre2.jpg" class="img-fluid rounded" alt="salon">
+            </div>
+          </div>
         </div>
       </div>
     </div>

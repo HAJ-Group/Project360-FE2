@@ -106,3 +106,31 @@ select.form-control:not([size]):not([multiple]){
   margin-top: 33px;
 }
 
+.pieces-rooms-infos{
+ margin-left: -15px;
+  cursor: pointer;
+}
+.pieces-rooms-infos:hover{
+  color: crimson;
+}
+
+.pieces-rooms-infos-text{
+  text-align: justify;
+}
+
+.description-zone{
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 2px;
+}
+
+.description-zone p{
+  margin-bottom: 0;
+
+}
+
+.rounded-totally{
+  border-radius: 100%;
+}
+
