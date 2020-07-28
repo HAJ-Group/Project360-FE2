@@ -122,7 +122,8 @@ select.form-control:not([size]):not([multiple]){
   background-color: whitesmoke;
   padding: 10px;
   border-radius: 6px;
-  margin: 2px;
+  margin: 2px 2px 10px;
+
 }
 
 .description-zone p{

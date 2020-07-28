@@ -197,7 +197,11 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="pieces" class="bmd-label-floating"><a (click)="onClick('pieces-infos')" class="pieces-rooms-infos"><i class="fa fa-info-circle" aria-hidden="true"></i></a> Nombre de piéces <strong style="color: red">*</strong> : </label>
+                    <label for="pieces" class="bmd-label-floating">
+                      <a class="pieces-rooms-infos" href="javascript:void(0)" (click)="onClick('pieces-infos')" >
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </a>
+                      Nombre de piéces<strong style="color: red">*</strong> : </label>
                     <input type="number" class="form-control" id="pieces"
                            name="pieces" [(ngModel)]="announce.pieces"
                            ngModel
@@ -210,7 +214,11 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="rooms" class="bmd-label-floating"><a (click)="onClick('rooms-infos')" class="pieces-rooms-infos"><i class="fa fa-info-circle" aria-hidden="true"></i></a> Nombre de chambres <strong style="color: red">*</strong> : </label>
+                    <label for="rooms" class="bmd-label-floating">
+                      <a class="pieces-rooms-infos" href="javascript:void(0)" (click)="onClick('rooms-infos')" >
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </a>
+                      Nombre de chambres <strong style="color: red">*</strong> : </label>
                     <input type="number" class="form-control" id="rooms"
                            name="rooms" [(ngModel)]="announce.rooms"
                            ngModel
