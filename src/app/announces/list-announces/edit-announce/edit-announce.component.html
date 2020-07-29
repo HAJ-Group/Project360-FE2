@@ -193,6 +193,7 @@
                            min="0"
                     >
                     <span class="text-danger" *ngIf="!groundSurface.valid && groundSurface.touched || form.submitted && !groundSurface.valid">La surface est obligatoire !</span>
+                    <span class="text-danger" id="announce-surface-error"></span>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -206,6 +207,7 @@
                            min="0"
                     >
                     <span class="text-danger" *ngIf="!pieces.valid && pieces.touched || form.submitted && !pieces.valid">Le nombre de pièces est obligatoire !</span>
+                    <span class="text-danger" id="announce-pieces-error"></span>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -219,6 +221,7 @@
                            min="0"
                     >
                     <span class="text-danger" *ngIf="!rooms.valid && rooms.touched || form.submitted && !rooms.valid">Le nombre de chambres est obligatoire !</span>
+                    <span class="text-danger" id="announce-rooms-error"></span>
                   </div>
                 </div>
               </div>
