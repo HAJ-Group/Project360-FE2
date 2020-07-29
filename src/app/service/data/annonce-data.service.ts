@@ -36,7 +36,7 @@ export class AnnonceDataService{
   }
 
   createAnnounce(username, announce, images) {
-    console.log('aaayeh ' + announce);
+    console.log('announce: ' + announce);
     const formData = new FormData();
     for (let i = 0; i < images.length; i ++){
       formData.append('image' + ( i + 1), images[i], images[i].name);
