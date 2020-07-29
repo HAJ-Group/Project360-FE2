@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../service/authentication.service';
 import {ContactService, Contactus} from '../service/contact.service';
 import {Router} from '@angular/router';
-import {AnnonceDataService} from '../service/data/annonce-data.service';
-import {AnnounceModel} from '../model.ts/announce-model';
 import * as $ from 'jquery';
 import {NamedRouterService} from '../service/security/named-router.service';
+import {AnnoncerDataService} from '../service/data/annoncer-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,9 +31,15 @@ export class DashboardComponent implements OnInit {
     public router: Router,
     public n_router: NamedRouterService,
     public contactService: ContactService,
+    public service: AnnoncerDataService
   ) {}
 
   ngOnInit(): void {
+    this.service.getUserAnnouncer().subscribe(
+      success => {
+        if(Object.keys(success).length === 0) this.n_router.defaultRoute('wizard', true);
+      }
+    );
     console.log('loading dashboard');
     this.username = sessionStorage.getItem('user');
     this.cleanView();

@@ -12,7 +12,6 @@ import {ListAnnouncesComponent} from './announces/list-announces/list-announces.
 import {AnnounceDetailsComponent} from './announces/list-announces/announce-details/announce-details.component';
 import {AnnoncesComponent} from './annonces/annonces.component';
 import {WizardComponent} from './wizard/wizard.component';
-import {DataGuardService} from './service/security/data-guard.service';
 
 
 const routes: Routes = [
@@ -27,7 +26,7 @@ const routes: Routes = [
       {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
       {path: ':id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
       {path: ':id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
-    ], canActivate: [RouteGuardService, DataGuardService]},
+    ], canActivate: [RouteGuardService]},
   {path: '**', redirectTo: '/'},
 ];
 
