@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnnonces();
-  //  this.getPremiumAnnonces();
+    this.getPremiumAnnonces();
+    document.getElementById('switchable-nav').classList.remove('d-none');
   }
 
   getAnnonces() {

@@ -35,6 +35,7 @@ export class AnnoncesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnnoncesByFilters();
+    document.getElementById('switchable-nav').classList.add('d-none');
   }
 
   getAnnonces() {
