@@ -204,148 +204,319 @@
 <!--<br>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <div class="card">
-        <div class="card-heading">
-          <h6 class="card-title text-center">Ajouter une annonce</h6>
-        </div>
-        <div class="card-body">
 
-          <form (ngSubmit)="addAnnounce();">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header card-header-success card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">library_books</i>
+            <span class="add-announce-title">Ajouter une Annonce</span>
+          </div>
+        </div>
+        <div class="card-body ">
+          <form (ngSubmit)="form.valid && this.requiredImages.valid && addAnnounce();" #form="ngForm">
 
             <div class="container">
-              <h4 class="form-section"><i class="icon-head"></i> Informations générales</h4>
-              <hr>
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="announce-title"> Titre de l'annonce : </label>
-                    <input type="text" class="form-control" id="announce-title" name="title" placeholder="titre" [(ngModel)]="announce.title">
+                    <label class="bmd-label-floating"> Titre de l'annonce <strong style="color: red">*</strong> :</label>
+                    <input type="text"
+                           class="form-control" id="announce-title"
+                           placeholder="titre" [(ngModel)]="announce.title"
+                           ngModel
+                           name="title"
+                           required
+                           maxlength="100"
+                           #title="ngModel"
+                    >
+                    <span class="text-danger" *ngIf="!title.valid && title.touched || form.submitted && !title.valid">Le titre est obligatoire !</span>
                     <span class="text-danger" id="announce-title-error"></span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="type">Type : </label>
+                    <label for="type" class="bmd-label-floating">Type <strong style="color: red">*</strong> : </label>
                     <div class="control-group" id="type">
-                      <label class="control control&#45;&#45;radio">Maison
-                        <input type="radio" name="radio" value="maison" id="maison"  [(ngModel)]="announce.type"  checked="checked"/>
+                      <label class="control control--radio">Maison
+                        <input type="radio" name="radio" value="maison"
+                               id="maison"  [(ngModel)]="announce.type"
+                               ngModel
+                               #type="ngModel"
+                               required
+                               [checked]="true"
+                        />
+
                         <div class="control__indicator"></div>
                       </label>
-                      <label class="control control&#45;&#45;radio">Appartement
-                        <input type="radio" name="radio" value="appartement" id="appartement" [(ngModel)]="announce.type"/>
+                      <label class="control control--radio">Appartement
+                        <input type="radio" name="radio" value="appartement" id="appartement" [(ngModel)]="announce.type" required/>
                         <div class="control__indicator"></div>
                       </label>
-                      <label class="control control&#45;&#45;radio">Surface
-                        <input type="radio" name="radio" value="surface" id="surface" [(ngModel)]="announce.type"/>
+                      <label class="control control--radio">Surface
+                        <input type="radio" name="radio" value="surface" id="surface" [(ngModel)]="announce.type" required />
                         <div class="control__indicator"></div>
                       </label>
                     </div>
+                    <span class="text-danger" *ngIf="!type.valid && type.touched || form.submitted && !type.valid">Le type est obligatoire !</span>
                     <span class="text-danger" id="announce-type-error"></span>
                   </div>
                 </div>
               </div>
-            </div>
 
 
-            <div class="container">
+
+
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="description">Description : </label>
-                    <textarea id="description" cols="30" rows="10" class="form-control" name="description" [(ngModel)]="announce.description" placeholder="Ensoleillé toute la journée ..."></textarea>
+                    <label for="description" class="bmd-label-floating">Description <strong style="color: red">*</strong> : </label>
+                    <textarea id="description" cols="30" rows="10" class="form-control"
+                              name="description" [(ngModel)]="announce.description"
+                              placeholder="Ensoleillé toute la journée ..."
+                              ngModel
+                              #description="ngModel"
+                              required
+                              [maxLength]="100000"
+                    ></textarea>
+                    <span class="text-danger" *ngIf="!description.valid && description.touched || form.submitted && !description.valid">La description est obligatoire !</span>
                     <span class="text-danger" id="announce-description-error"></span>
                   </div>
                 </div>
               </div>
-            </div>
 
 
-            <div class="container">
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="price">Prix : </label>
-                    <input type="number" class="form-control" id="price" name="price" [(ngModel)]="announce.price">
+                    <label for="price" class="bmd-label-floating">Prix <strong style="color: red">*</strong> : </label>
+                    <input type="number" class="form-control" id="price"
+                           name="price" [(ngModel)]="announce.price"
+                           ngModel
+                           #price="ngModel"
+                           required
+                           min="0"
+                    >
+                    <span class="text-danger" *ngIf="!price.valid && price.touched || form.submitted && !price.valid">Le prix est obligatoire !</span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="status">Status : </label>
-                    <input type="number" class="form-control" id="status" name="status" [(ngModel)]="announce.status">
+                    <label for="status" class="bmd-label-floating">Status <strong style="color: red">*</strong> : </label>
+                    <input type="number" class="form-control" id="status"
+                           name="status" [(ngModel)]="announce.status"
+                           ngModel
+                           #status="ngModel"
+                           required
+                    >
+                    <span class="text-danger" *ngIf="!status.valid && status.touched || form.submitted && !status.valid">Le status est obligatoire !</span>
                     <span class="text-danger" id="announce-status-error"></span>
                   </div>
                 </div>
               </div>
-            </div>
 
 
-            <div class="container">
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="address"><i class=""></i>Adresse : </label>
-                    <input type="text" class="form-control" id="address" name="address" [(ngModel)]="announce.address">
+                    <label for="address" class="bmd-label-floating">Adresse <strong style="color: red">*</strong> : </label>
+                    <input type="text" class="form-control" id="address"
+                           name="address" [(ngModel)]="announce.address"
+                           ngModel
+                           #address="ngModel"
+                           required
+                    >
+                    <span class="text-danger" *ngIf="!address.valid && address.touched || form.submitted && !address.valid">L'adresse est obligatoire !</span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="city">Ville : </label>
-                    <select class="form-control" id="city" name="city" [(ngModel)]="announce.city">
+                    <label for="city" class="bmd-label-floating">Ville <strong style="color: red">*</strong> : </label>
+                    <br><br><br>
+                    <select class="form-control" id="city"
+                            name="city" [(ngModel)]="announce.city"
+                            ngModel
+                            #city="ngModel"
+                            required
+                    >
+                      <option value="" selected>-- Choisissez la ville --</option>
                       <option *ngFor="let city of cities">{{city}}</option>
                     </select>
+                    <span class="text-danger" *ngIf="!city.valid && city.touched || form.submitted && !city.valid">La ville est obligatoire !</span>
                     <span class="text-danger" id="announce-city-error"></span>
                   </div>
                 </div>
               </div>
-            </div>
 
 
-            <div class="container">
+
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="mapPosition">Localisation : </label>
-                    <input type="number" class="form-control" id="mapPosition" name="localisation" [(ngModel)]="announce.positionMap">
+                    <label for="mapPosition" class="bmd-label-floating">Localisation : </label>
+                    <input type="number" class="form-control" id="mapPosition"
+                           name="localisation" [(ngModel)]="announce.positionMap">
                   </div>
                 </div>
               </div>
-            </div>
 
 
-            <div class="container">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="rent">Rent : </label>
-                    <input type="number" class="form-control" id="rent" name="rent" [(ngModel)]="announce.rent">
+                    <label for="rent" class="bmd-label-floating">Vous cherchez à vendre ou louer ? <strong style="color: red">*</strong> : </label>
+                    <select name="rent" id="rent" class="form-control rent"
+                            [(ngModel)]="announce.rent"
+                            ngModel
+                            #rent="ngModel"
+                            required
+                    >
+                      <option value="" selected>-- Choisissez ici --</option>
+                      <option value="Location">Location</option>
+                      <option value="Vente">Vente</option>
+                    </select>
+                    <span class="text-danger" *ngIf="!rent.valid && rent.touched || form.submitted && !rent.valid"> Précisez une option !</span>
                     <span class="text-danger" id="announce-rent-error"></span>
                   </div>
                 </div>
               </div>
-            </div>
+              <br><br>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="groundSurface" class="bmd-label-floating">Surface ( en m² ) <strong style="color: red">*</strong> : </label>
+                    <input type="number" class="form-control" id="groundSurface"
+                           name="groundSurface" [(ngModel)]="announce.surface"
+                           ngModel
+                           #groundSurface="ngModel"
+                           required
+                           min="0"
+                    >
+                    <span class="text-danger" *ngIf="!groundSurface.valid && groundSurface.touched || form.submitted && !groundSurface.valid">La surface est obligatoire !</span>
+                    <span class="text-danger" id="announce-surface-error"></span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="pieces" class="bmd-label-floating">
+                      <a class="pieces-rooms-infos" href="javascript:void(0)" (click)="onClick('pieces-infos')" >
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </a>
+                      Nombre de piéces: </label>
+                    <input type="number" class="form-control" id="pieces"
+                           name="pieces" [(ngModel)]="announce.pieces"
 
+                           min="0"
+                    >
+                    <span class="text-danger" id="announce-pieces-error"></span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="rooms" class="bmd-label-floating">
+                      <a class="pieces-rooms-infos" href="javascript:void(0)" (click)="onClick('rooms-infos')" >
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </a>
+                      Nombre de chambres <strong style="color: red">*</strong> : </label>
+                    <input type="number" class="form-control" id="rooms"
+                           name="rooms" [(ngModel)]="announce.rooms"
+                           ngModel
+                           #rooms="ngModel"
+                           required
+                           min="0"
+                    >
+                    <span class="text-danger" *ngIf="!rooms.valid && rooms.touched || form.submitted && !rooms.valid">Le nombre de chambres est obligatoire !</span>
+                    <span class="text-danger" id="announce-rooms-error"></span>
+                  </div>
+                </div>
+              </div>
 
-            <div class="container">
+            <br><br>
               <div class="row">
                 <div class="col-md-12">
-                  <app-announce-images></app-announce-images>
+                  <app-announce-images [control]="form"></app-announce-images>
                 </div>
               </div>
             </div>
 
-
             <div class="d-flex flex-row justify-content-center">
-              <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-paper-plane"></i> Valider</button>
+              <button class="btn btn-fill btn-success" type="submit"  (click)="show()"><i class="fa fa-check" aria-hidden="true"></i> Valider</button>
             </div>
 
           </form>
-
         </div>
       </div>
     </div>
+
   </div>
 </div>-->
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header card-header-info card-header-icon">
+          <div class="card-icon">
+            <span class="material-icons">
+              bookmark
+            </span>
+            <span class="add-announce-title">Informations</span>
+          </div>
+        </div>
+        <div class="card-body ">
+          <h4>Quelle difference entre Pièce et chambre ?</h4>
+          <div class="row description-zone" id="pieces-infos">
+            <div class="col-md-8 pieces-rooms-infos-text">
+              <h4 style="font-weight: bold;color: #9c27b0">Pièce</h4>
+              <p>
+                Pour un appartement <strong><b>le nombre de pièces est calculé par espace de vie</b></strong>, sauf pour la salle de bain et la cuisine. <strong><b>La salle de bain et la cuisine ne comptent jamais comme des pièces</b></strong>. Ce qui veut dire qu’un appartement peut avoir ce type de pièces :
+              </p>
+              <ul>
+                <li>Une chambre</li>
+                <li>Un salon</li>
+                <li>Une salle à manger</li>
+                <li>Un bureau</li>
+              </ul>
+              <p>
+                <strong style="color: #d21339"><b>Exemple :</b></strong> si l’annonce indique appartement 2 pièces ça veut dire qu’il y a forcément une salle de bain et une cuisine mais qui ne sont pas comptées dans le nombre de pièces. Donc, en nombre de pièces tu as :
+              </p>
+              <ul>
+                <li>un salon</li>
+                <li>une chambre</li>
+              </ul>-->
+            </div>
+            <div class="col-md-4">
+              <img src="../../../../assets/pictures/salon.jpg" class="img-fluid rounded" alt="salon">
+            </div>
+          </div>
+          <div class="row description-zone" id="rooms-infos">
+            <div class="col-md-8 pieces-rooms-infos-text">
+              <h4 style="font-weight: bold;color: #9c27b0">Chambre</h4>
+              <p>Pour connaître le nombre de chambres qu’à un appartement tu comptes tout simplement le nombre de chambres à coucher qu’à l’appartement.</p>
+              <p style="margin-top: 10px">
+                <strong style="color: #d21339"><b>Exemple :</b></strong> L’annonce indique appartement 3 pièces – 2 chambres. C’est donc un appartement qui a :
+              </p>
+              <ul>
+                <li>Un salon qui compte comme 1 pièce</li>
+                <li>2 chambres à coucher qui comptent comme 2 pièces et aussi comme 2 chambres</li>
+                <li>Une cuisine qui ne compte ni comme une pièce ni comme une chambre</li>
+                <li>Une salle de bain qui ne compte ni comme une pièce ni comme une chambre.</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <img src="../../../../assets/pictures/chambre2.jpg" class="img-fluid rounded" alt="salon">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 

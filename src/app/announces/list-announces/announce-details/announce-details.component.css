@@ -1,0 +1,30 @@
+.announce-details-title{
+ margin-left: 40px;
+  padding: 10px 10px 0 10px;
+  border-left: 2px solid #3c5b91;
+}
+
+
+.ball-type .fa {
+  font-size: 14px;
+}
+
+.ball-type{
+  text-transform: uppercase;
+  color: #d21339;
+}
+
+.announce-price{
+  font-size: 20px;
+  font-weight: bold;
+  color: #d21339;
+}
+
+.card{
+  margin-bottom: 0;
+}
+
+.card-body .row span{
+  margin-right: 15px;
+}
+

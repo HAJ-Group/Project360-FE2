@@ -4,6 +4,8 @@ import {AnnounceModel} from '../../../model.ts/announce-model';
 import {AnnonceDataService} from '../../../service/data/annonce-data.service';
 import {AnnounceImagesComponent} from './announce-images/announce-images.component';
 import {AuthenticationService} from '../../../service/authentication.service';
+import {Router} from '@angular/router';
+import {ViewportScroller} from '@angular/common';
 
 @Component({
   selector: 'app-add-announce',
@@ -17,21 +19,25 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
   states: string[] = STATES;
   announce: AnnounceModel;
   selectedFiles: [] = [];
+  requiredImages;
 
   @ViewChild(AnnounceImagesComponent) child;
 
   constructor(
     private announceDataService: AnnonceDataService,
-    public auth: AuthenticationService
+    public auth: AuthenticationService,
+    private router: Router,
+    private viewportScroller: ViewportScroller
   ) { }
 
   ngOnInit(): void {
     this.announce =
-      new AnnounceModel(1, '', '', '', 0, '', '', '', '', '', false, 0);
+      new AnnounceModel(1, '', '', '', 0, '', '', '', '', '', 0, null, 0, false, 0);
   }
 
   ngAfterViewInit(){
     this.selectedFiles = this.child.selectedFiles;
+    this.requiredImages = this.child.images;
   }
 
   addAnnounce() {
@@ -40,6 +46,7 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
     this.announceDataService.createAnnounce(this.auth.getAuthenticatedUser(), this.announce, this.selectedFiles).subscribe(
       success => {
         console.log(success);
+        this.router.navigate(['dashboard', { outlets: { dashboard: ['announces'] } }]);
       },
       error => {
         console.log(error);
@@ -70,5 +77,13 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
     for (const element of elements) {
       element.innerHTML = null;
     }
+  }
+
+  show() {
+    console.log(this.announce);
+  }
+
+  onClick(elementId: string) {
+    this.viewportScroller.scrollToAnchor(elementId);
   }
 }

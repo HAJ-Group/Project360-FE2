@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AnnonceDataService} from '../../service/data/annonce-data.service';
-import {SERVER_IMAGES_PATH} from '../../app.constants';
 import {AuthenticationService} from '../../service/authentication.service';
+import {Router} from '@angular/router';
+import {SERVER_IMAGES_PATH} from '../../app.constants';
 
 @Component({
   selector: 'app-list-announces',
@@ -10,25 +11,58 @@ import {AuthenticationService} from '../../service/authentication.service';
 })
 export class ListAnnouncesComponent implements OnInit {
 
-  myAnnounces: any[];
+  myAnnounces: any;
+  imagesDirectoryPath = SERVER_IMAGES_PATH;
+  targetAnnounceId: number;
 
-  imagesDirectoryPath = 'http://localhost:8000/announces-images/';
   constructor(
     private announceDataService: AnnonceDataService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
       this.imagesDirectoryPath += this.auth.getAuthenticatedUser() + '/';
-      this.announceDataService.getSpecificAnnounces(this.auth.getAuthenticatedUser()).subscribe(
-        success => {
-          console.log(success);
-          this.myAnnounces = success;
-        },
-        error => {
-          console.log(error);
-        }
-      );
+      this.refreshSpecificAnnounces(this.auth.getAuthenticatedUser());
   }
 
+  refreshSpecificAnnounces(authenticatedUser){
+    this.announceDataService.getSpecificAnnounces(authenticatedUser).subscribe(
+      success => {
+        console.log(success);
+        this.myAnnounces = success;
+      },
+      error => {
+        console.log(error);
+        this.myAnnounces = null;
+      }
+    );
+  }
+
+  announceDetails(id): void{
+    console.log(`The details of the announce with id = ${id}`);
+    this.router.navigate(['dashboard', { outlets: { dashboard: ['announces', id] } }]);
+
+  }
+
+  deleteAnnounce(id): void{
+    console.log(`announce with id = ${id} is deleted`);
+    this.announceDataService.deleteAnnounce(this.auth.getAuthenticatedUser(), id).subscribe(
+      success => {
+        console.log(success);
+        this.refreshSpecificAnnounces(this.auth.getAuthenticatedUser());
+        },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  setAnnounceIdentifier(id){
+    this.targetAnnounceId = id;
+  }
+
+  editAnnounce(id: number) {
+    this.router.navigate(['dashboard', { outlets: { dashboard: ['announces', id, 'edit-announce'] } }]);
+  }
 }
