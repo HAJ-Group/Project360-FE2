@@ -74,7 +74,7 @@
         <br>
         <div class="row">
           <div class="col-md-4" *ngFor="let a of announces">
-            <app-card-announce [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price"></app-card-announce>
+            <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
           </div>
         </div>
       </div>

@@ -53,6 +53,10 @@ export class AnnonceDataService{
     return this.http.get<AnnounceModel[]>(SERVER_USERS + `${username}/announces`);
   }
 
+  getAnnounceUser(id) {
+    return this.http.get(SERVER + '/' + id + '/user');
+  }
+
 
   getAnnoncesByFilters(filters) {
     return this.http.post<AnnounceModel[]>(SERVER + '/byFilters/', filters);

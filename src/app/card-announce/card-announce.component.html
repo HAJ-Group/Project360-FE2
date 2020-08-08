@@ -1,5 +1,61 @@
 <div class="card card-product">
   <div class="card-header card-header-image" data-header-animation="true">
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+      <ul class="carousel-indicators">
+        <li *ngFor="let image of images; let i = index" data-target="#demo" [attr.data-slide-to]="i" [class.active]="i==0" >
+        </li>
+      </ul>
+
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let image of images; let i = index" [class.active]="i==0">
+          <img src="{{imagesDirectoryPath}}{{ id + '/'}}{{image.name}}" alt="" width="550px" height="300px">
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <div class="card-actions text-center">
+      <button type="button" class="btn btn-danger btn-link fix-broken-card">
+        <i class="material-icons">build</i> Fix Header!
+      </button>
+      <button type="button" class="btn btn-default btn-link" rel="tooltip"  data-placement="bottom" title="Détails" (click)="announceDetails(id)">
+        <i class="material-icons">art_track</i>
+      </button>
+      <button *ngIf="auth.isAuthenticated()" type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Modifier" (click)="editAnnounce(id)">
+        <i class="material-icons">edit</i>
+      </button>
+      <button *ngIf="auth.isAuthenticated()" href="#myModal" class="trigger-btn" data-toggle="modal" type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Supprimer" (click)="setAnnounceIdentifier(id)" >
+        <i class="material-icons">close</i>
+      </button>
+    </div>
+    <h4 class="card-title">
+      <a href="javascript:void(0)" (click)="announceDetails(id)">{{title}}</a>
+    </h4>
+    <div class="card-description">
+      {{created_at}}
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="price">
+      <h4 class="announce-price">{{price}} DH</h4>
+    </div>
+    <div class="stats">
+      <span class="card-category"><i class="material-icons">place</i>{{city}}</span>
+    </div>
+
+  </div>
+</div>
+<!--<div class="card card-product">
+  <div class="card-header card-header-image" data-header-animation="true">
     <a href="#pablo">
       <img class="img" src="assets/dashboard/img/card-2.jpg">
     </a>
@@ -26,6 +82,28 @@
     </div>
     <div class="stats">
       <p class="card-category"><i class="material-icons">place</i>{{city}}</p>
+    </div>
+  </div>
+</div>-->
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header flex-column">
+        <div class="icon-box">
+          <i class="material-icons">&#xE5CD;</i>
+        </div>
+        <h4 class="modal-title w-100">Etes vous sûre?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Voulez-vous vraiment supprimer cette annonce ?</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteAnnounce()">Supprimer</button>
+      </div>
     </div>
   </div>
 </div>

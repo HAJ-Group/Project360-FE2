@@ -13,8 +13,6 @@ import {AnnounceModel} from '../../model.ts/announce-model';
 export class ListAnnouncesComponent implements OnInit {
 
   myAnnounces: AnnounceModel[];
-  imagesDirectoryPath = SERVER_IMAGES_PATH;
-  targetAnnounceId: number;
 
   constructor(
     private announceDataService: AnnonceDataService,
@@ -23,7 +21,6 @@ export class ListAnnouncesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      this.imagesDirectoryPath += this.auth.getAuthenticatedUser() + '/';
       this.refreshSpecificAnnounces(this.auth.getAuthenticatedUser());
   }
 
@@ -38,32 +35,5 @@ export class ListAnnouncesComponent implements OnInit {
         this.myAnnounces = null;
       }
     );
-  }
-
-  announceDetails(id): void{
-    console.log(`The details of the announce with id = ${id}`);
-    this.router.navigate(['dashboard', { outlets: { dashboard: ['announces', id] } }]);
-
-  }
-
-  deleteAnnounce(id): void{
-    console.log(`announce with id = ${id} is deleted`);
-    this.announceDataService.deleteAnnounce(this.auth.getAuthenticatedUser(), id).subscribe(
-      success => {
-        console.log(success);
-        this.refreshSpecificAnnounces(this.auth.getAuthenticatedUser());
-        },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  setAnnounceIdentifier(id){
-    this.targetAnnounceId = id;
-  }
-
-  editAnnounce(id: number) {
-    this.router.navigate(['dashboard', { outlets: { dashboard: ['announces', id, 'edit-announce'] } }]);
   }
 }
