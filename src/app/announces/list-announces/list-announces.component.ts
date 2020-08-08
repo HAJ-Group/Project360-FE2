@@ -17,7 +17,6 @@ export class ListAnnouncesComponent implements OnInit {
   constructor(
     private announceDataService: AnnonceDataService,
     private auth: AuthenticationService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
