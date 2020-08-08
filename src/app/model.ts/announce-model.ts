@@ -1,4 +1,9 @@
+import {ImageModel} from './Image-model';
+
 export class AnnounceModel {
+
+  public created_at: string;
+  public images: ImageModel[];
 
   constructor(
     public id: number,
@@ -15,6 +20,6 @@ export class AnnounceModel {
     public pieces: number,
     public rooms: number,
     public premium: boolean,
-    public announcerId: number
+    public announcerId: number,
   ){}
 }

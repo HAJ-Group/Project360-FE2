@@ -1,3 +1,5 @@
+import {ImageModel} from './Image-model';
+
 export class AnnoncerModel {
   public id: string;
   public user_id: string;

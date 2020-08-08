@@ -1,52 +1,5 @@
 <div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card ">
-          <div class="card-header card-header-rose card-header-text">
-            <div class="card-icon">
-              <i class="material-icons">today</i>
-            </div>
-            <h4 class="card-title">Datetimepicker</h4>
-          </div>
-          <div class="card-body ">
-            <div class="form-group">
-              <input type="text" class="form-control datetimepicker" value="11/06/2018">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card ">
-          <div class="card-header card-header-rose card-header-text">
-            <div class="card-icon">
-              <i class="material-icons">library_books</i>
-            </div>
-            <h4 class="card-title">Date Picker</h4>
-          </div>
-          <div class="card-body ">
-            <div class="form-group">
-              <input type="text" class="form-control datepicker" value="10/06/2018">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card ">
-          <div class="card-header card-header-rose card-header-text">
-            <div class="card-icon">
-              <i class="material-icons">av_timer</i>
-            </div>
-            <h4 class="card-title">Time Picker</h4>
-          </div>
-          <div class="card-body ">
-            <div class="form-group">
-              <input type="text" class="form-control timepicker" value="10/05/2016">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -68,27 +21,32 @@
                   <span class="bmd-help">Describe what you've got in your announce in order to make your offer clear and understandable</span>
                 </div>
                 <div class="form-group">
-                  <i class="material-icons text-center" style="font-size: 60px">money</i>
+                  <label class="col-form-label">Announce Price MAD</label><br><br>
                   <input [(ngModel)]="announce.price" name="price" required type="number" class="form-control w-75" placeholder="Announce Price MAD">
+                  <span class="bmd-help">Set a reasonable prices in order to get attention of your clients</span>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Announce Surface m²</label><br><br>
+                  <input [(ngModel)]="announce.surface" name="surface" required type="number" class="form-control w-75" placeholder="Announce Surface m²">
                   <span class="bmd-help">Set a reasonable prices in order to get attention of your clients</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <h3 class="title text-primary">Announce Type, State And City</h3>
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <select [(ngModel)]="announce.type" name="type" required class="selectpicker" data-style="btn btn-primary btn-round" title="Type Select">
                       <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
                     </select>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <select [(ngModel)]="announce.status" required class="selectpicker" data-style="btn btn-rose btn-round text-white" title="State Select">
                       <option *ngFor="let state of states" value="{{state}}">{{state}}</option>
                     </select>
                   </div>
                 </div>
                 <br><br>
-                <div class="d-flex justify-content-center">
+                <div class="col-md-4">
                   <select [(ngModel)]="announce.city" required class="selectpicker" data-style="select-with-transition" multiple title="Choose City">
                     <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
                   </select>
@@ -102,6 +60,20 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Numeric Location">
                   <span class="bmd-help">Add numeric location of your announce</span>
+                </div>
+                <div class="form-group">
+                  <a class="pieces-rooms-infos" href="javascript:void(0)" (click)="onClick('infos')" >
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  </a>
+                  <input type="number" class="form-control" placeholder="Available pieces" [(ngModel)]="announce.pieces">
+                  <span class="bmd-help">Specify the amount of pieces you have</span>
+                </div>
+                <div class="form-group">
+                  <a class="pieces-rooms-infos" href="javascript:void(0)" (click)="onClick('infos')" >
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  </a>
+                  <input type="number" class="form-control" placeholder="Number of Chambers">
+                  <span class="bmd-help">Specify the amount of chambers you have</span>
                 </div>
               </div>
             </div>
@@ -454,9 +426,8 @@
   </div>
 </div>-->
 
-<div class="container">
+<div class="container" id="infos">
   <div class="row">
-
     <div class="col-md-12">
       <div class="card ">
         <div class="card-header card-header-info card-header-icon">
