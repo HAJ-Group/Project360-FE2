@@ -70,7 +70,7 @@ export class CardAnnounceComponent implements OnInit {
   }
 
   editAnnounce(id) {
-    /*this.router.navigate(['dashboard', { outlets: { dashboard: ['announces', id, 'edit-announce'] } }]);*/
+    this.router.routeTo('edit-announce', 'dashboard', true);
   }
 
 }

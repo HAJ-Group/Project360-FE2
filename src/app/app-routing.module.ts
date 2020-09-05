@@ -24,9 +24,8 @@ const routes: Routes = [
       {path: 'announces', component: ListAnnouncesComponent, outlet: 'dashboard'},
       {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
       {path: 'announces/:id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
-      {path: 'announces/:id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
+      {path: 'edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
     ], canActivate: [RouteGuardService]},
-
 ];
 
 @NgModule({

@@ -53,7 +53,7 @@ import {CardAnnounceComponent} from './card-announce/card-announce.component';
     FormsModule,
     ReactiveFormsModule,
     OktaAuthModule,
-    NgxPaginationModule
+    // NgxPaginationModule
   ],
   providers: [
     AnnonceDataService,
