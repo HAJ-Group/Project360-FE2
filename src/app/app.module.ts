@@ -25,6 +25,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { WizardComponent } from './wizard/wizard.component';
 import { MenuComponent } from './menu/menu.component';
 import {CardAnnounceComponent} from './card-announce/card-announce.component';
+import { ThreeSixtyAnnounceComponent } from './three-sixty-announce/three-sixty-announce.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {CardAnnounceComponent} from './card-announce/card-announce.component';
     WizardComponent,
     MenuComponent,
     CardAnnounceComponent,
+    ThreeSixtyAnnounceComponent,
   ],
   imports: [
     BrowserModule,

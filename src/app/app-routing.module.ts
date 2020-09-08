@@ -12,11 +12,13 @@ import {ListAnnouncesComponent} from './announces/list-announces/list-announces.
 import {AnnounceDetailsComponent} from './announces/list-announces/announce-details/announce-details.component';
 import {AnnoncesComponent} from './annonces/annonces.component';
 import {WizardComponent} from './wizard/wizard.component';
+import {ThreeSixtyAnnounceComponent} from './three-sixty-announce/three-sixty-announce.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'annonces', component: AnnoncesComponent},
+  {path: 'vview', component: ThreeSixtyAnnounceComponent},
   {path: 'wizard', component: WizardComponent, canActivate: [RouteGuardService]},
   {path: 'dashboard', component : DashboardComponent , children : [
       {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
