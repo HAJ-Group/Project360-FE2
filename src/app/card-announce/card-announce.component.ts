@@ -49,12 +49,12 @@ export class CardAnnounceComponent implements OnInit {
     localStorage.setItem('targeted', id);
   }
 
-  announceDetails(id): void{
+  announceDetails(id): void {
     console.log(`The details of the announce with id = ${id}`);
     this.router.defaultRoute('vview/' + id, true);
   }
 
-  deleteAnnounce(): void{
+  deleteAnnounce(): void {
     let id = localStorage.getItem('targeted');
     console.log(`announce with id = ${id} is deleted`);
     this.service.deleteAnnounce(this.auth.getAuthenticatedUser(), id).subscribe(
