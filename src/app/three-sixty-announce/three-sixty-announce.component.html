@@ -1,6 +1,7 @@
 <app-menu *ngIf="!auth.isAuthenticated()"></app-menu>
-<div id="canvasDIV"></div>
-<div class="position-relative">
+<div id="canvasDIV" style="border: 2px black"></div>
+<button class="ml-2" (click)="fullScreen()">Toggle View</button>
+<div id="details" class="position-relative">
   <div class="container bg-white p-5" style="margin-top: -10%; position: absolute; left: 20%; border-radius: 30px; margin-bottom: 50px">
     <h1 class="text-primary text-center title">{{announce.title}}</h1>
     <hr>

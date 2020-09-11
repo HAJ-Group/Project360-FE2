@@ -1,3 +1,5 @@
+let renderer = null;
+let camera = null;
 function build(image) {
     let domElement =  document.getElementById('canvasDIV');
     // ---------------------------------------------------------------------------------------------------------------------
@@ -5,7 +7,7 @@ function build(image) {
     const scene = new THREE.Scene();
     // ---------------------------------------------------------------------------------------------------------------------
     // SETTING CAMERA
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     // ---------------------------------------------------------------------------------------------------------------------
     // CREATING SPHERE
     const geometry = new THREE.SphereGeometry( 50, 32, 32 );
@@ -25,8 +27,8 @@ function build(image) {
     scene.add( sphere );
     // ---------------------------------------------------------------------------------------------------------------------
     // RENDERING
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, 700 );
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth - 10, 700 );
     domElement.appendChild( renderer.domElement );
     // ---------------------------------------------------------------------------------------------------------------------
     // CONTROLS
@@ -47,13 +49,27 @@ function build(image) {
     // ---------------------------------------------------------------------------------------------------------------------
     // RESIZING
     function onResize() {
-        renderer.setSize(window.innerWidth, 700);
+        renderer.setSize(window.innerWidth - 10, 700);
         camera.aspect = window.innerWidth/window.innerHeight;
         camera.updateProjectionMatrix();
     }
     window.addEventListener('resize', onResize);
     // ---------------------------------------------------------------------------------------------------------------------
 }
-
+let toggle = false;
+function toggleFull() {
+  toggle = !toggle;
+  if(toggle) {
+    renderer.setSize(window.innerWidth - 10, window.innerHeight);
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    document.getElementById('details').style.display = 'none';
+  } else {
+    renderer.setSize(window.innerWidth - 10, 700);
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    document.getElementById('details').style.display = 'block';
+  }
+}
 
 

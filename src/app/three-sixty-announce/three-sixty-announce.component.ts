@@ -46,4 +46,9 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
     )
   }
 
+  fullScreen() {
+    // @ts-ignore
+    toggleFull();
+  }
+
 }
