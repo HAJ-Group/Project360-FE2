@@ -51,7 +51,7 @@ export class CardAnnounceComponent implements OnInit {
 
   announceDetails(id): void{
     console.log(`The details of the announce with id = ${id}`);
-    this.router.defaultRoute('/');
+    this.router.defaultRoute('vview/' + id, true);
   }
 
   deleteAnnounce(): void{

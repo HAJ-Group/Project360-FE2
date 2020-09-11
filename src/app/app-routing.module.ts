@@ -18,7 +18,7 @@ import {ThreeSixtyAnnounceComponent} from './three-sixty-announce/three-sixty-an
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'annonces', component: AnnoncesComponent},
-  {path: 'vview', component: ThreeSixtyAnnounceComponent},
+  {path: 'vview/:id', component: ThreeSixtyAnnounceComponent},
   {path: 'wizard', component: WizardComponent, canActivate: [RouteGuardService]},
   {path: 'dashboard', component : DashboardComponent , children : [
       {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
