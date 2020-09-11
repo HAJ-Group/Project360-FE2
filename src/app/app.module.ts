@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS ,HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AnnoncerDataService} from './service/data/annoncer-data.service';
 import {OktaAuthModule} from '@okta/okta-angular';
@@ -26,6 +26,12 @@ import { WizardComponent } from './wizard/wizard.component';
 import { MenuComponent } from './menu/menu.component';
 import {CardAnnounceComponent} from './card-announce/card-announce.component';
 import { ThreeSixtyAnnounceComponent } from './three-sixty-announce/three-sixty-announce.component';
+
+
+
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -55,6 +61,14 @@ import { ThreeSixtyAnnounceComponent } from './three-sixty-announce/three-sixty-
     FormsModule,
     ReactiveFormsModule,
     OktaAuthModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
     // NgxPaginationModule
   ],
   providers: [
@@ -67,3 +81,9 @@ import { ThreeSixtyAnnounceComponent } from './three-sixty-announce/three-sixty-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// AOT compilation support
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
