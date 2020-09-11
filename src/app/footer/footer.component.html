@@ -1,81 +1,16 @@
-<!--<div class="akinator-footer">
-    <div class="aki-grp">
-        <div class="aki-content">
-            <img src="../../assets/pictures/logo-origin.png" alt="">
-            <p>
-                Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de
-                texte pour réaliser un livre spécimen de polices de texte.
-            </p>
-            <div class="mediaLinks">
-                <a href="https://www.facebook.com/FSDM.DharElMehraz" target="_blank"><i class=" fa fa-facebook"></i></a>
-                <a href="https://www.youtube.com/channel/UCgWZzU3V0sY9jO6JLeHl6fw" target="_blank"><i class="fa fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/school/fsdm/" target="_blank"><i class="fa fa-linkedin"></i></a>
-                <a href="http://www.fsdmfes.ac.ma/" target="_blank"><i class="fa fa-google"></i></a>
-            </div>
-        </div>
-        <div class="aki-content">
-            <div class="aki-col-title">Liens Utiles</div>
-            <div class="aki-link-list">
-                <a href="#" class="sm-link dashed">
-                    <span>Home</span>
-                </a>
-                <a href="#" class="sm-link dashed">
-                    <span>Annonces</span>
-                </a>
-                <a href="#" class="sm-link dashed">
-                    <span>Agents</span>
-                </a>
-                <a href="#" class="sm-link dashed">
-                    <span>Partenaires</span>
-                </a>
-                <a href="#" class="sm-link dashed">
-                    <span>About Ass</span>
-                </a>
-            </div>
-        </div>
-        <div class="aki-content">
-            <div class="aki-col-title">Contact</div>
-            <div class="aki-adress">
-                Adresse :Qualité Logiciel (N. Chenfour), Département D’Informatique, Faculté Des Sciences Dhar El Mahraz, BP : 1796 Atlas, Fès, Maroc
-            </div>
-            <div class="aki-adress">
-                +212 644-11-50-89<br> group.akinators2020@gmail.com
-            </div>
-            <div class="contact-aki" data-toggle="modal" data-target="#contactus">
-
-                <img src="../../assets/icons/footer/telephone.png" alt="" /> Contactez-nous !
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <span>© 2020 USMBA - FSDM - MQL</span>
-    </div>
-</div>-->
 <!-- FOOTER -->
-
-
 <footer class="footer">
   <div class="container-fluid">
     <nav class="float-left">
       <ul>
         <li>
           <a href="javascript:void(0)" data-toggle="modal" data-target="#contactus">
-            {{'contact' | translate}}
+            Contact Us
           </a>
         </li>
         <li>
-          <a href="https://creative-tim.com/presentation">
-           {{'about' | translate}}
-          </a>
-        </li>
-        <li>
-          <a href="http://blog.creative-tim.com/">
-            Blog
-          </a>
-        </li>
-        <li>
-          <a href="https://www.creative-tim.com/license">
-            Licenses
+          <a href="javascript:void(0)" data-toggle="modal" data-target="#aboutus">
+            About Us
           </a>
         </li>
       </ul>
@@ -84,57 +19,92 @@
       &copy;
       <script>
           document.write(new Date().getFullYear())
-      </script> {{'made with' | translate}} <i class="material-icons">favorite</i> {{'by' | translate}}
-      <a href="https://www.creative-tim.com/" target="_blank" class="text-white font-italic">{{'group'|translate}}</a> {{'for' | translate}}
+      </script>, made with <i class="material-icons">favorite</i> by
+      <a href="https://www.creative-tim.com/" target="_blank" class="text-white font-italic">Group Akinators</a> for a better web.
     </div>
   </div>
 </footer>
 
 
 <div class="modal fade" id="contactus">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <span class="text-danger" *ngIf="error">{{error}}</span>
-            <!-- Modal Header -->
-            <div class="modal-header">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <span class="text-danger" *ngIf="error">{{error}}</span>
+      <!-- Modal Header -->
+      <div class="modal-header">
 
-                <h5 class="modal-title">{{'contact_us'| translate}}</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h5 class="modal-title">Contactez nous</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="contact-subject-error"></span>
+              <div class="form-group">
+                <input id="subject" type="text" class="form-control" name="subject" placeholder="Objectif" [(ngModel)]="subject" />
+              </div>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="container">
 
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <span class="text-danger" id="contact-subject-error"></span>
-                            <div class="form-group">
-                                <input id="subject" type="text" class="form-control" name="subject" placeholder="Objectif" [(ngModel)]="subject" />
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <span class="text-danger" id="contact-email-error"></span>
-                            <div class="form-group">
-                                <input id="email" type="text" class="form-control" name="email" placeholder="email" [(ngModel)]="email" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-lg-6 col-md-12 ">
-                            <span class="text-danger" id="contact-comment-error"></span>
-                            <div class="form-group ">
-                                <textarea id="comment" class="form-control" name="comment" placeholder="Your Message..." [(ngModel)]="comment"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row justify-content-center ">
-                        <button type="submit " class="btn btn-primary " (click)="contactUs()"><img src="../../assets/icons/footer/send.png ">
-                          {{'submit'|translate}}</button>
-                        <!--<input type="submit" (click)="contactUs()" class="btn connexion-button" value="Envoyer">-->
-                    </div>
-                </div>
+            <div class="col-lg-6 col-md-6">
+              <span class="text-danger" id="contact-email-error"></span>
+              <div class="form-group">
+                <input id="email" type="text" class="form-control" name="email" placeholder="email" [(ngModel)]="email" />
+              </div>
             </div>
+          </div>
+          <div class="row">
+            <div class=" col-lg-6 col-md-12 ">
+              <span class="text-danger" id="contact-comment-error"></span>
+              <div class="form-group ">
+                <textarea id="comment" class="form-control" name="comment" placeholder="Your Message..." [(ngModel)]="comment"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-center ">
+            <button type="submit " class="btn btn-primary " (click)="contactUs()"><img src="../../assets/icons/footer/send.png ">Submit</button>
+            <!--<input type="submit" (click)="contactUs()" class="btn connexion-button" value="Envoyer">-->
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="modal fade" id="aboutus">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+
+        <h5 class="modal-title">Equipe du Projet</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="team-section text-center my-5 w-97 m-auto" id="team">
+          <h2 class="h1-responsive font-weight-bold my-5 text-primary">Development team</h2>
+          <p class="grey-text w-responsive mx-auto mb-5">Ce site a été développé par un groupe de 7 étudiants de master qualité du logiciel fes, sous les principes de gestion de projet agile. Travail encadré par Prof Mr Ahmed Azough</p>
+          <div class="row" >
+            <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" *ngFor="let membre of team">
+              <div class="avatar mx-auto">
+                <img src="../../assets/pictures/{{membre.photo}}" class="rounded-circle z-depth-1 w-50"
+                     alt="Photo of {{ membre.name}}">
+              </div>
+              <h5 class="font-weight-bold mt-4 mb-3">{{membre.name }} : {{membre.age}} ans</h5>
+              <p class="text-uppercase text-primary "><strong>{{membre.job}}</strong></p>
+              <p class="grey-text">{{membre.rating}}</p>
+              <ul class="list-unstyled mb-2">
+                <a class="p-2 fa-lg tw-ic" href="{{membre.linkedin}}">
+                  <span class="material-icons">link</span>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

@@ -17,7 +17,68 @@ export class FooterComponent implements OnInit {
  error: string;
  // Others --------------------------------------------------------------------------------------------------------------------------------
  toggled = false;
+  // TEAM :
+  team = [
+    { name : 'Ennouinou Alaeddinne',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'salon.jpg' ,
+      linkedin : '' ,
+      github : ''
+    },
+    { name : 'Ismaili Alaoui Hamza',
+      job : 'developer',
+      age : '22',
+      rating : 'I did this with love ' ,
+      photo : 'salon.jpg' ,
+      linkedin : '' ,
+      github : ''
+    },
+    { name : 'Es-safi rhita',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'salon.jpg' ,
+      linkedin : '' ,
+      github : ''
+    },
+    { name : 'Berbeche Yahya',
+      job : 'developer',
+      age : '22',
+      rating : 'I did this with love ',
+      photo : 'salon.jpg' ,
+      linkedin : '' ,
+      github : ''
+    },
+    { name : 'Ait Assou Jaouad',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'salon.jpg' ,
+      linkedin : '' ,
+      github : ''
+    },
 
+    {
+      name : 'Bourkha Ibtissam',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ',
+      photo : 'salon.jpg',
+      linkedin : '',
+      github : ''
+    },
+    {
+      name : 'El Hamzi Houssam',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'salon.jpg' ,
+      linkedin : '',
+      github : ''
+    },
+  ];
  constructor(
    private service: ContactService,
    public router: Router)
