@@ -52,18 +52,20 @@
     </div>
 </div>-->
 <!-- FOOTER -->
+
+
 <footer class="footer">
   <div class="container-fluid">
     <nav class="float-left">
       <ul>
         <li>
           <a href="javascript:void(0)" data-toggle="modal" data-target="#contactus">
-            Contact Us
+            {{'contact' | translate}}
           </a>
         </li>
         <li>
           <a href="https://creative-tim.com/presentation">
-            About Us
+           {{'about' | translate}}
           </a>
         </li>
         <li>
@@ -82,8 +84,8 @@
       &copy;
       <script>
           document.write(new Date().getFullYear())
-      </script>, made with <i class="material-icons">favorite</i> by
-      <a href="https://www.creative-tim.com/" target="_blank" class="text-white font-italic">Group Akinators</a> for a better web.
+      </script> {{'made with' | translate}} <i class="material-icons">favorite</i> {{'by' | translate}}
+      <a href="https://www.creative-tim.com/" target="_blank" class="text-white font-italic">{{'group'|translate}}</a> {{'for' | translate}}
     </div>
   </div>
 </footer>
@@ -96,7 +98,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
 
-                <h5 class="modal-title">Contactez nous</h5>
+                <h5 class="modal-title">{{'contact_us'| translate}}</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
@@ -127,7 +129,8 @@
                         </div>
                     </div>
                     <div class="d-flex flex-row justify-content-center ">
-                        <button type="submit " class="btn btn-primary " (click)="contactUs()"><img src="../../assets/icons/footer/send.png ">Submit</button>
+                        <button type="submit " class="btn btn-primary " (click)="contactUs()"><img src="../../assets/icons/footer/send.png ">
+                          {{'submit'|translate}}</button>
                         <!--<input type="submit" (click)="contactUs()" class="btn connexion-button" value="Envoyer">-->
                     </div>
                 </div>

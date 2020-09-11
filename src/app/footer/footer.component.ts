@@ -20,11 +20,13 @@ export class FooterComponent implements OnInit {
 
  constructor(
    private service: ContactService,
-   public router: Router
- ) { }
+   public router: Router)
+ {}
+
 
  ngOnInit(): void {
  }
+ /* translate*/
 
  contactUs() {
   this.initErrors();
