@@ -23,7 +23,7 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
 
   ngOnInit(): void {
     // @ts-ignore
-    build('assets/threeJS/test.jpg');
+    build('assets/threeJS/maisonMono1.jpg');
     this.initAnnounce();
   }
 
