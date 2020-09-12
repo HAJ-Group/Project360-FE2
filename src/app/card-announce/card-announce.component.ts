@@ -49,7 +49,7 @@ export class CardAnnounceComponent implements OnInit {
   }
 
   setAnnounceIdentifier(id) {
-    //this.targetAnnounceId = id;
+    // this.targetAnnounceId = id;
     localStorage.setItem('targeted', id);
   }
 
@@ -75,7 +75,6 @@ export class CardAnnounceComponent implements OnInit {
 
   editAnnounce(id) {
     this.routerNavigation.navigate(['dashboard', { outlets: { dashboard: ['announces', id, 'edit-announce'] } }]);
-
   }
 
 }
