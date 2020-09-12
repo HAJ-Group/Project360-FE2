@@ -12,7 +12,11 @@
                             <span class="fileinput-new">Select image</span>
                             <span class="fileinput-exists">Change</span>
                             <input type="file" name="image1" id="image1"
-                                   accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />
+                                   accept=".gif, .jpg, .png" (change)="onFileSelected($event)"
+                                   ngModel
+                                   #selectImage="ngModel"
+                                   required
+                            />
                           </span>
       <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
     </div>
@@ -28,7 +32,11 @@
                             <span class="fileinput-new">Select image</span>
                             <span class="fileinput-exists">Change</span>
                             <input type="file" name="image1" id="image2"
-                                   accept=".gif, .jpg, .png" (change)="onFileSelected($event)" />
+                                   accept=".gif, .jpg, .png" (change)="onFileSelected($event)"
+                                   ngModel
+                                   #selectImage="ngModel"
+                                   required
+                            />
                           </span>
       <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
     </div>
@@ -36,5 +44,8 @@
 
    <!--End Page Wrap -->
 </div>
+<span class="text-danger" *ngIf="!selectImage.valid && selectImage.touched || this.control.submitted && !selectImage.valid">Au moins une image doit etre choisie !</span>
+
+
 
 
