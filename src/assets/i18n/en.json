@@ -1,6 +1,6 @@
 {
   "browse": "Browse Announces",
-  "register": "register",
+  "register": "Register",
   "login": "login",
   "search": "Welcome to the best immovable estate ad sharing website",
   "contact": "Contact us ",
@@ -9,5 +9,15 @@
   "group": "Akinators Group",
   "for": "for a better web.",
   "contact_us" : "Contact us",
-  "submit": "Submit"
+  "submit": "Submit",
+  "citation": "Start your best way to the best life",
+  "join":"Join our services",
+  "psw": "Forgot Password ?",
+  "register2":  "Registration: User email confirmation",
+  "annoncer": "Annoncer",
+  "agent": "Agent",
+  "annoncer_right": "You would have the right to publish your ads for your real estate, whether land, apartments, villas, cafes, etc. , which gives your ads added value, and which gives elegance to your goods. If you ever find broadcast with 360 images, contact our agents available 24/7.",
+  "agent_right": "We offer the possibility for our clients to request the help of an agent, this eagent will be responsible for the publication of the 360 ads, if you see yourself suitable for this opportunity, sign up and wait for our response."
+
+
 }
