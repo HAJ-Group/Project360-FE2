@@ -1,7 +1,13 @@
+
+
+
+
+
+
 <div class="card card-product">
   <div class="card-header card-header-image" data-header-animation="true">
 
-    <div id="demo" class="carousel slide" data-ride="carousel">
+    <div id="demo{{id}}" class="carousel slide" data-ride="carousel">
       <ul class="carousel-indicators">
         <li *ngFor="let image of images; let i = index" data-target="#demo" [attr.data-slide-to]="i" [class.active]="i==0" >
         </li>
@@ -13,10 +19,10 @@
         </div>
       </div>
 
-      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <a class="carousel-control-prev" href="#demo{{id}}" data-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </a>
-      <a class="carousel-control-next" href="#demo" data-slide="next">
+      <a class="carousel-control-next" href="#demo{{id}}" data-slide="next">
         <span class="carousel-control-next-icon"></span>
       </a>
     </div>
