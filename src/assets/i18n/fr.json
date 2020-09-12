@@ -1,7 +1,7 @@
 {
   "browse": "parcourir les annances",
-  "register": "register",
-  "login": "identifier",
+  "register": "Inscription",
+  "login": "S'identifier",
  "search": "Bienvenue au meilleur site internet de partage d'annonce immobilière",
   "contact": "Contactez nous",
   "about": "A propos de nous ",
@@ -10,5 +10,14 @@
   "group": "Groupe Akinators",
   "for": "pour un meilleur web.",
   "contact_us" : "Contactez nous",
-  "submit": "Envoyer"
+  "submit": "Envoyer",
+  "citation": "Commencez votre meilleur chemin vers la meilleure vie",
+  "join": "Rejoignez nos services",
+  "psw": "Mot de passe oublié?",
+  "register2": "Inscription: Confirmation d'email d'utilisateur",
+  "annoncer": "Annonceur",
+  "agent": "Agent",
+  "annoncer_right": "Vous auriez droit à publier vos annonces concernant vos biens immobiliers que ça soit des terrains, appartements, villas, cafés etc ...Le plus que vous offre l'application APP360 et que nous vous donnons la possibilité d'intégrer des photos en 360 degrès, ce qui offre à vos announces une valeur ajoutée, et qui donne une élégence à vos biens.Si jamais vous trouvez des diffucltés avec les images 360, contactez nos agents disponible 24/7.",
+  "agent_right": "  Nous offrons la possibilité à nos clients de demander l'aide d'un agent, cet eagent sera responsable sur la publication des annonces 360,si vous vous voyez adéquat pour cette oprtunité, inscrivez vous et attendez notre réponse."
+
 }
