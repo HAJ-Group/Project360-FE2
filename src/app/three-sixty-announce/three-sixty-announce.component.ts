@@ -36,14 +36,15 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
             this.user = success;
             // @ts-ignore
             this.path += this.user.username + '/';
-            console.log(this.path);
+            console.log("baaa");
           }
-        )
+        );
       },
       error => {
         this.error = error.error;
       }
-    )
+    );
+    console.log(this.announce);
   }
 
   fullScreen() {
