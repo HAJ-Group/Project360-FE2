@@ -5,7 +5,7 @@ import {AnnounceModel} from '../../model.ts/announce-model';
 import {SERVER_USERS} from '../../app.constants';
 
 
-const SERVER = 'http://aruesay.site:8000/api/annonces';
+const SERVER = 'https://radiant-anchorage-91157.herokuapp.com/api/annonces';
 
 @Injectable()
 export class AnnonceDataService{
@@ -19,7 +19,7 @@ export class AnnonceDataService{
 
 
   getAnnonces(): Observable<AnnounceModel[]> {
-    return this.http.get<AnnounceModel[]>(SERVER + '/');
+    return this.http.get<AnnounceModel[]>(SERVER);
   }
 
   getUserAnnonces() {
