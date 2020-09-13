@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AnnoncerModel} from '../../model.ts/annoncer-model';
 
-const SERVER = 'http://localhost:8000/api/annoncer';
+const SERVER = 'https://radiant-anchorage-91157.herokuapp.com';
 @Injectable()
 export class AnnoncerDataService {
   constructor(
