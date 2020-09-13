@@ -26,6 +26,7 @@ import { WizardComponent } from './wizard/wizard.component';
 import { MenuComponent } from './menu/menu.component';
 import {CardAnnounceComponent} from './card-announce/card-announce.component';
 import { ThreeSixtyAnnounceComponent } from './three-sixty-announce/three-sixty-announce.component';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 
 
@@ -78,7 +79,8 @@ import { MapComponent } from './map/map.component';
     AnnoncerDataService,
     {
       provide: HTTP_INTERCEPTORS, useClass: HttpAuthenticationInterceptorService, multi: true
-    }
+    },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })
