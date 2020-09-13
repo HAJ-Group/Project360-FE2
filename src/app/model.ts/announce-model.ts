@@ -13,7 +13,8 @@ export class AnnounceModel {
     public price: number,
     public address: string,
     public city: string,
-    public positionMap: string,
+    // @ts-ignore
+    public position_map: string,
     public status: string,
     public rent: string,
     public surface: number,

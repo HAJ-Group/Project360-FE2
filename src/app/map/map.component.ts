@@ -106,7 +106,7 @@ export class MapComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.announces.length; i++) {
       // console.log(this.announces[i].position_map);
-      const pos = this.announces[i].positionMap.split(',');
+      const pos = this.announces[i].position_map.split(',');
       // @ts-ignore
       this.createMarker(pos[0], pos[1]);
     }
