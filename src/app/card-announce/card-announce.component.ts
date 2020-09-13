@@ -32,7 +32,11 @@ export class CardAnnounceComponent implements OnInit {
   @Input()
   created_at: string;
 
-  constructor(public service: AnnonceDataService, public auth: AuthenticationService, public router: NamedRouterService) { }
+  constructor(public service: AnnonceDataService,
+              public auth: AuthenticationService,
+              public router: NamedRouterService,
+              public routerNavigation: Router)
+  { }
 
   ngOnInit(): void {
     this.service.getAnnounceUser(this.id).subscribe(
@@ -45,13 +49,14 @@ export class CardAnnounceComponent implements OnInit {
   }
 
   setAnnounceIdentifier(id) {
-    //this.targetAnnounceId = id;
+    // this.targetAnnounceId = id;
     localStorage.setItem('targeted', id);
   }
 
   announceDetails(id): void {
     console.log(`The details of the announce with id = ${id}`);
     this.router.defaultRoute('vview/' + id, true);
+    // this.routerNavigation.navigate(['dashboard', { outlets: { dashboard: ['announces', id] } }]);
   }
 
   deleteAnnounce(): void {
@@ -70,7 +75,7 @@ export class CardAnnounceComponent implements OnInit {
   }
 
   editAnnounce(id) {
-    this.router.routeTo('edit-announce', 'dashboard', true);
+    this.routerNavigation.navigate(['dashboard', { outlets: { dashboard: ['announces', id, 'edit-announce'] } }]);
   }
 
 }

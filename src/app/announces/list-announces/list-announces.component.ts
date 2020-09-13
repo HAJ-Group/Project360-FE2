@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AnnonceDataService} from '../../service/data/annonce-data.service';
 import {AuthenticationService} from '../../service/authentication.service';
-import {Router} from '@angular/router';
-import {SERVER_IMAGES_PATH} from '../../app.constants';
 import {AnnounceModel} from '../../model.ts/announce-model';
 
 @Component({

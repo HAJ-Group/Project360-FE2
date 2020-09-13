@@ -47,6 +47,7 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
       },
       error => {
           console.log(error);
+          console.log('bla bla : ' + id);
       }
     );
   }

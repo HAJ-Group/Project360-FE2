@@ -7,7 +7,7 @@
         <div class="card-header card-header-success card-header-icon">
           <div class="card-icon">
             <i class="material-icons">library_books</i>
-            <span class="add-announce-title">Ajouter une Annonce</span>
+            <span class="add-announce-title">Modifier une Annonce</span>
           </div>
         </div>
         <div class="card-body ">
@@ -18,7 +18,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="bmd-label-floating"> Titre de l'annonce <strong style="color: red">*</strong> :</label>
+                    <label class="bmd-label"> Titre de l'annonce <strong style="color: red">*</strong> :</label>
+                    <br>
                     <input type="text"
                            class="form-control" id="announce-title"
                            placeholder="titre" [(ngModel)]="announce.title"
@@ -34,7 +35,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="type" class="bmd-label-floating">Type <strong style="color: red">*</strong> : </label>
+                    <label for="type" class="bmd-label">Type <strong style="color: red">*</strong> : </label>
                     <div class="control-group" id="type">
                       <label class="control control--radio">Maison
                         <input type="radio" name="radio" value="maison"
@@ -68,7 +69,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="description" class="bmd-label-floating">Description <strong style="color: red">*</strong> : </label>
+                    <label for="description" class="bmd-label">Description <strong style="color: red">*</strong> : </label>
+                    <br>
                     <textarea id="description" cols="30" rows="10" class="form-control"
                               name="description" [(ngModel)]="announce.description"
                               placeholder="Ensoleillé toute la journée ..."
@@ -88,7 +90,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="price" class="bmd-label-floating">Prix <strong style="color: red">*</strong> : </label>
+                    <label for="price" class="bmd-label">Prix <strong style="color: red">*</strong> : </label>
+                    <br>
                     <input type="number" class="form-control" id="price"
                            name="price" [(ngModel)]="announce.price"
                            ngModel
@@ -101,7 +104,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="status" class="bmd-label-floating">Status <strong style="color: red">*</strong> : </label>
+                    <label for="status" class="bmd-label">Status <strong style="color: red">*</strong> : </label>
+                    <br>
                     <input type="number" class="form-control" id="status"
                            name="status" [(ngModel)]="announce.status"
                            ngModel
@@ -119,7 +123,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="address" class="bmd-label-floating">Adresse <strong style="color: red">*</strong> : </label>
+                    <label for="address" class="bmd-label">Adresse <strong style="color: red">*</strong> : </label>
+                    <br>
                     <input type="text" class="form-control" id="address"
                            name="address" [(ngModel)]="announce.address"
                            ngModel
@@ -131,8 +136,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="city" class="bmd-label-floating">Ville <strong style="color: red">*</strong> : </label>
-                    <br><br><br>
+                    <label for="city" class="bmd-label">Ville <strong style="color: red">*</strong> : </label>
+                    <br><br>
                     <select class="form-control" id="city"
                             name="city" [(ngModel)]="announce.city"
                             ngModel
@@ -153,7 +158,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="mapPosition" class="bmd-label-floating">Localisation : </label>
+                    <label for="mapPosition" class="bmd-label">Localisation : </label>
+                    <br>
                     <input type="number" class="form-control" id="mapPosition"
                            name="localisation" [(ngModel)]="announce.positionMap">
                   </div>
@@ -164,7 +170,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="rent" class="bmd-label-floating">Vous cherchez à vendre ou louer ? <strong style="color: red">*</strong> : </label>
+                    <label for="rent" class="bmd-label">Vous cherchez à vendre ou louer ? <strong style="color: red">*</strong> : </label>
                     <select name="rent" id="rent" class="form-control rent"
                             [(ngModel)]="announce.rent"
                             ngModel
@@ -184,7 +190,8 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="groundSurface" class="bmd-label-floating">Surface ( en m² ) <strong style="color: red">*</strong> : </label>
+                    <label for="groundSurface" class="bmd-label">Surface ( en m² ) <strong style="color: red">*</strong> : </label>
+                    <br>
                     <input type="number" class="form-control" id="groundSurface"
                            name="groundSurface" [(ngModel)]="announce.surface"
                            ngModel
@@ -198,8 +205,9 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="pieces" class="bmd-label-floating">
+                    <label for="pieces" class="bmd-label">
                       Nombre de piéces: </label>
+                    <br>
                     <input type="number" class="form-control" id="pieces"
                            name="pieces" [(ngModel)]="announce.pieces"
                            min="0"
@@ -209,9 +217,10 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="rooms" class="bmd-label-floating">
+                    <label for="rooms" class="bmd-label">
 
                       Nombre de chambres <strong style="color: red">*</strong> : </label>
+                    <br>
                     <input type="number" class="form-control" id="rooms"
                            name="rooms" [(ngModel)]="announce.rooms"
                            ngModel
