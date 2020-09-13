@@ -1,0 +1,71 @@
+<link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
+<app-menu></app-menu><br><br><br><br>
+<div class="p-4 row bg-light">
+  <div class="filter_type">
+    <h6 class="text-primary">{{'keyword' | translate }}</h6>
+    <input [(ngModel)]="filters.keyword" (keyup)="getAnnouncesByFilters()" name="status" type="text"
+           class="form form-control"
+           placeholder="{{'placeholder' | translate }}"
+    />
+  </div>
+  <hr>
+  <div class="filter_type">
+    <h6 class="text-primary" >{{'status' | translate}}</h6>
+    <select [(ngModel)]="filters.status" (change)="getAnnouncesByFilters()" class="form-control">
+      <option value="" selected>{{'all' |translate}}</option>
+      <option value="Location">{{'rent' | translate}}</option>
+      <option value="Vente">{{'sale' | translate}}</option>
+    </select>
+
+  </div>
+  <hr>
+  <div class="filter_type">
+    <h6 class="text-primary">{{'category' | translate}}</h6>
+    <select [(ngModel)]="filters.type" (change)="getAnnouncesByFilters()"
+            class="form-control">
+      <option value="">{{'categories' | translate}}</option>
+      <option value="Maison">{{'house' | translate}}</option>
+      <option value="Appartement">{{'apartment' | translate}}</option>
+      <option value="Terrain">{{'lot' | translate}}</option>
+      <option value="Café">{{'cafe' | translate}}</option>
+      <option value="Garage">{{'garage' | translate}}</option>
+      <option value="Usine">{{'factory.' | translate}}</option>
+      <option value="Immeuble">{{'building' | translate}}</option>
+      <option value="Maison de village">{{'village house' | translate}}</option>
+    </select>
+  </div>
+  <hr>
+  <div class="filter_type">
+    <h6 class="text-primary"><i class="icon-graduation-cap"></i>{{'city' | translate}}</h6>
+    <select [(ngModel)]="filters.city" (change)="getAnnouncesByFilters()"
+            class="form-control">
+      <option value="">{{'cities' | translate}}</option>
+      <option *ngFor="let city of cities" [value]="city">
+        {{city}}
+      </option>
+    </select>
+  </div>
+  <hr>
+  <div class="filter_type">
+    <h6 class="text-primary">Surface (m2)</h6>
+    <input class="form-control" type="text" name="" [(ngModel)]="filters.surface" (change)="getAnnouncesByFilters()">
+  </div>
+  <hr>
+  <div class="filter_type row">
+    <div class="col-md-6">
+      <h6 class="text-primary">Budget min</h6>
+      <input class="form-control" min="1" type="number" name="" [(ngModel)]="filters.budget_min"
+             (change)="getAnnouncesByFilters()">
+    </div>
+    <div class="col-md-6">
+      <h6 class="text-primary">Budget max</h6>
+      <input class="form-control" min="1" type="number" name="" [(ngModel)]="filters.budget_max"
+             (change)="getAnnouncesByFilters()">
+    </div>
+  </div>
+</div>
+
+<div id="map-mapbox"></div>
+<pre id="coordinates" class="coordinates"></pre>
+

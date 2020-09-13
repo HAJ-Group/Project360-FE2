@@ -32,6 +32,7 @@ import { ThreeSixtyAnnounceComponent } from './three-sixty-announce/three-sixty-
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     MenuComponent,
     CardAnnounceComponent,
     ThreeSixtyAnnounceComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
