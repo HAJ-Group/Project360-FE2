@@ -103,7 +103,6 @@ export class MapComponent implements OnInit {
         this.markers[i].remove();
       }
     }
-
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.announces.length; i++) {
       // console.log(this.announces[i].position_map);
