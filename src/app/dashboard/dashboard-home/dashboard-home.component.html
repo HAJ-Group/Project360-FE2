@@ -68,13 +68,15 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <h3 class="text-center font-weight-bold p-4 rounded" style="color: white; font-size: 40px; background-color: rgba(0,0,0,0.5)">
-          <i class="material-icons mr-2" style="font-size: 40px">filter</i>Your Announces</h3>
-        <br>
-        <div class="row">
-          <div class="col-md-4" *ngFor="let a of announces">
-            <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
+      <div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; margin-bottom: 10px">
+        <div class="container">
+          <h3 class="text-center font-weight-bold p-4" style="color: white; font-size: 40px; margin-bottom: 30px; background-color: rgb(156,39,176); border-bottom-right-radius: 30px; border-bottom-left-radius: 30px">
+            <i class="material-icons mr-2" style="font-size: 40px">filter</i>Your Announces</h3>
+          <br>
+          <div class="row">
+            <div class="col-md-4" *ngFor="let a of announces">
+              <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
+            </div>
           </div>
         </div>
       </div>

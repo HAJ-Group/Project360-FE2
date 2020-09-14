@@ -1,9 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let a of myAnnounces; let counter = index">
-      <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
+<div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.9)">
+  <div class="p-5" style="margin: auto; width: 60%">
+    <div class="card card-stats">
+      <div class="card-header card-header-warning card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">filter</i>
+        </div>
+        <p class="card-category">Announces Count</p>
+        <h3 class="card-title">{{myAnnounces.length}}</h3>
+      </div>
+      <div class="card-footer">
+        <a class="text-white bg-success p-3 rounded-circle d-flex justify-content-end" href="javascript:void(0)" (click)="router.routeTo('add-announce', 'dashboard', true)">
+          <i class="material-icons text-white" style="font-size: 20px">add</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let a of myAnnounces; let counter = index">
+        <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
+      </div>
     </div>
   </div>
 </div>
+
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AnnonceDataService} from '../../service/data/annonce-data.service';
 import {AuthenticationService} from '../../service/authentication.service';
 import {AnnounceModel} from '../../model.ts/announce-model';
+import {NamedRouterService} from '../../service/security/named-router.service';
 
 @Component({
   selector: 'app-list-announces',
@@ -15,6 +16,7 @@ export class ListAnnouncesComponent implements OnInit {
   constructor(
     private announceDataService: AnnonceDataService,
     private auth: AuthenticationService,
+    public router: NamedRouterService
   ) { }
 
   ngOnInit(): void {

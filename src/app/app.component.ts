@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthenticationService} from './service/authentication.service';
 
 
 
@@ -9,5 +10,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AppWebPlatform';
+  auth: AuthenticationService;
 }
 

@@ -71,6 +71,7 @@ export class MapComponent implements OnInit {
       'top-left');
 
     this.getPositions();
+    this.toggleFilter();
   }
 
   createMarker(lng: number, lat: number) {
@@ -128,6 +129,37 @@ export class MapComponent implements OnInit {
       this.announces = data.data;
       this.createMarkers();
     });
+  }
+
+  ftoggle = false;
+  toggleFilter(value = null) {
+    if(window.innerWidth > 700) {
+      this.ftoggle = !this.ftoggle;
+      if(value != null) this.ftoggle = value;
+      if (this.ftoggle) {
+        document.getElementById('floating-panel').style.display = 'block';
+        document.getElementById('filter-trigger').classList.add('active');
+        document.getElementById('filter-trigger').classList.remove('bg-white');
+      }else {
+        document.getElementById('floating-panel').style.display = 'none';
+        document.getElementById('filter-trigger').classList.remove('active');
+        document.getElementById('filter-trigger').classList.add('bg-white');
+      }
+    }
+
+  }
+
+  liteToggleFilter(value) {
+    if(window.innerWidth > 700) {
+      if(!this.ftoggle) {
+        if (value) {
+          document.getElementById('floating-panel').style.display = 'block';
+        }else {
+          document.getElementById('floating-panel').style.display = 'none';
+        }
+      }
+    }
+
   }
 }
 

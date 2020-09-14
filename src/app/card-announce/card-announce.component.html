@@ -1,11 +1,5 @@
-
-
-
-
-
-
-<div class="card card-product">
-  <div class="card-header card-header-image" data-header-animation="true">
+<div class="card card-product" style="border: 1px solid rgb(156, 39, 176)">
+  <div class="card-header card-header-image" data-header-animation="true" style="box-shadow: 1px 1px 5px black">
 
     <div id="demo{{id}}" class="carousel slide" data-ride="carousel">
       <ul class="carousel-indicators">
@@ -43,16 +37,20 @@
         <i class="material-icons">close</i>
       </button>
     </div>
-    <h4 class="card-title">
-      <a href="javascript:void(0)" (click)="announceDetails(id)">{{title}}</a>
-    </h4>
-    <div class="card-description">
-      {{created_at}}
+    <p class="text-center text-primary"><i class="material-icons" style="font-size: 50px">house</i></p>
+    <div class="p-3" style="background-color: rgb(156, 39, 176); border-radius: 30px">
+      <h4 class="card-title font-weight-bold">
+        <a class="text-white" href="javascript:void(0)" (click)="announceDetails(id)">{{title}}</a>
+      </h4>
+      <div class="card-description text-white">
+        {{created_at}}
+      </div>
     </div>
+
   </div>
   <div class="card-footer">
     <div class="price">
-      <h4 class="announce-price">{{price}} DH</h4>
+      <h4 class="announce-price text-danger">{{price}} DH</h4>
     </div>
     <div class="stats">
       <span class="card-category"><i class="material-icons">place</i>{{city}}</span>

@@ -3,6 +3,8 @@ import {AnnonceDataService} from '../service/data/annonce-data.service';
 import {Router} from '@angular/router';
 import {CITIES} from '../app.constants';
 import {AnnounceModel} from '../model.ts/announce-model';
+import {AuthenticationService} from '../service/authentication.service';
+import {NamedRouterService} from '../service/security/named-router.service';
 
 
 @Component({
@@ -25,7 +27,7 @@ export class AnnoncesComponent implements OnInit {
   };
   cities: string[];
 
-  constructor(private annonceData: AnnonceDataService, private router: Router) {
+  constructor(private annonceData: AnnonceDataService, private router: Router, public auth:AuthenticationService, public n_router:NamedRouterService) {
     this.cities = CITIES;
     const k = this.router.getCurrentNavigation().extras.state;
     this.filters.keyword = k !== undefined ? k.keyword : '';
@@ -53,5 +55,14 @@ export class AnnoncesComponent implements OnInit {
       this.annonces = success['data'];
       console.log(this.annonces);
     });
+  }
+
+  goToMap() {
+    if(!this.auth.isAuthenticated()) {
+      this.router.navigate(['map']);
+    }
+    else {
+      this.n_router.routeTo('map', 'dashboard', true);
+    }
   }
 }

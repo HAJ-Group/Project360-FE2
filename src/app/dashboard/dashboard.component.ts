@@ -12,6 +12,67 @@ import {AnnoncerDataService} from '../service/data/annoncer-data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  team = [
+    { name : 'Ennouinou Alaeddinne',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'ennouinou.jpg' ,
+      linkedin : 'https://www.linkedin.com/in/alae-ennouinou-50103a180/' ,
+      github : ''
+    },
+    { name : 'Ismaili Alaoui Hamza',
+      job : 'developer',
+      age : '22',
+      rating : 'I did this with love ' ,
+      photo : 'hmz.jpeg' ,
+      linkedin : '' ,
+      github : ''
+    },
+    { name : 'Es-safi rhita',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'rhitaEs-safi.jpeg' ,
+      linkedin : '' ,
+      github : ''
+    },
+    { name : 'Berbeche Yahya',
+      job : 'developer',
+      age : '22',
+      rating : 'I did this with love ',
+      photo : 'brbch.jpg' ,
+      linkedin : '' ,
+      github : ''
+    },
+    { name : 'Ait Assou Jaouad',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'salon.jpg' ,
+      linkedin : '' ,
+      github : ''
+    },
+
+    {
+      name : 'Bourkha Ibtissam',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ',
+      photo : 'bety.jpeg',
+      linkedin : '',
+      github : ''
+    },
+    {
+      name : 'El Hamzi Houssam',
+      job : 'developer',
+      age : '22' ,
+      rating : 'I did this with love ' ,
+      photo : 'hamzi.jpeg' ,
+      linkedin : '',
+      github : ''
+    },
+  ];
   // SIDE MENU BAR -------------------------------------------------------------------------------------------------------------------------
   currentNavItem = 2;
   // DUPLICATED FOOTER MANAGEMENT ----------------------------------------------------------------------------------------------------------

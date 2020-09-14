@@ -1,4 +1,5 @@
 window.onscroll = scrollnav;
+
 function smoothscroll(){
   let currentScroll = document.documentElement.scrollTop ;
   if (currentScroll > 0) {
@@ -6,6 +7,7 @@ function smoothscroll(){
     window.scrollTo (0,currentScroll - (currentScroll/5));
   }
 }
+
 
 function scrollnav () {
   const myNav = document.getElementById('nav');

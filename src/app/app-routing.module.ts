@@ -18,8 +18,8 @@ import {MapComponent} from './map/map.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [ReverseRouteGuardService]},
-  {path: 'map', component: MapComponent},
-  {path: 'annonces', component: AnnoncesComponent},
+  {path: 'map', component: MapComponent, canActivate: [ReverseRouteGuardService]},
+  {path: 'annonces', component: AnnoncesComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'vview/:id', component: ThreeSixtyAnnounceComponent},
   {path: 'wizard', component: WizardComponent},
   {path: 'dashboard', component : DashboardComponent , children : [
@@ -28,7 +28,9 @@ const routes: Routes = [
       {path: 'announces', component: ListAnnouncesComponent, outlet: 'dashboard'},
       {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
       {path: 'announces/:id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
-      {path: 'announces/:id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'}
+      {path: 'announces/:id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
+      {path: 'map', component: MapComponent, outlet: 'dashboard'},
+      {path: 'annonces', component: AnnoncesComponent, outlet: 'dashboard'},
     ], canActivate: [RouteGuardService]},
 ];
 

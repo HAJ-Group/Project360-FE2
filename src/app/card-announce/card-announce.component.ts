@@ -55,7 +55,7 @@ export class CardAnnounceComponent implements OnInit {
 
   announceDetails(id): void {
     console.log(`The details of the announce with id = ${id}`);
-    this.router.defaultRoute('vview/' + id, false);
+    this.router.defaultRoute('vview/' + id);
     // this.routerNavigation.navigate(['dashboard', { outlets: { dashboard: ['announces', id] } }]);
   }
 

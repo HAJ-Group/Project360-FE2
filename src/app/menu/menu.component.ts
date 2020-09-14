@@ -3,6 +3,7 @@ import {LoginAccount, SubscribeAccount, UserDataService} from '../service/data/u
 import {AuthenticationService} from '../service/authentication.service';
 import {Router} from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import {NamedRouterService} from '../service/security/named-router.service';
 
 @Component({
   selector: 'app-menu',
@@ -26,8 +27,8 @@ export class MenuComponent implements OnInit {
     private auth: AuthenticationService,
     private service: UserDataService,
     public router: Router,
-
-    public translate: TranslateService
+    public translate: TranslateService,
+    public n_router: NamedRouterService
   ) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');

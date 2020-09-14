@@ -1,0 +1,11 @@
+.tb  td {
+  font-size: 15px;
+}
+
+#canvasDIV:hover {
+  cursor: grab;
+}
+
+#canvasDIV:active {
+  cursor: grabbing;
+}

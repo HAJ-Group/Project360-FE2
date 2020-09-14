@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NamedRouterService} from '../../service/security/named-router.service';
 import {AuthenticationService} from '../../service/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -9,9 +10,14 @@ import {AuthenticationService} from '../../service/authentication.service';
 })
 export class DashboardHeaderComponent implements OnInit {
 
-  constructor(public n_router: NamedRouterService, public auth:AuthenticationService) { }
+  keyword: string;
 
-  ngOnInit(): void {
+  constructor(public n_router: NamedRouterService, public auth:AuthenticationService) {  }
+
+  ngOnInit(): void {}
+
+  getSearchKey() {
+    this.n_router.routeTo('annonces','dashboard', false, {state: {keyword: this.keyword}});
   }
 
 }

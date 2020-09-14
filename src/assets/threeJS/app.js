@@ -28,7 +28,7 @@ function build(image) {
     // ---------------------------------------------------------------------------------------------------------------------
     // RENDERING
     renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth - 10, 700 );
+    renderer.setSize( (window.innerWidth * 80)/100, window.innerHeight );
     domElement.appendChild( renderer.domElement );
     // ---------------------------------------------------------------------------------------------------------------------
     // CONTROLS
@@ -49,7 +49,7 @@ function build(image) {
     // ---------------------------------------------------------------------------------------------------------------------
     // RESIZING
     function onResize() {
-        renderer.setSize(window.innerWidth - 10, 700);
+        renderer.setSize((window.innerWidth * 80)/100, window.innerHeight );
         camera.aspect = window.innerWidth/window.innerHeight;
         camera.updateProjectionMatrix();
     }
@@ -60,15 +60,23 @@ let toggle = false;
 function toggleFull() {
   toggle = !toggle;
   if(toggle) {
-    renderer.setSize(window.innerWidth - 10, window.innerHeight);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
-    document.getElementById('details').style.display = 'none';
+    document.getElementById('infobox').style.display = 'none';
+    try {
+      let d = document.getElementById('map-mapbox');
+      d.style.width = '100%';
+    } catch (e) {}
   } else {
-    renderer.setSize(window.innerWidth - 10, 700);
+    renderer.setSize((window.innerWidth * 80)/100, window.innerHeight);
     camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
-    document.getElementById('details').style.display = 'block';
+    document.getElementById('infobox').style.display = 'block';
+    try {
+      let d = document.getElementById('map-mapbox');
+      d.style.width = '90%';
+    } catch (e) {}
   }
 }
 

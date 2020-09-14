@@ -13,23 +13,26 @@ export class NamedRouterService {
    * @param component
    * @param outlet
    * @param reload
+   * @param state
    */
-  routeTo(component, outlet, reload=false): void {
+  routeTo(component, outlet, reload=false, state =null): void {
     if(reload) {
       let loader = document.getElementById('loader');
       loader.classList.remove('d-none');
     }
-    this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')');
+    if(state != null) this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')', state);
+    else this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')');
     if(reload) location.href = "/" + outlet + '/(' + outlet + ':' + component + ')';
   }
 
 
-  defaultRoute(component, reload=false): void {
+  defaultRoute(component, reload=false, state=null): void {
     if(reload) {
       let loader = document.getElementById('loader');
       loader.classList.remove('d-none');
     }
-    this.router.navigate([component]);
+    if(state != null) this.router.navigate([component], state);
+    else this.router.navigate([component]);
     if(reload){
       // let loader = document.getElementById('loader');
       // loader.classList.remove('d-none');

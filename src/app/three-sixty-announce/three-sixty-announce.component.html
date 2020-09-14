@@ -1,7 +1,66 @@
-<app-menu *ngIf="!auth.isAuthenticated()"></app-menu>
-<app-dashboard-header *ngIf="auth.isAuthenticated()"></app-dashboard-header>
-<div id="canvasDIV" style="border: 2px black"></div>
-<button class="ml-2" (click)="fullScreen()">Toggle View</button>
+<div class="wrapper d-flex">
+  <div id="infobox" class="bg-white" style="width: 20%; overflow: auto">
+    <div data-header-animation="true">
+      <div id="demo{{announce.id}}" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li *ngFor="let image of announce.images; let i = index" data-target="#demo" [attr.data-slide-to]="i" [class.active]="i==0" >
+          </li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let image of announce.images; let i = index" [class.active]="i==0">
+            <img src="{{path}}{{ announce.id + '/'}}{{image.name}}" alt="" width="550px" height="300px">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo{{announce.id}}" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo{{announce.id}}" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+      <div class="container">
+        <p class="text-center text-primary p-3 font-weight-bold" style="font-size: 25px; margin-top: 5px">{{announce.title}}</p>
+        <p class="text-muted text-center"><i class="material-icons">account_circle</i><br>{{announcer.first_name}} {{announcer.last_name}}</p>
+        <p class="text-center"><a href="javascript:void(0)" (click)="toggle()">view more</a></p>
+        <div class="d-flex justify-content-center">
+          <table id="infos" style="display: none; margin: auto">
+            <tr><td class="material-icons mr-1 text-muted">email</td><td>{{announcer.email}}</td></tr>
+            <tr *ngIf="announcer.phone"><td class="material-icons mr-1 text-muted">perm_phone_msg</td><td>{{announcer.phone}}</td></tr>
+            <tr *ngIf="announcer.address"><td class="material-icons mr-1 text-muted">home</td><td>{{announcer.address}}</td></tr>
+            <tr *ngIf="announcer.city"><td class="material-icons mr-1 text-muted">location_city</td><td>{{announcer.city}}</td></tr>
+            <tr *ngIf="announcer.date_of_birth"><td class="material-icons mr-1 text-muted">event</td><td>{{announcer.date_of_birth}}</td></tr>
+          </table>
+        </div>
+        <hr>
+        <div class="bg-white p-3">
+            <table class="tb">
+              <tr><td class="text-primary">Announce Title : </td><td>{{announce.title}}</td></tr>
+              <tr><td class="text-primary">Announce Description : </td><td>{{announce.description}}</td></tr>
+              <tr><td class="text-primary">Announce Address : </td><td>{{announce.address}}</td></tr>
+              <tr><td class="text-primary">Announce City : </td><td>{{announce.city}}</td></tr>
+              <tr><td class="text-primary">Announce Type : </td><td>{{announce.type}}</td></tr>
+              <tr><td class="text-primary">Announce Price : </td><td>{{announce.price}}</td></tr>
+            </table>
+        </div>
+        <hr>
+        <button *ngIf="auth.isAuthenticated()" class="btn btn-warning mb-1" style="display: block; margin: auto; width: 200px" (click)="editAnnounce(announce.id)">Edit Announce</button>
+        <button *ngIf="auth.isAuthenticated()" class="btn btn-danger mb-1" style="display: block; margin: auto;  width: 200px" (click)="setAnnounceIdentifier(announce.id)">Delete Announce</button>
+        <button id="th" class="btn btn-success mb-1" style="display: block; margin: auto;  width: 200px" (click)="switchToMap()">Show Virtual View</button>
+        <button class="btn btn-primary mb-1" style="display: block; margin: auto;  width: 200px" routerLink="/">Go Back</button><br>
+      </div>
+    </div>
+  </div>
+  <div id="canvasDIV" style="width: 80%; display: none"></div>
+  <div id="map-mapbox" style="width: 80%;"></div>
+  <a id="t2" href="javascript:void(0)" class="rounded-circle" (click)="fullScreen()" style="position: absolute; top: 220px; right: 20px; color: deepskyblue">
+    <i class="material-icons" style="font-size: 50px">preview</i>
+  </a>
+  <a href="javascript:void(0)" class="rounded-circle" (click)="switchToMap()" style="position: absolute; top: 300px; right: 20px; color: deepskyblue">
+    <i class="material-icons" style="font-size: 50px">location_on</i>
+  </a>
+</div>
+
+<!--<button class="ml-2" (click)="fullScreen()">Toggle View</button>
 <div id="details" class="position-relative">
   <div class="container bg-white p-5" style="margin-top: -10%; position: absolute; width: 90%; left: 7%; border-radius: 30px; margin-bottom: 50px">
     <h1 class="text-primary text-center title">{{announce.title}}</h1>
@@ -22,7 +81,7 @@
       <h4 class="list-group-item"><span class="text-primary">Prix : </span>{{announce.price}}</h4>
       <h4 class="list-group-item"><span class="text-primary">Adresse : </span>{{announce.address}}</h4>
       <h4 class="list-group-item"><span class="text-primary">Ville : </span>{{announce.city}}</h4>
-<!--      <h4 class="list-group-item">Position Map : {{announce.position_map}}</h4>-->
+&lt;!&ndash;      <h4 class="list-group-item">Position Map : {{announce.position_map}}</h4>&ndash;&gt;
       <h4 class="list-group-item"><span class="text-primary">Status : </span> {{announce.status}}</h4>
       <h4 class="list-group-item"><span class="text-primary">Pieces : </span>{{announce.pieces}}</h4>
       <div class="d-flex justify-content-center">
@@ -42,10 +101,30 @@
     </div>
   </div>
   <br><hr>
+</div>-->
+
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header flex-column">
+        <div class="icon-box">
+          <i class="material-icons">&#xE5CD;</i>
+        </div>
+        <h4 class="modal-title w-100">Etes vous sûre?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Voulez-vous vraiment supprimer cette annonce ?</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteAnnounce()">Supprimer</button>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
 
 
 
