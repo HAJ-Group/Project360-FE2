@@ -6,6 +6,7 @@ import {AnnounceModel} from '../model.ts/announce-model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SERVER_IMAGES_PATH} from '../app.constants';
 import {SubscribeAccount} from '../service/data/user-data.service';
+import {AnnoncerModel} from '../model.ts/annoncer-model';
 
 @Component({
   selector: 'app-three-sixty-announce',
@@ -17,6 +18,7 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
   error: string;
   announce: AnnounceModel;
   user: Object;
+  announcer : AnnoncerModel;
   path = SERVER_IMAGES_PATH;
 
   constructor(public auth: AuthenticationService, public service:AnnonceDataService, public route: ActivatedRoute) { }
@@ -39,6 +41,12 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
             console.log("baaa");
           }
         );
+        this.service.getAnnounceAnnouncer(this.announce.id).subscribe(
+          success => {
+            this.announcer = success;
+            console.log(this.announcer);
+          }
+        );
       },
       error => {
         this.error = error.error;
@@ -50,6 +58,15 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
   fullScreen() {
     // @ts-ignore
     toggleFull();
+  }
+  toggled = false;
+  toggle() {
+    this.toggled = !this.toggled;
+    if(this.toggled) {
+      document.getElementById('infos').style.display = 'block';
+    } else {
+      document.getElementById('infos').style.display = 'none'
+    }
   }
 
 }

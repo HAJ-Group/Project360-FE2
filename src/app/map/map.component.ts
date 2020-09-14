@@ -8,6 +8,7 @@ import {AnnonceDataService} from '../service/data/annonce-data.service';
 import {Router} from '@angular/router';
 import {AnnounceModel} from '../model.ts/announce-model';
 import {CITIES} from '../app.constants';
+import {AuthenticationService} from '../service/authentication.service';
 
 @Component({
   selector: 'app-map',
@@ -32,7 +33,7 @@ export class MapComponent implements OnInit {
   announces: AnnounceModel[];
   markers = [] ;
 
-  constructor(private announceData: AnnonceDataService, private router: Router) {
+  constructor(private announceData: AnnonceDataService, private router: Router, public auth: AuthenticationService) {
     this.cities = CITIES;
     const k = this.router.getCurrentNavigation().extras.state;
     this.filters.keyword = k !== undefined ? k.keyword : '';

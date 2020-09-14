@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AnnounceModel} from '../../model.ts/announce-model';
 import {SERVER_USERS} from '../../app.constants';
+import {AnnoncerModel} from '../../model.ts/annoncer-model';
 
 
 const SERVER = 'http://localhost:8000/api/annonces';
@@ -55,6 +56,10 @@ export class AnnonceDataService{
 
   getAnnounceUser(id) {
     return this.http.get(SERVER + '/' + id + '/user');
+  }
+
+  getAnnounceAnnouncer(id) {
+    return this.http.get<AnnoncerModel>(SERVER + '/' + id + '/annoncer');
   }
 
   getAnnounceByID(id) {

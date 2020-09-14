@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NamedRouterService} from '../../service/security/named-router.service';
+import {AuthenticationService} from '../../service/authentication.service';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public n_router: NamedRouterService, public auth:AuthenticationService) { }
 
   ngOnInit(): void {
   }

@@ -31,7 +31,7 @@ export class FooterComponent implements OnInit {
       job : 'developer',
       age : '22',
       rating : 'I did this with love ' ,
-      photo : 'salon.jpg' ,
+      photo : 'hmz.jpeg' ,
       linkedin : '' ,
       github : ''
     },

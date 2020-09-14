@@ -1,9 +1,19 @@
 <app-menu *ngIf="!auth.isAuthenticated()"></app-menu>
+<app-dashboard-header *ngIf="auth.isAuthenticated()"></app-dashboard-header>
 <div id="canvasDIV" style="border: 2px black"></div>
 <button class="ml-2" (click)="fullScreen()">Toggle View</button>
 <div id="details" class="position-relative">
   <div class="container bg-white p-5" style="margin-top: -10%; position: absolute; width: 90%; left: 7%; border-radius: 30px; margin-bottom: 50px">
     <h1 class="text-primary text-center title">{{announce.title}}</h1>
+    <p class="text-muted text-center"><i class="material-icons">account_circle</i><br>{{announcer.first_name}} {{announcer.last_name}}</p>
+    <p class="text-center"><a href="javascript:void(0)" (click)="toggle()">view more</a></p>
+    <table id="infos" style="display: none; margin: auto">
+      <tr><td class="material-icons mr-1 text-muted">email</td><td>{{announcer.email}}</td></tr>
+      <tr *ngIf="announcer.phone"><td class="material-icons mr-1 text-muted">perm_phone_msg</td><td>{{announcer.phone}}</td></tr>
+      <tr *ngIf="announcer.address"><td class="material-icons mr-1 text-muted">help</td><td>{{announcer.address}}</td></tr>
+      <tr *ngIf="announcer.city"><td class="material-icons mr-1 text-muted">help</td><td>{{announcer.city}}</td></tr>
+      <tr *ngIf="announcer.date_of_birth"><td class="material-icons mr-1 text-muted">help</td><td>{{announcer.date_of_birth}}</td></tr>
+    </table>
     <hr>
     <div class="list-group">
       <h4 class="list-group-item"><span class="text-primary">Titre d'annonce : </span>{{announce.title}}</h4>
@@ -21,8 +31,14 @@
         </a>
       </div>
     </div>
+    <div class="col-md-6">
+      <h4 class="title">Geographical Location View</h4>
+      <iframe width="800" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-12.722167968750002%2C30.538607878854556%2C-3.7738037109375004%2C34.67387626588273&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+      <br/>
+    </div>
     <div class="d-flex justify-content-center">
       <button class="btn btn-primary">Go Back</button>
+      <small class="d-flex justify-content-end"><a class="btn btn-primary" href="https://www.openstreetmap.org/#map=8/32.630/-8.248">View Larger Map</a></small>
     </div>
   </div>
   <br><hr>
