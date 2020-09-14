@@ -3,14 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AnnoncerModel} from '../../model.ts/annoncer-model';
 
-const SERVER = 'https://radiant-anchorage-91157.herokuapp.com';
+const SERVER = 'https://radiant-anchorage-91157.herokuapp.com/premium';
 @Injectable()
 export class AnnoncerDataService {
   constructor(
     private http: HttpClient
   ){}
   getAnnouncers(): Observable<AnnoncerModel[]> {
-    return this.http.get<AnnoncerModel[]>(SERVER + '/');
+    return this.http.get<AnnoncerModel[]>(SERVER);
   }
   getUserAnnouncer(): Observable<AnnoncerModel> {
     return this.http.get<AnnoncerModel>(SERVER + '/user');
