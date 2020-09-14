@@ -5,7 +5,7 @@ export const SERVER = 'https://radiant-anchorage-91157.herokuapp.com/api/';
 export const SERVER_USERS = SERVER + 'users/';
 
 // Global URL to obtain the images from the server
-export const SERVER_IMAGES_PATH = 'http://localhost:8000/announces-images/';
+export const SERVER_IMAGES_PATH = 'https://radiant-anchorage-91157.herokuapp.com/announces-images/';
 
 // Cities of morocco
 export const CITIES = [
