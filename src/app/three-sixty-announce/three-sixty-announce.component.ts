@@ -5,7 +5,6 @@ import {AnnonceDataService} from '../service/data/annonce-data.service';
 import {AnnounceModel} from '../model.ts/announce-model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SERVER_IMAGES_PATH} from '../app.constants';
-import {SubscribeAccount} from '../service/data/user-data.service';
 import {AnnoncerModel} from '../model.ts/annoncer-model';
 import {NamedRouterService} from '../service/security/named-router.service';
 import * as Mapboxgl from 'mapbox-gl';
@@ -41,7 +40,11 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
       center: [-5.0060804, 34.0421561], // starting position
       zoom: 13 // starting zoom
     });
+    this.map.on('mousemove', function (e) {
+      console.log(JSON.stringify(e.point) + '-' + JSON.stringify(e.lngLat.wrap()))
+    });
     document.getElementById('th').click();
+
     const geocoder = new MapboxGeocoder({
       accessToken: Mapboxgl.accessToken, // Set the access token
       placeholder: '     Search' ,
@@ -151,21 +154,7 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
 
   // MAP MANAGEMENT
   map: Mapboxgl.Map;
-  filters = {
-    keyword: '',
-    status: '',
-    type: '',
-    city: '',
-    surface: 0,
-    pieces: 20,
-    budget_min: 1,
-    budget_max: 100000
-  };
-
-  cities: string[];
-  announces: AnnounceModel[];
   markers = [] ;
-
 
   createMarker(lng: number, lat: number) {
     const marker = new Mapboxgl.Marker({
@@ -189,7 +178,5 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
 
     this.markers.push(marker);
   }
-
-
 
 }
