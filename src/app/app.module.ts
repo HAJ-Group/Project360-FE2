@@ -80,7 +80,7 @@ import { MapComponent } from './map/map.component';
     {
       provide: HTTP_INTERCEPTORS, useClass: HttpAuthenticationInterceptorService, multi: true
     },
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })

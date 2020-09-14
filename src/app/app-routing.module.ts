@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'map', component: MapComponent},
   {path: 'annonces', component: AnnoncesComponent},
   {path: 'vview/:id', component: ThreeSixtyAnnounceComponent},
-  {path: 'wizard', component: WizardComponent, canActivate: [RouteGuardService]},
+  {path: 'wizard', component: WizardComponent},
   {path: 'dashboard', component : DashboardComponent , children : [
       {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
       {path: 'profile', component: ProfileComponent, outlet: 'dashboard'},

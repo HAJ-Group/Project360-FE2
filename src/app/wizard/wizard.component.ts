@@ -21,11 +21,11 @@ export class WizardComponent implements OnInit {
   constructor(private service: AnnoncerDataService, private router: Router, private auth: AuthenticationService, private n_router: NamedRouterService) { }
 
   ngOnInit(): void {
-    this.service.getUserAnnouncer().subscribe(
-      success => {
-        if(Object.keys(success).length !== 0) this.n_router.defaultRoute('dashboard', true);
-      }
-    );
+    // this.service.getUserAnnouncer().subscribe(
+    //   success => {
+    //     if(Object.keys(success).length !== 0) this.n_router.defaultRoute('dashboard', true);
+    //   }
+    // );
     this.data = new AnnoncerModel('', '', '', '', '', '', '', false, '');
   }
 

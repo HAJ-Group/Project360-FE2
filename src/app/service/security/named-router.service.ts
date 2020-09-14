@@ -31,9 +31,9 @@ export class NamedRouterService {
     }
     this.router.navigate([component]);
     if(reload){
-      let loader = document.getElementById('loader');
-      loader.classList.remove('d-none');
-      location.href = '#/' + component;
+      // let loader = document.getElementById('loader');
+      // loader.classList.remove('d-none');
+      location.href = '/' + component;
     }
   }
 
