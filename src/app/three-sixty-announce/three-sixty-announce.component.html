@@ -6,15 +6,15 @@
     <h1 class="text-primary text-center title">{{announce.title}}</h1>
     <hr>
     <div class="list-group">
-      <h3 class="list-group-item">Titre d'annonce : {{announce.title}}</h3>
-      <h3 class="list-group-item">Type d'annonce : {{announce.type}}</h3>
-      <h3 class="list-group-item">Description : {{announce.description}}</h3>
-      <h3 class="list-group-item">Prix : {{announce.price}}</h3>
-      <h3 class="list-group-item">Adresse : {{announce.address}}</h3>
-      <h3 class="list-group-item">Ville : {{announce.city}}</h3>
-<!--      <h3 class="list-group-item">Position Map : {{announce.position_map}}</h3>-->
-      <h3 class="list-group-item">Status : {{announce.status}}</h3>
-      <h3 class="list-group-item">Pieces : {{announce.pieces}}</h3>
+      <h4 class="list-group-item">Titre d'annonce : {{announce.title}}</h4>
+      <h4 class="list-group-item">Type d'annonce : {{announce.type}}</h4>
+      <h4 class="list-group-item">Description : {{announce.description}}</h4>
+      <h4 class="list-group-item">Prix : {{announce.price}}</h4>
+      <h4 class="list-group-item">Adresse : {{announce.address}}</h4>
+      <h4 class="list-group-item">Ville : {{announce.city}}</h4>
+<!--      <h4 class="list-group-item">Position Map : {{announce.position_map}}</h4>-->
+      <h4 class="list-group-item">Status : {{announce.status}}</h4>
+      <h4 class="list-group-item">Pieces : {{announce.pieces}}</h4>
       <div class="d-flex justify-content-center">
         <a *ngFor="let a of announce.images" href="{{path}}{{announce.id + '/'}}{{a.name}}">
           <img src="{{path}}{{announce.id + '/'}}{{a.name}}" alt="..." class="img-thumbnail">
