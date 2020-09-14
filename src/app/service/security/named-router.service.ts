@@ -30,7 +30,11 @@ export class NamedRouterService {
       loader.classList.remove('d-none');
     }
     this.router.navigate([component]);
-    if(reload) location.href = '#/' + component;
+    if(reload){
+      let loader = document.getElementById('loader');
+      loader.classList.remove('d-none');
+      location.href = '#/' + component;
+    }
   }
 
 }
