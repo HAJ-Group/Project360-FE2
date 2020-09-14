@@ -23,8 +23,8 @@ export class FooterComponent implements OnInit {
       job : 'developer',
       age : '22' ,
       rating : 'I did this with love ' ,
-      photo : 'salon.jpg' ,
-      linkedin : '' ,
+      photo : 'ennouinou.jpg' ,
+      linkedin : 'https://www.linkedin.com/in/alae-ennouinou-50103a180/' ,
       github : ''
     },
     { name : 'Ismaili Alaoui Hamza',
@@ -74,7 +74,7 @@ export class FooterComponent implements OnInit {
       job : 'developer',
       age : '22' ,
       rating : 'I did this with love ' ,
-      photo : 'salon.jpg' ,
+      photo : 'hamzi.jpeg' ,
       linkedin : '',
       github : ''
     },
