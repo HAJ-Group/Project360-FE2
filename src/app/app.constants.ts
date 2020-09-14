@@ -1,5 +1,5 @@
 // General API_URL
-export const SERVER = 'http://localhost:8000/api/';
+export const SERVER = 'https://radiant-anchorage-91157.herokuapp.com/api/';
 
 // API URL USERS
 export const SERVER_USERS = SERVER + 'users/';
