@@ -98,6 +98,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.service.getUserAnnouncer().subscribe(
       success => {
+        this.profilePicture = success.picture;
         if(Object.keys(success).length === 0) this.n_router.defaultRoute('wizard', true);
       }
     );

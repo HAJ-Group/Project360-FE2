@@ -20,14 +20,15 @@
                   <div class="text-gray">{{data.email}}</div>
                   <br>
                   <div class="fileinput-new thumbnail img-circle">
-                    <img src="assets/dashboard/img/faces/avatar.jpg" alt="...">
+                    <img *ngIf="!data.picture" src="assets/dashboard/img/faces/avatar.jpg" alt="...">
+                    <img *ngIf="data.picture" src="http://localhost:8000/{{data.picture}}" alt="...">
                   </div>
                   <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                   <div>
                           <span class="btn btn-round btn-rose btn-file">
                             <span class="fileinput-new">Update Photo</span>
                             <span class="fileinput-exists">Change</span>
-                            <input type="file" name="..." />
+                            <input type="file" name="image" (change)="handleFileInput($event.target.files)"/>
                           </span>
                     <br />
                     <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>

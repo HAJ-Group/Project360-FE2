@@ -3,7 +3,8 @@
     <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="09b6b478-b3c6-77b2-5f03-988825f5a037">
       <div class="user">
         <div class="photo" style="border: 2px solid mediumspringgreen">
-          <img src="assets/dashboard/img/faces/avatar.jpg">
+          <img *ngIf="!profilePicture" src="assets/dashboard/img/faces/avatar.jpg">
+          <img *ngIf="profilePicture" src="http://localhost:8000/{{profilePicture}}">
         </div>
         <div class="user-info">
           <a data-toggle="collapse" href="#collapseExample" class="username">

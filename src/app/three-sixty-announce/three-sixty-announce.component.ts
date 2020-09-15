@@ -108,8 +108,10 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
     this.toggled = !this.toggled;
     if(this.toggled) {
       document.getElementById('infos').style.display = 'block';
+      document.getElementById('viewmore').innerText = 'view less';
     } else {
-      document.getElementById('infos').style.display = 'none'
+      document.getElementById('infos').style.display = 'none';
+      document.getElementById('viewmore').innerText = 'view more';
     }
   }
 

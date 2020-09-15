@@ -21,7 +21,7 @@
       <div class="container">
         <p class="text-center text-primary p-3 font-weight-bold" style="font-size: 25px; margin-top: 5px">{{announce.title}}</p>
         <p class="text-muted text-center"><i class="material-icons">account_circle</i><br>{{announcer.first_name}} {{announcer.last_name}}</p>
-        <p class="text-center"><a href="javascript:void(0)" (click)="toggle()">view more</a></p>
+        <p class="text-center"><a id="viewmore" href="javascript:void(0)" (click)="toggle()">view more</a></p>
         <div class="d-flex justify-content-center">
           <table id="infos" style="display: none; margin: auto">
             <tr><td class="material-icons mr-1 text-muted">email</td><td>{{announcer.email}}</td></tr>

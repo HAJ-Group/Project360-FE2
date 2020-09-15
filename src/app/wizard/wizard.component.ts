@@ -21,21 +21,32 @@ export class WizardComponent implements OnInit {
   constructor(private service: AnnoncerDataService, private router: Router, private auth: AuthenticationService, private n_router: NamedRouterService) { }
 
   ngOnInit(): void {
-    // this.service.getUserAnnouncer().subscribe(
-    //   success => {
-    //     if(Object.keys(success).length !== 0) this.n_router.defaultRoute('dashboard', true);
-    //   }
-    // );
+    this.service.getUserAnnouncer().subscribe(
+      success => {
+        if(Object.keys(success).length !== 0) this.n_router.defaultRoute('dashboard', true);
+      }
+    );
     this.data = new AnnoncerModel('', '', '', '', '', '', '', false, '');
+  }
+
+  profile_pic;
+  handleFileInput(files: FileList) {
+    this.profile_pic = files.item(0);
   }
 
   addAnnouncer() {
     this.data.address = this.street_name + ', ' + this.street_number + ', ' + this.data.city;
     this.service.createAnnouncer(this.data).subscribe(
       success => {
-        console.log('announcer created successfully');
-        localStorage.setItem('registered', this.auth.getAuthenticatedUser());
-        this.n_router.defaultRoute('dashboard', true);
+        this.service.postProfilePicture(this.profile_pic, success['data'].id).subscribe(
+          success => {
+            console.log('announcer created successfully');
+            localStorage.setItem('registered', this.auth.getAuthenticatedUser());
+            this.n_router.defaultRoute('dashboard', true);
+          },
+          error => {
+            console.log(error.error);
+          });
       },
       error => {
         console.log(error);
