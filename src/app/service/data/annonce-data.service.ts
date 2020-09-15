@@ -6,7 +6,7 @@ import {SERVER_USERS} from '../../app.constants';
 import {AnnoncerModel} from '../../model.ts/annoncer-model';
 
 
-const SERVER = 'http://localhost:8000/api/annonces';
+const SERVER = 'https://radiant-anchorage-91157.herokuapp.com/api/annonces';
 
 @Injectable()
 export class AnnonceDataService{

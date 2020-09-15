@@ -22,7 +22,7 @@ export class NamedRouterService {
     }
     if(state != null) this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')', state);
     else this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')');
-    if(reload) location.href = "/" + outlet + '/(' + outlet + ':' + component + ')';
+    if(reload) location.href = '#/' + outlet + '/(' + outlet + ':' + component + ')';
   }
 
 
@@ -34,9 +34,7 @@ export class NamedRouterService {
     if(state != null) this.router.navigate([component], state);
     else this.router.navigate([component]);
     if(reload){
-      // let loader = document.getElementById('loader');
-      // loader.classList.remove('d-none');
-      location.href = '/' + component;
+      location.href = '#/' + component;
     }
   }
 
