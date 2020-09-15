@@ -35,8 +35,8 @@ export class NamedRouterService {
     else this.router.navigate([component]);
     if(reload){
       location.href = '#/' + component;
+      window.location.reload();
     }
-    window.location.reload();
   }
 
 }
