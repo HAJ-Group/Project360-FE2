@@ -21,19 +21,14 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
 import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import {AnnonceDataService} from './service/data/annonce-data.service';
-import {NgxPaginationModule} from 'ngx-pagination';
 import { WizardComponent } from './wizard/wizard.component';
 import { MenuComponent } from './menu/menu.component';
 import {CardAnnounceComponent} from './card-announce/card-announce.component';
 import { ThreeSixtyAnnounceComponent } from './three-sixty-announce/three-sixty-announce.component';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
-
-
-
-
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MapComponent } from './map/map.component';
+import { ThreeSixtyPickerComponent } from './three-sixty-announce/three-sixty-picker/three-sixty-picker.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +51,7 @@ import { MapComponent } from './map/map.component';
     CardAnnounceComponent,
     ThreeSixtyAnnounceComponent,
     MapComponent,
+    ThreeSixtyPickerComponent,
   ],
   imports: [
     BrowserModule,

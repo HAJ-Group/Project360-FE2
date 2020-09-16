@@ -19,7 +19,7 @@ export class HttpAuthenticationInterceptorService  implements HttpInterceptor{
       request = request.clone(
         {
           setHeaders: {
-            Authorization: jwtAuthenticationHeader
+            Authorization: jwtAuthenticationHeader,
           }
         }
       );

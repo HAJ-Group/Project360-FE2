@@ -10,6 +10,7 @@ import * as Mapboxgl from 'mapbox-gl';
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 import {environment} from '../../../../environments/environment.prod';
+import {NamedRouterService} from '../../../service/security/named-router.service';
 
 
 @Component({
@@ -32,7 +33,8 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
     private announceDataService: AnnonceDataService,
     public auth: AuthenticationService,
     private router: Router,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
+    public n_router: NamedRouterService
   ) { }
 
   ngOnInit(): void {
@@ -86,7 +88,8 @@ export class AddAnnounceComponent implements OnInit, AfterViewInit {
     this.announceDataService.createAnnounce(this.auth.getAuthenticatedUser(), this.announce, this.selectedFiles).subscribe(
       success => {
         console.log(success);
-        this.router.navigate(['dashboard', { outlets: { dashboard: ['announces'] } }]);
+        this.n_router.routeTo('intotst/' + success['data'].id, 'dashboard');
+        //this.router.navigate(['dashboard', { outlets: { dashboard: ['announces'] } }]);
       },
       error => {
         console.log(error);

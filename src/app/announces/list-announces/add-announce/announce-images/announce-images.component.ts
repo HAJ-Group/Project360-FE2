@@ -21,6 +21,7 @@ export class AnnounceImagesComponent implements OnInit {
     this.uploader();
   }
 
+
   onFileSelected(event){
     console.log(event.target.files[0]);
     this.selectedFiles.push(event.target.files[0]);

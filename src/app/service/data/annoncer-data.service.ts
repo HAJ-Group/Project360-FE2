@@ -22,7 +22,6 @@ export class AnnoncerDataService {
     return this.http.post<AnnoncerModel>(SERVER + '/', announcer);
   }
   postProfilePicture(picture: File, id) {
-    const endpoint = 'your-destination-url';
     const formData: FormData = new FormData();
     formData.append('image', picture, picture.name);
     return this.http.post(SERVER + '/uimage/' + id , formData)

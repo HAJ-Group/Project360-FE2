@@ -46,8 +46,23 @@ export class AnnonceDataService{
     for (const field in announce){
       formData.append('' + field, announce[field]);
     }
-
     return this.http.post(SERVER_USERS + `${username}/announces`, formData);
+  }
+
+  postTSTImage(picture, id) {
+    const formData: FormData = new FormData();
+    formData.append('image', picture, picture.name);
+    return this.http.post('http://localhost:8000/api/users/utstimage/' + id, formData);
+  }
+
+  optionRequete = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin':'*',
+    })
+  };
+
+  getTSTImage(id) {
+    return this.http.get('http://localhost:8000/api/users/gtstimage/' + id);
   }
 
   getSpecificAnnounces(username){

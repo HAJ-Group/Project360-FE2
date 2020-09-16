@@ -14,6 +14,7 @@ import {AnnoncesComponent} from './annonces/annonces.component';
 import {WizardComponent} from './wizard/wizard.component';
 import {ThreeSixtyAnnounceComponent} from './three-sixty-announce/three-sixty-announce.component';
 import {MapComponent} from './map/map.component';
+import {ThreeSixtyPickerComponent} from './three-sixty-announce/three-sixty-picker/three-sixty-picker.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
       {path: 'announces/:id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
       {path: 'map', component: MapComponent, outlet: 'dashboard'},
       {path: 'annonces', component: AnnoncesComponent, outlet: 'dashboard'},
+      {path: 'intotst/:id', component: ThreeSixtyPickerComponent, outlet: 'dashboard'},
     ], canActivate: [RouteGuardService]},
 ];
 

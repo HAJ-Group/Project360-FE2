@@ -36,7 +36,6 @@ export class ProfileComponent implements OnInit {
   }
 
   updateData(): void {
-    this.data.picture = this.data.picture.substring(this.data.picture.lastIndexOf('\\') + 1);
     this.service.updateAnnouncer(this.data.id, this.data).subscribe(
       success => {
         // updating picture as well
