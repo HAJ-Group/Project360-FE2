@@ -31,7 +31,7 @@ export class MapComponent implements OnInit {
 
   cities: string[];
   announces: AnnounceModel[];
-  markers = [] ;
+  markers = [];
 
   constructor(private announceData: AnnonceDataService, private router: Router, public auth: AuthenticationService) {
     this.cities = CITIES;
@@ -50,7 +50,7 @@ export class MapComponent implements OnInit {
 
     const geocoder = new MapboxGeocoder({
       accessToken: Mapboxgl.accessToken, // Set the access token
-      placeholder: '     Search' ,
+      placeholder: '     Search',
       mapboxgl: Mapboxgl, // Set the mapbox-gl instance
       marker: false, // Do not use the default marker style
     });
@@ -65,21 +65,25 @@ export class MapComponent implements OnInit {
       trackUserLocation: true
     }));
 
-    this.map.addControl(new MapboxDirections({
+    /*this.map.addControl(new MapboxDirections({
         accessToken: Mapboxgl.accessToken
       }),
       'top-left');
 
+    this.toggleFilter();*/
     this.getPositions();
-    this.toggleFilter();
   }
 
-  createMarker(lng: number, lat: number) {
+  createMarker(lng: number, lat: number, id: number) {
     const marker = new Mapboxgl.Marker({
       draggable: true
     })
       .setLngLat([lng, lat])
       .addTo(this.map);
+
+    marker.getElement().addEventListener('click', () => {
+      this.router.navigate(['vview/', id]);
+    });
 
     function onDragEnd() {
       const lngLat = marker.getLngLat();
@@ -108,9 +112,11 @@ export class MapComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.announces.length; i++) {
       // console.log(this.announces[i].position_map);
-      const pos = this.announces[i].position_map.split(',');
+      const a = this.announces[i];
+      const pos = a.position_map.split(',');
+      // console.log("id : ", a.id);
       // @ts-ignore
-      this.createMarker(pos[0], pos[1]);
+      this.createMarker(pos[0], pos[1], a.id);
     }
   }
 
@@ -132,15 +138,16 @@ export class MapComponent implements OnInit {
   }
 
   ftoggle = false;
+
   toggleFilter(value = null) {
-    if(window.innerWidth > 700) {
+    if (window.innerWidth > 700) {
       this.ftoggle = !this.ftoggle;
-      if(value != null) this.ftoggle = value;
+      if (value != null) this.ftoggle = value;
       if (this.ftoggle) {
         document.getElementById('floating-panel').style.display = 'block';
         document.getElementById('filter-trigger').classList.add('active');
         document.getElementById('filter-trigger').classList.remove('bg-white');
-      }else {
+      } else {
         document.getElementById('floating-panel').style.display = 'none';
         document.getElementById('filter-trigger').classList.remove('active');
         document.getElementById('filter-trigger').classList.add('bg-white');
@@ -150,16 +157,17 @@ export class MapComponent implements OnInit {
   }
 
   liteToggleFilter(value) {
-    if(window.innerWidth > 700) {
-      if(!this.ftoggle) {
+    if (window.innerWidth > 700) {
+      if (!this.ftoggle) {
         if (value) {
           document.getElementById('floating-panel').style.display = 'block';
-        }else {
+        } else {
           document.getElementById('floating-panel').style.display = 'none';
         }
       }
     }
 
   }
+
 }
 

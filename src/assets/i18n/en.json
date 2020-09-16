@@ -17,7 +17,27 @@
   "annoncer": "Annoncer",
   "agent": "Agent",
   "annoncer_right": "You would have the right to publish your ads for your real estate, whether land, apartments, villas, cafes, etc. , which gives your ads added value, and which gives elegance to your goods. If you ever find broadcast with 360 images, contact our agents available 24/7.",
-  "agent_right": "We offer the possibility for our clients to request the help of an agent, this eagent will be responsible for the publication of the 360 ads, if you see yourself suitable for this opportunity, sign up and wait for our response."
-
+  "agent_right": "We offer the possibility for our clients to request the help of an agent, this eagent will be responsible for the publication of the 360 ads, if you see yourself suitable for this opportunity, sign up and wait for our response.",
+  "keyword": "keyword",
+  "status": "status",
+  "placeholder": "Enter your Keyword...",
+  "all": "All",
+  "rent": "Rent",
+  "sale": "Sale",
+  "category": "Category",
+  "categories": "All Categories",
+  "apartment": "Apartment",
+  "lot": "Lot",
+  "cafe": "Cafe",
+  "house": "House",
+  "garage": "Garage",
+  "factory": "Factory",
+  "building": "Building",
+  "village house":"" ,
+  "city": "City",
+  "cities": "All Cities",
+  "announcesPage": "Browse Announces",
+  "homeRedirect": "Go Back",
+  "mapRedirect": "Go To Map"
 
 }

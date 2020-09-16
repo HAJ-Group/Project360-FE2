@@ -8,12 +8,14 @@
   <div class="d-flex justify-content-center flex-column-reverse">
     <div class="row">
       <div class="col-md-4">
+        <h6 class="text-primary" >{{'status' | translate}}</h6>
         <select [(ngModel)]="filters.status" name="type" (change)="getAnnouncesByFilters()" class="selectpicker" data-style="btn btn-primary btn-round text-white" title="Status Select">
           <option value="Location">{{'rent' | translate}}</option>
           <option value="Vente">{{'sale' | translate}}</option>
         </select>
       </div>
       <div class="col-md-4">
+        <h6 class="text-primary">{{'category' | translate}}</h6>
         <select [(ngModel)]="filters.type" name="type" (change)="getAnnouncesByFilters()" class="selectpicker" data-style="btn btn-success btn-round text-white" title="Type Select">
           <option value="Maison">{{'house' | translate}}</option>
           <option value="Appartement">{{'apartment' | translate}}</option>
