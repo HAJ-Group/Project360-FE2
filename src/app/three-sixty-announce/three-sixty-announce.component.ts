@@ -79,12 +79,12 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
         this.service.getTSTImage(this.announce.id).subscribe(
           success => {
               // @ts-ignore
-              build('assets/threeJS/maisonMono1.jpg');
-              console.log(success['data'][0].image);
+              build(success);
+              console.log(success);
           },
           error => {
                 // @ts-ignore
-                build('assets/threeJS/maisonMono1.jpg');
+                //build('assets/threeJS/maisonMono1.jpg');
                 console.log(error);
           }
         );

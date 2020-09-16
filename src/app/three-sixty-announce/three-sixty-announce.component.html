@@ -43,9 +43,9 @@
             </table>
         </div>
         <hr>
-        <button *ngIf="auth.isAuthenticated()" class="btn btn-warning mb-1" style="display: block; margin: auto; width: 200px" (click)="editAnnounce(announce.id)">Edit Announce</button>
-        <button *ngIf="auth.isAuthenticated()" class="btn btn-danger mb-1" style="display: block; margin: auto;  width: 200px" (click)="setAnnounceIdentifier(announce.id)">Delete Announce</button>
-        <button id="th" class="btn btn-success mb-1" style="display: block; margin: auto;  width: 200px" (click)="switchToMap()">Show Virtual View</button>
+        <button *ngIf="auth.isAuthenticated()" class="btn btn-primary mb-1" style="display: block; margin: auto; width: 200px" (click)="editAnnounce(announce.id)">Edit Announce</button>
+        <button *ngIf="auth.isAuthenticated()" class="btn btn-primary mb-1" style="display: block; margin: auto;  width: 200px" (click)="setAnnounceIdentifier(announce.id)">Delete Announce</button>
+        <button id="th" class="btn btn-primary mb-1" style="display: block; margin: auto;  width: 200px" (click)="switchToMap()">Show Virtual View</button>
         <button class="btn btn-primary mb-1" style="display: block; margin: auto;  width: 200px" routerLink="/">Go Back</button><br>
       </div>
     </div>

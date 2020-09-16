@@ -5,6 +5,7 @@ import {CITIES} from '../../../app.constants';
 import {AnnonceDataService} from '../../../service/data/annonce-data.service';
 import {AuthenticationService} from '../../../service/authentication.service';
 import {AnnounceImagesComponent} from '../add-announce/announce-images/announce-images.component';
+import {NamedRouterService} from '../../../service/security/named-router.service';
 
 @Component({
   selector: 'app-edit-announce',
@@ -25,7 +26,8 @@ export class EditAnnounceComponent implements OnInit , AfterViewInit{
     private route: ActivatedRoute,
     private announceDataService: AnnonceDataService,
     private auth: AuthenticationService,
-    private router: Router
+    private router: Router,
+    public n_router: NamedRouterService
   ) { }
 
   ngOnInit(): void {

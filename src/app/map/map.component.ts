@@ -74,12 +74,16 @@ export class MapComponent implements OnInit {
     this.toggleFilter();
   }
 
-  createMarker(lng: number, lat: number) {
+  createMarker(lng: number, lat: number, id: number) {
     const marker = new Mapboxgl.Marker({
       draggable: true
     })
       .setLngLat([lng, lat])
       .addTo(this.map);
+
+    marker.getElement().addEventListener('click', () => {
+      this.router.navigate(['vview/', id]);
+    });
 
     function onDragEnd() {
       const lngLat = marker.getLngLat();
@@ -107,10 +111,14 @@ export class MapComponent implements OnInit {
     }
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.announces.length; i++) {
-      // console.log(this.announces[i].position_map);
-      const pos = this.announces[i].position_map.split(',');
-      // @ts-ignore
-      this.createMarker(pos[0], pos[1]);
+      for (let i = 0; i < this.announces.length; i++) {
+        console.log('test');
+        const a = this.announces[i];
+        const pos = a.position_map.split(',');
+        // console.log("id : ", a.id);
+        // @ts-ignore
+        this.createMarker(pos[0], pos[1], a.id);
+      }
     }
   }
 
