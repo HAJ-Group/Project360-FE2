@@ -1,0 +1,13 @@
+<div class="container-fluid p-5" style="background-color: rgba(255, 255, 255, 0.7)">
+  <div class="p-5 d-flex text-primary mb-5">
+    <i class="material-icons text-left" style="font-size: 100px">filter</i>
+    <h1 class="text-right mr-3" style="font-size: 80px"><b style="font-size: 85px">D</b>iscover Our Best Offers</h1>
+  </div>
+  <div id="home-announces" class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let a of annonces">
+        <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
+      </div>
+    </div>
+  </div>
+</div>

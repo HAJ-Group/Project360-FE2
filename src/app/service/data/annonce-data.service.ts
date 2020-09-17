@@ -57,14 +57,16 @@ export class AnnonceDataService{
 
   optionRequete = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Origin': '*',
     })
   };
 
   getSpecificAnnounces(username){
     return this.http.get<AnnounceModel[]>(SERVER_USERS + `${username}/announces`);
   }
-
+  getFavoriteAnnounces(username){
+    return this.http.get<AnnounceModel[]>(SERVER_USERS + `${username}/favorites`);
+  }
   getAnnounceUser(id) {
     return this.http.get(SERVER + '/' + id + '/user');
   }

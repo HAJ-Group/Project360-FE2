@@ -9,19 +9,7 @@
     <button (click)="getSearchKey()" class="material-icons bg-white text-white border-0 opacity-4 text-primary" style="font-size: 40px; cursor: pointer; border-bottom-right-radius: 40px; border-top-right-radius: 40px">search</button>
   </div>
   <br><br><hr>
-  <div class="container-fluid p-5" style="background-color: rgba(255, 255, 255, 0.9)">
-    <div class="p-5 d-flex text-primary mb-5">
-      <i class="material-icons text-left" style="font-size: 100px">filter</i>
-      <h1 class="text-right mr-3" style="font-size: 80px"><b style="font-size: 85px">D</b>iscover Our Best Offers</h1>
-    </div>
-    <div id="home-announces" class="container">
-      <div class="row">
-        <div class="col-md-4" *ngFor="let a of annonces">
-          <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-all-announces></app-all-announces>
 <!--  <br><br>-->
 <!--  <div class="d-flex justify-content-center">-->
 <!--    <ul class="pagination centrer rounded" style="background-color: rgba(0, 0, 0, 0.6); width: fit-content;">-->

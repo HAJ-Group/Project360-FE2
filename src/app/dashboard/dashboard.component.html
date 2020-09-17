@@ -48,15 +48,27 @@
           <div class="collapse" id="pagesExamples">
             <ul class="nav">
               <li class="nav-item ">
-                <a class="nav-link" (click)="setActiveNav(4); n_router.routeTo('announces', 'dashboard')">
-                  <span class="sidebar-mini text-success"> ALL </span>
+                <a class="nav-link" (click)="setActiveNav(4); n_router.routeTo('all', 'dashboard')">
+                  <span class="sidebar-mini text-success"> <i class="material-icons text-success">Info</i> </span>
                   <span class="sidebar-normal">All Announces</span>
                 </a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" (click)="setActiveNav(5); n_router.routeTo('add-announce', 'dashboard', true)">
-                  <span class="sidebar-mini text-success"> NEW </span>
-                  <span class="sidebar-normal">Add new Announce</span>
+                <a class="nav-link" (click)="setActiveNav(5); n_router.routeTo('announces', 'dashboard')">
+                  <span class="sidebar-mini text-success"> <i class="material-icons text-success">how_to_reg</i> </span>
+                  <span class="sidebar-normal">My Announces</span>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" (click)="setActiveNav(6); n_router.routeTo('favorites', 'dashboard')">
+                  <span class="sidebar-mini text-success"> <i class="material-icons text-success">star</i>  </span>
+                  <span class="sidebar-normal">My Favorites</span>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" (click)="setActiveNav(7); n_router.routeTo('add-announce', 'dashboard', true)">
+                  <span class="sidebar-mini text-success"> <i class="material-icons text-success">add</i> </span>
+                  <span class="sidebar-normal">New Announce</span>
                 </a>
               </li>
             </ul>
@@ -292,8 +304,7 @@
           &copy;
           <script>
               document.write(new Date().getFullYear())
-          </script>, made with <i class="material-icons">favorite</i> by
-          <a href="https://www.creative-tim.com/" target="_blank" class="text-white font-italic">Group Akinators</a> for a better web.
+          </script>, made with <i class="material-icons">favorite</i> by Group Akinators for a better web.
         </div>
       </div>
     </footer>

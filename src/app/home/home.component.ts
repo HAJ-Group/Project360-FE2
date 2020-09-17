@@ -13,37 +13,23 @@ import {AnnounceModel} from '../model.ts/announce-model';
 })
 export class HomeComponent implements OnInit {
 
-  annonces: AnnounceModel[];
   premiumAnnonces: AnnounceModel[];
   errorMessage: string;
   keyword: string;
 
   constructor(private annonceData: AnnonceDataService, private router: Router) {
   }
-
   ngOnInit(): void {
-    this.getAnnonces();
     this.getPremiumAnnonces();
-    document.getElementById('switchable-nav').classList.remove('d-none');
   }
-
-  getAnnonces() {
-    this.annonceData.getAnnonces().subscribe(data => {
-      this.annonces = data['1'];
-      console.log(this.annonces);
-    });
-  }
-
   getPremiumAnnonces() {
     this.annonceData.getPremiumAnnonces().subscribe(data => {
       this.premiumAnnonces = data['1'];
     });
   }
-
   selectChangeHandler(status, event) {
     console.log(event.target.value);
   }
-
   getSearchKey() {
     this.router.navigate(['/annonces'], {state: {keyword: this.keyword}});
   }
