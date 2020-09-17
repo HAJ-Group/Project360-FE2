@@ -98,15 +98,15 @@
         <div class="icon-box">
           <i class="material-icons">&#xE5CD;</i>
         </div>
-        <h4 class="modal-title w-100">Etes vous sûre?</h4>
+        <h4 class="modal-title w-100">{{'validation1'}}</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
       <div class="modal-body">
-        <p>Voulez-vous vraiment supprimer cette annonce ?</p>
+        <p>{{'validation2'|translate}}</p>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteAnnounce()">Supprimer</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{'cancel'|translate}}</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteAnnounce()">{{'delete'|translate}}</button>
       </div>
     </div>
   </div>
