@@ -8,13 +8,14 @@
               <div class="card-icon">
                 <i class="material-icons">weekend</i>
               </div>
-              <p class="card-category">Announces Count</p>
+              <p class="card-category">{{'adverts'|translate}} Count</p>
               <h3 class="card-title">{{announcesCount}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-success">add</i>
-                <a class="text-success" href="javascript:void(0)" (click)="router.routeTo('add-announce', 'dashboard', true)">Add more announces...</a>
+                <a class="text-success" href="javascript:void(0)" (click)="router.routeTo('add-announce', 'dashboard', true)">
+                  {{'add_new_announce'|translate}}...</a>
               </div>
             </div>
           </div>
@@ -71,7 +72,7 @@
       <div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; margin-bottom: 10px">
         <div class="container">
           <h3 class="text-center font-weight-bold p-4" style="color: white; font-size: 40px; margin-bottom: 30px; background-color: rgb(156,39,176); border-bottom-right-radius: 30px; border-bottom-left-radius: 30px">
-            <i class="material-icons mr-2" style="font-size: 40px">filter</i>Your Announces</h3>
+            <i class="material-icons mr-2" style="font-size: 40px">filter</i>{{'your_announces'|translate}}</h3>
           <br>
           <div class="row">
             <div class="col-md-4" *ngFor="let a of announces">
