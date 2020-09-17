@@ -3,7 +3,7 @@
   "register": "Register",
   "login": "login",
   "get_started": "GET STARTED",
-  "search": "Welcome to the best immovable estate ad sharing website",
+  "search": "Welcome to the best immovable estate ads sharing website",
   "contact": "Contact us ",
   "about": " About Us ",
   "made with": "made with ",
@@ -50,11 +50,13 @@
   "dashboard": "Dashboard",
   "adverts": "Adverts",
   "all_adverts": "All adverts",
+  "my_adverts": "My announces",
+  "my_fav": "My favorites",
   "add_new_announce": "Add new adverts",
   "map" : "Map",
   "your_announces":"Your Adverts",
   "partners": "Partners",
-   "discover":"iscover Our Best Offers",
+  "discover":"iscover Our Best Offers",
   "development_team": "Development team",
   "desc_website": "This site was developed by a group of 7 quality master students in fes software, under the principles of agile project management. Work supervised by Prof Mr Ahmed Azough"
 
