@@ -77,7 +77,7 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
         }
         catch (e) {}
         // @ts-ignore
-        build('http://localhost:8000/api/users/gtstimage/' + this.announce.id + '?action=allow');
+        build('https://radiant-anchorage-91157.herokuapp.com/api/users/gtstimage/' + this.announce.id + '?action=allow');
         /*try {
           // @ts-ignore
           build('http://localhost:8000/api/users/gtstimage/30');

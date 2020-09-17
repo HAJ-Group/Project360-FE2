@@ -23,8 +23,9 @@ export class NamedRouterService {
     if(state != null) this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')', state);
     else this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')');
     if(reload) {
-      window.location.reload();
       location.href = '#/' + outlet + '/(' + outlet + ':' + component + ')';
+      let loader = document.getElementById('loader');
+      loader.classList.add('d-none');
     }
   }
 
@@ -38,7 +39,8 @@ export class NamedRouterService {
     else this.router.navigate([component]);
     if(reload){
       location.href = '#/' + component;
-      window.location.reload();
+      let loader = document.getElementById('loader');
+      loader.classList.add('d-none');
     }
   }
 
