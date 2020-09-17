@@ -18,13 +18,13 @@
               <li class="nav-item">
                 <a class="nav-link" (click)="setActiveNav(0); n_router.routeTo('profile', 'dashboard')">
                   <span class="sidebar-mini" style="color: deepskyblue"> MP </span>
-                  <span class="sidebar-normal"> My Profile </span>
+                  <span class="sidebar-normal"> {{'profile'|translate}}</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)" (click)="logout()">
                   <span class="sidebar-mini text-danger"> LO </span>
-                  <span class="sidebar-normal"> Log Out </span>
+                  <span class="sidebar-normal">{{'log_out'|translate}}</span>
                 </a>
               </li>
             </ul>
@@ -35,13 +35,13 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/dashboard" (click)="setActiveNav(2)">
             <i class="material-icons">dashboard</i>
-            <p> Dashboard </p>
+            <p>   {{'dashboard'|translate}}</p>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#pagesExamples" (click)="setActiveNav(3)">
             <i class="material-icons">image</i>
-            <p> Announces
+            <p> {{'adverts'|translate}}
               <b class="caret"></b>
             </p>
           </a>
@@ -50,7 +50,7 @@
               <li class="nav-item ">
                 <a class="nav-link" (click)="setActiveNav(4); n_router.routeTo('all', 'dashboard')">
                   <span class="sidebar-mini text-success"> <i class="material-icons text-success">Info</i> </span>
-                  <span class="sidebar-normal">All Announces</span>
+                  <span class="sidebar-normal">{{'all_adverts'|translate}}</span>
                 </a>
               </li>
               <li class="nav-item ">
@@ -68,7 +68,7 @@
               <li class="nav-item ">
                 <a class="nav-link" (click)="setActiveNav(7); n_router.routeTo('add-announce', 'dashboard', true)">
                   <span class="sidebar-mini text-success"> <i class="material-icons text-success">add</i> </span>
-                  <span class="sidebar-normal">New Announce</span>
+                  <span class="sidebar-normal">{{'add_new_announce'|translate}}</span>
                 </a>
               </li>
             </ul>
@@ -149,14 +149,14 @@
         <li class="nav-item ">
           <a class="nav-link" data-toggle="collapse" (click)="n_router.routeTo('map', 'dashboard', true)">
             <i class="material-icons">room</i>
-            <p> Map
+            <p> {{'map'|translate}}
             </p>
           </a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" data-toggle="modal" data-target="#contactus">
             <i class="material-icons">email</i>
-            <p> Contact us
+            <p> {{'contact'|translate}}
             </p>
           </a>
         </li>
@@ -290,12 +290,12 @@
           <ul>
             <li>
               <a href="javascript:void(0)" data-toggle="modal" data-target="#contactus">
-                Contact Us
+                {{'contact'|translate}}
               </a>
             </li>
             <li>
               <a href="javascript:void(0)" data-toggle="modal" data-target="#aboutus">
-                About Us
+                {{'about'|translate}}
               </a>
             </li>
           </ul>
@@ -369,8 +369,8 @@
       <!-- Modal body -->
       <div class="modal-body">
         <div class="team-section text-center my-5 w-97 m-auto" id="team">
-          <h2 class="h1-responsive font-weight-bold my-5 text-primary">Development team</h2>
-          <p class="grey-text w-responsive mx-auto mb-5">Ce site a été développé par un groupe de 7 étudiants de master qualité du logiciel fes, sous les principes de gestion de projet agile. Travail encadré par Prof Mr Ahmed Azough</p>
+          <h2 class="h1-responsive font-weight-bold my-5 text-primary">{{'development_team'|translate}}</h2>
+          <p class="grey-text w-responsive mx-auto mb-5">{{'desc_website'|translate}}</p>
           <div class="row" >
             <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" *ngFor="let membre of team">
               <div class="avatar mx-auto">

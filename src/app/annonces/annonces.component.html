@@ -5,7 +5,7 @@
   <div class="filter-bar col-md-3 p-5" style="border-radius: 30px; background-color: rgba(255, 255, 255, 0.9); height: fit-content">
     <p class="text-center"><i class="material-icons text-primary" style="font-size: 80px">filter_alt</i></p>
     <div class="filter_type">
-      <h6 class="text-primary"><i class="icon-search"></i> Keyword</h6>
+      <h6 class="text-primary"><i class="icon-search"></i> {{'keyword'|translate}}</h6>
       <input [(ngModel)]="filters.keyword" (keyup)="getAnnoncesByFilters()" name="status" type="text"
              class="form form-control text-rose"
              placeholder="Enter your Keyword..."
@@ -13,36 +13,37 @@
     </div>
     <br>
     <div class="filter_type">
-      <h6 class="text-primary"><i class="icon-list"></i>Status</h6>
+      <h6 class="text-primary"><i class="icon-list"></i>{{'status'|translate}}</h6>
       <select [(ngModel)]="filters.status" (change)="getAnnoncesByFilters()" class="form form-control text-rose">
-        <option value="" selected>tout</option>
-        <option value="Location">Location</option>
-        <option value="Vente">Vente</option>
+        <option value="" selected>{{'all'|translate}}</option>
+        <option value="Location">{{'rent'|translate}}</option>
+        <option value="Vente">{{'sale'|translate}}</option>
       </select>
 
     </div>
     <br>
     <div class="filter_type">
-      <h6 class="text-primary"><i class="icon-graduation-cap"></i>Categorie</h6>
+      <h6 class="text-primary"><i class="icon-graduation-cap"></i>{{'categorie'|translate}}</h6>
       <select [(ngModel)]="filters.type" (change)="getAnnoncesByFilters()"
               class="form form-control text-rose">
-        <option value="">Tout les catégories</option>
-        <option value="Maison">Maison</option>
-        <option value="Appartement">Appartement</option>
-        <option value="Terrain">Terrain</option>
-        <option value="Café">Café</option>
-        <option value="Garage">Garage</option>
-        <option value="Usine">Usine</option>
-        <option value="Immeuble">Immeuble</option>
-        <option value="Maison de village">Maison de village</option>
+        <option value="">{{'all_categories'|translate}}</option>
+        <option value="Maison">{{'house'|translate}}</option>
+        <option value="Appartement">{{'apartment'|translate}}</option>
+        <option value="Terrain">{{'land'|translate}}</option>
+        <option value="Café">{{'coffee'|translate}}</option>
+        <option value="Garage">{{'garage'|translate}}</option>
+        <option value="Usine">{{'factory'|translate}}</option>
+        <option value="Immeuble">{{'immovable'|translate}}</option>
+        <option value="Maison de village">{{'illage_house'|translate}}</option>
       </select>
+
     </div>
     <br>
     <div class="filter_type">
-      <h6 class="text-primary"><i class="icon-graduation-cap"></i>Ville</h6>
+      <h6 class="text-primary"><i class="icon-graduation-cap"></i>{{'city'|translate}}</h6>
       <select [(ngModel)]="filters.city" (change)="getAnnoncesByFilters()"
               class="form form-control text-rose">
-        <option value="">Toutes les villes</option>
+        <option value="">{{'all_city'|translate}}</option>
         <option *ngFor="let city of cities" [value]="city">
           {{city}}
         </option>
@@ -50,31 +51,31 @@
     </div>
     <br>
     <div class="filter_type">
-      <h6 class="text-primary"><i class="icon-graduation-cap"></i>Surface (m2)</h6>
+      <h6 class="text-primary"><i class="icon-graduation-cap"></i>{{'surface'|translate}}</h6>
       <input class="form form-control text-rose" type="text" name="" [(ngModel)]="filters.surface" (change)="getAnnoncesByFilters()">
     </div>
     <br>
     <div class="filter_type row">
       <div class="col-md-6">
-        <h6 class="text-primary"><i class="icon-graduation-cap"></i>Budget min</h6>
+        <h6 class="text-primary"><i class="icon-graduation-cap"></i>{{'budget-min'|translate}}</h6>
         <input class="form form-control text-rose" min="1" type="number" name="" [(ngModel)]="filters.budget_min"
                (change)="getAnnoncesByFilters()">
       </div>
       <div class="col-md-6">
-        <h6 class="text-primary"><i class="icon-graduation-cap"></i>Budget max</h6>
+        <h6 class="text-primary"><i class="icon-graduation-cap"></i>{{'budget_max'|translate}}</h6>
         <input class="form form-control text-rose" min="1" type="number" name="" [(ngModel)]="filters.budget_max"
                (change)="getAnnoncesByFilters()">
       </div>
     </div>
     <br>
     <div class="filter_type">
-      <h6 class="text-primary"><i class="icon-graduation-cap"></i>Nbr Pieces</h6>
+      <h6 class="text-primary"><i class="icon-graduation-cap"></i>{{'nbr_piece'|translate}}</h6>
       <input class="form form-control text-rose" type="number" min="1" name="" [(ngModel)]="filters.pieces"
              (change)="getAnnoncesByFilters()">
     </div>
     <div class="button-container pt-5 mt-5 text-center">
-      <button class="btn btn-primary" routerLink="/">Go Back</button>
-      <button class="btn btn-primary" (click)="goToMap()">Go To Map</button>
+      <button class="btn btn-primary" routerLink="/">{{'go_back'|translate}}</button>
+      <button class="btn btn-primary" (click)="goToMap()">{{'go_map'|translate}}</button>
     </div>
   </div>
   <div class="col-md-9">
