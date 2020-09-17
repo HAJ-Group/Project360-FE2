@@ -29,6 +29,9 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MapComponent } from './map/map.component';
 import { ThreeSixtyPickerComponent } from './three-sixty-announce/three-sixty-picker/three-sixty-picker.component';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { AllAnnouncesComponent } from './announces/all-announces/all-announces.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,8 @@ import { ThreeSixtyPickerComponent } from './three-sixty-announce/three-sixty-pi
     ThreeSixtyAnnounceComponent,
     MapComponent,
     ThreeSixtyPickerComponent,
+    FavoritesComponent,
+    AllAnnouncesComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,7 @@ import { ThreeSixtyPickerComponent } from './three-sixty-announce/three-sixty-pi
     {
       provide: HTTP_INTERCEPTORS, useClass: HttpAuthenticationInterceptorService, multi: true
     },
-    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+  //   { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })
