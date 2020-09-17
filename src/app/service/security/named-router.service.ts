@@ -22,7 +22,10 @@ export class NamedRouterService {
     }
     if(state != null) this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')', state);
     else this.router.navigateByUrl(outlet + '/(' + outlet + ':' + component + ')');
-    if(reload) location.href = '#/' + outlet + '/(' + outlet + ':' + component + ')';
+    if(reload) {
+      window.location.reload();
+      location.href = '#/' + outlet + '/(' + outlet + ':' + component + ')';
+    }
   }
 
 
