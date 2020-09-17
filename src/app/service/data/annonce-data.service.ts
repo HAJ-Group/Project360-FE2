@@ -61,10 +61,6 @@ export class AnnonceDataService{
     })
   };
 
-  getTSTImage(id) {
-    return this.http.get('http://localhost:8000/api/users/gtstimage/' + id);
-  }
-
   getSpecificAnnounces(username){
     return this.http.get<AnnounceModel[]>(SERVER_USERS + `${username}/announces`);
   }

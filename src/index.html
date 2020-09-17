@@ -86,6 +86,9 @@
   <!-- THREE JS -->
   <script src="assets/threeJS/three.js"></script>
   <script src="assets/threeJS/controls.js"></script>
+  <!-- GOOGLE LOGIN -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="233257599625-63f8hjpqgbejp6ii6n36cu2c64o277q9.apps.googleusercontent.com">
 </head>
 <body onload="afterReloadScroll();" class="off-canvas-sidebar" style="background-image: url(assets/dashboard/img/dashboard-bg.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%">
     <div id="fb-root"></div>
@@ -109,6 +112,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
     <app-root></app-root>
     <script>
         $(document).ready(function() {

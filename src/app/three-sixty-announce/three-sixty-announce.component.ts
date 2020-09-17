@@ -76,18 +76,16 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
           this.createMarker(parseInt(this.announce.position_map.split(',')[0]), parseInt(this.announce.position_map.split(',')[1]));
         }
         catch (e) {}
-        this.service.getTSTImage(this.announce.id).subscribe(
-          success => {
-              // @ts-ignore
-              build(success);
-              console.log(success);
-          },
-          error => {
-                // @ts-ignore
-                //build('assets/threeJS/maisonMono1.jpg');
-                console.log(error);
-          }
-        );
+        // @ts-ignore
+        build('http://localhost:8000/api/users/gtstimage/' + this.announce.id + '?action=allow');
+        /*try {
+          // @ts-ignore
+          build('http://localhost:8000/api/users/gtstimage/30');
+        }
+        catch (e) {
+          // @ts-ignore
+          build('assets/threeJS/maisonMono1.jpg');
+        }*/
         this.service.getAnnounceUser(this.announce.id).subscribe(
           success => {
             this.user = success;
