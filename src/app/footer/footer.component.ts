@@ -95,6 +95,7 @@ export class FooterComponent implements OnInit {
      success => {
        console.log(success);
        this.router.navigate(['']);
+       document.getElementById('close-contact').click();
      },
      error => {
       console.log(error);
