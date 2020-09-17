@@ -22,8 +22,8 @@ export class AnnoncesComponent implements OnInit {
     city: '',
     surface: 0,
     budget_min: 1,
-    budget_max: 100000,
-    pieces: 20,
+    budget_max: 9999999,
+    pieces: 9999,
   };
   cities: string[];
 

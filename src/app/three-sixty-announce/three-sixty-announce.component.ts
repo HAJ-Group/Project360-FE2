@@ -29,8 +29,6 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
   constructor(public auth: AuthenticationService, public service:AnnonceDataService, public route: ActivatedRoute, public s_router: Router, public n_router: NamedRouterService) { }
 
   ngOnInit(): void {
-    // @ts-ignore
-    build('assets/threeJS/maisonMono1.jpg');
     this.initAnnounce();
     //MAPBOX
     (Mapboxgl as any).accessToken = environment.mapboxkey;
@@ -68,6 +66,7 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
       'top-left');
   }
 
+
   initAnnounce() {
     this.service.getAnnounceByID(this.route.snapshot.paramMap.get('id')).subscribe(
       success => {
@@ -77,6 +76,16 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
           this.createMarker(parseInt(this.announce.position_map.split(',')[0]), parseInt(this.announce.position_map.split(',')[1]));
         }
         catch (e) {}
+        // @ts-ignore
+        build('http://localhost:8000/api/users/gtstimage/' + this.announce.id + '?action=allow');
+        /*try {
+          // @ts-ignore
+          build('http://localhost:8000/api/users/gtstimage/30');
+        }
+        catch (e) {
+          // @ts-ignore
+          build('assets/threeJS/maisonMono1.jpg');
+        }*/
         this.service.getAnnounceUser(this.announce.id).subscribe(
           success => {
             this.user = success;
@@ -96,7 +105,6 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
         this.error = error.error;
       }
     );
-    console.log(this.announce);
   }
 
   fullScreen() {
@@ -108,8 +116,10 @@ export class ThreeSixtyAnnounceComponent implements OnInit {
     this.toggled = !this.toggled;
     if(this.toggled) {
       document.getElementById('infos').style.display = 'block';
+      document.getElementById('viewmore').innerText = 'view less';
     } else {
-      document.getElementById('infos').style.display = 'none'
+      document.getElementById('infos').style.display = 'none';
+      document.getElementById('viewmore').innerText = 'view more';
     }
   }
 

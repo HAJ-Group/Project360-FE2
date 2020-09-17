@@ -14,6 +14,9 @@ import {AnnoncesComponent} from './annonces/annonces.component';
 import {WizardComponent} from './wizard/wizard.component';
 import {ThreeSixtyAnnounceComponent} from './three-sixty-announce/three-sixty-announce.component';
 import {MapComponent} from './map/map.component';
+import {ThreeSixtyPickerComponent} from './three-sixty-announce/three-sixty-picker/three-sixty-picker.component';
+import {FavoritesComponent} from './favorites/favorites.component';
+import {AllAnnouncesComponent} from './announces/all-announces/all-announces.component';
 
 
 const routes: Routes = [
@@ -21,16 +24,19 @@ const routes: Routes = [
   {path: 'map', component: MapComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'annonces', component: AnnoncesComponent, canActivate: [ReverseRouteGuardService]},
   {path: 'vview/:id', component: ThreeSixtyAnnounceComponent},
-  {path: 'wizard', component: WizardComponent},
+  {path: 'wizard', component: WizardComponent, canActivate: [RouteGuardService]},
   {path: 'dashboard', component : DashboardComponent , children : [
       {path: '', component: DashboardHomeComponent, outlet: 'dashboard'},
       {path: 'profile', component: ProfileComponent, outlet: 'dashboard'},
       {path: 'announces', component: ListAnnouncesComponent, outlet: 'dashboard'},
+      {path: 'all', component: AllAnnouncesComponent, outlet: 'dashboard'},
+      {path: 'favorites', component: FavoritesComponent , outlet: 'dashboard'},
       {path: 'add-announce', component: AddAnnounceComponent, outlet: 'dashboard'},
       {path: 'announces/:id', component: AnnounceDetailsComponent, outlet: 'dashboard'},
       {path: 'announces/:id/edit-announce', component: EditAnnounceComponent, outlet: 'dashboard'},
       {path: 'map', component: MapComponent, outlet: 'dashboard'},
       {path: 'annonces', component: AnnoncesComponent, outlet: 'dashboard'},
+      {path: 'intotst/:id', component: ThreeSixtyPickerComponent, outlet: 'dashboard'},
     ], canActivate: [RouteGuardService]},
 ];
 

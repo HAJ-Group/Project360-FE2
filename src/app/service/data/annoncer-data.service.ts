@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {AnnoncerModel} from '../../model.ts/annoncer-model';
+import {Observable} from 'rxjs';
 
 const SERVER = 'https://radiant-anchorage-91157.herokuapp.com/api/annoncer';
 @Injectable()
@@ -20,5 +20,10 @@ export class AnnoncerDataService {
   }
   createAnnouncer(announcer) {
     return this.http.post<AnnoncerModel>(SERVER + '/', announcer);
+  }
+  postProfilePicture(picture: File, id) {
+    const formData: FormData = new FormData();
+    formData.append('image', picture, picture.name);
+    return this.http.post(SERVER + '/uimage/' + id , formData)
   }
 }

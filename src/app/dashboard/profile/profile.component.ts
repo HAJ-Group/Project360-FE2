@@ -30,15 +30,30 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  profile_pic;
+  handleFileInput(files: FileList) {
+    this.profile_pic = files.item(0);
+  }
+
   updateData(): void {
     this.service.updateAnnouncer(this.data.id, this.data).subscribe(
       success => {
-        location.reload();
+        // updating picture as well
+        this.service.postProfilePicture(this.profile_pic, this.data.id).subscribe(
+          success => {
+            location.reload();
+          },
+            error => {
+          console.log(error.error);
+        });
       },
       error => {
         this.error = error.error;
       }
     );
   }
+
+
+
 
 }

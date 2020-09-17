@@ -35,8 +35,9 @@
                         <div class="col-sm-4">
                           <div class="picture-container">
                             <div class="picture">
-                              <img src="assets/dashboard/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="">
-                              <input type="file" id="wizard-picture">
+                              <img *ngIf="!data.picture" src="assets/dashboard/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="">
+                              <img *ngIf="data.picture" src="http://localhost:8000/{{data.picture}}" class="picture-src" id="wizardPicturePreview" title="">
+                              <input type="file" id="wizard-picture" (change)="handleFileInput($event.target.files)">
                             </div>
                             <h6 class="description">Choose Picture</h6>
                           </div>

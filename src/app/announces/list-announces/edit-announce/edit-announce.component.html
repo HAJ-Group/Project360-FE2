@@ -9,6 +9,9 @@
             <span class="add-announce-title">Modifier une Annonce</span>
           </div>
         </div>
+        <hr>
+        <p class="text-center"><button class="btn btn-primary" (click)="n_router.routeTo('intotst/' + announce.id, 'dashboard')">Edit 360 Photo</button></p>
+        <hr>
         <div class="card-body ">
           <form (ngSubmit)="form.valid && this.requiredImages.valid && updateAnnounce();" #form="ngForm">
 

@@ -86,6 +86,9 @@
   <!-- THREE JS -->
   <script src="assets/threeJS/three.js"></script>
   <script src="assets/threeJS/controls.js"></script>
+  <!-- GOOGLE LOGIN -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="233257599625-63f8hjpqgbejp6ii6n36cu2c64o277q9.apps.googleusercontent.com">
 </head>
 <body onload="afterReloadScroll();" class="off-canvas-sidebar" style="background-image: url(assets/dashboard/img/dashboard-bg.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%">
     <div id="fb-root"></div>
@@ -109,6 +112,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
     <app-root></app-root>
     <script>
         $(document).ready(function() {
@@ -422,5 +426,43 @@
         });
     </script>
     <script src="assets/threeJS/app.js"></script>
+    <!-- 360 PICKER
+    <script type="text/javascript" src="assets/picker/js/spartan-multi-image-picker.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#coba").spartanMultiImagePicker({
+                fieldName:        'fileUpload[]',
+                maxCount:         5,
+                rowHeight:        '200px',
+                groupClassName:   'col-md-4 col-sm-4 col-xs-6',
+                maxFileSize:      '',
+                placeholderImage: {
+                    image: 'assets/picker/placeholder.png',
+                    width : '100%'
+                },
+                dropFileLabel : "Drop Here",
+                onAddRow:       function(index){
+                    console.log(index);
+                    console.log('add new row');
+                },
+                onRenderedPreview : function(index){
+                    console.log(index);
+                    console.log('preview rendered');
+                },
+                onRemoveRow : function(index){
+                    console.log(index);
+                },
+                onExtensionErr : function(index, file){
+                    console.log(index, file,  'extension err');
+                    alert('Please only input png or jpg type file')
+                },
+                onSizeErr : function(index, file){
+                    console.log(index, file,  'file size too big');
+                    alert('File size too big');
+                }
+            });
+        });
+    </script>
+     END OF 360 PICKER-->
 </body>
 </html>

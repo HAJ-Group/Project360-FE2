@@ -93,3 +93,4 @@ function FBlogin() {
     statusChangeCallback(response);
   }, {scope: 'email'});
 }
+

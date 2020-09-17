@@ -1,0 +1,23 @@
+<div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.3)">
+  <div class="p-5" style="margin: auto; width: 60%">
+    <div class="card card-stats">
+      <div class="card-header card-header-warning card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">filter</i>
+        </div>
+        <p class="card-category">Favorites Announces</p>
+        <h3 class="card-title">{{myFavAnnounces.length}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let a of myFavAnnounces; let counter = index">
+        <app-card-announce [id]="a.id" [title]="a.title" [description]="a.description" [city]="a.city" [price]="a.price" [images]="a.images" [created_at]="a.created_at"></app-card-announce>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
